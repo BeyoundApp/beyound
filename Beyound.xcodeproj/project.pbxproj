@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3539408A1E612D1F002AF590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940891E612D1F002AF590 /* AppDelegate.swift */; };
+		3539408C1E612D1F002AF590 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539408B1E612D1F002AF590 /* ViewController.swift */; };
+		3539408F1E612D1F002AF590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3539408D1E612D1F002AF590 /* Main.storyboard */; };
+		353940921E612D1F002AF590 /* Beyound.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 353940901E612D1F002AF590 /* Beyound.xcdatamodeld */; };
+		353940941E612D1F002AF590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353940931E612D1F002AF590 /* Assets.xcassets */; };
+		353940971E612D1F002AF590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353940951E612D1F002AF590 /* LaunchScreen.storyboard */; };
+		353940A21E612D20002AF590 /* BeyoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940A11E612D20002AF590 /* BeyoundTests.swift */; };
+		353940AD1E612D20002AF590 /* BeyoundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940AC1E612D20002AF590 /* BeyoundUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3539409E1E612D20002AF590 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3539407E1E612D1F002AF590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 353940851E612D1F002AF590;
+			remoteInfo = Beyound;
+		};
+		353940A91E612D20002AF590 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3539407E1E612D1F002AF590 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 353940851E612D1F002AF590;
+			remoteInfo = Beyound;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		353940861E612D1F002AF590 /* Beyound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beyound.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		353940891E612D1F002AF590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3539408B1E612D1F002AF590 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3539408E1E612D1F002AF590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		353940911E612D1F002AF590 /* Beyound.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Beyound.xcdatamodel; sourceTree = "<group>"; };
+		353940931E612D1F002AF590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		353940961E612D1F002AF590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		353940981E612D1F002AF590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3539409D1E612D20002AF590 /* BeyoundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeyoundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		353940A11E612D20002AF590 /* BeyoundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeyoundTests.swift; sourceTree = "<group>"; };
+		353940A31E612D20002AF590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		353940A81E612D20002AF590 /* BeyoundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeyoundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		353940AC1E612D20002AF590 /* BeyoundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeyoundUITests.swift; sourceTree = "<group>"; };
+		353940AE1E612D20002AF590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		353940831E612D1F002AF590 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3539409A1E612D20002AF590 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		353940A51E612D20002AF590 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3539407D1E612D1F002AF590 = {
+			isa = PBXGroup;
+			children = (
+				353940881E612D1F002AF590 /* Beyound */,
+				353940A01E612D20002AF590 /* BeyoundTests */,
+				353940AB1E612D20002AF590 /* BeyoundUITests */,
+				353940871E612D1F002AF590 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		353940871E612D1F002AF590 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				353940861E612D1F002AF590 /* Beyound.app */,
+				3539409D1E612D20002AF590 /* BeyoundTests.xctest */,
+				353940A81E612D20002AF590 /* BeyoundUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		353940881E612D1F002AF590 /* Beyound */ = {
+			isa = PBXGroup;
+			children = (
+				353940891E612D1F002AF590 /* AppDelegate.swift */,
+				3539408B1E612D1F002AF590 /* ViewController.swift */,
+				3539408D1E612D1F002AF590 /* Main.storyboard */,
+				353940931E612D1F002AF590 /* Assets.xcassets */,
+				353940951E612D1F002AF590 /* LaunchScreen.storyboard */,
+				353940981E612D1F002AF590 /* Info.plist */,
+				353940901E612D1F002AF590 /* Beyound.xcdatamodeld */,
+			);
+			path = Beyound;
+			sourceTree = "<group>";
+		};
+		353940A01E612D20002AF590 /* BeyoundTests */ = {
+			isa = PBXGroup;
+			children = (
+				353940A11E612D20002AF590 /* BeyoundTests.swift */,
+				353940A31E612D20002AF590 /* Info.plist */,
+			);
+			path = BeyoundTests;
+			sourceTree = "<group>";
+		};
+		353940AB1E612D20002AF590 /* BeyoundUITests */ = {
+			isa = PBXGroup;
+			children = (
+				353940AC1E612D20002AF590 /* BeyoundUITests.swift */,
+				353940AE1E612D20002AF590 /* Info.plist */,
+			);
+			path = BeyoundUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		353940851E612D1F002AF590 /* Beyound */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 353940B11E612D20002AF590 /* Build configuration list for PBXNativeTarget "Beyound" */;
+			buildPhases = (
+				353940821E612D1F002AF590 /* Sources */,
+				353940831E612D1F002AF590 /* Frameworks */,
+				353940841E612D1F002AF590 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Beyound;
+			productName = Beyound;
+			productReference = 353940861E612D1F002AF590 /* Beyound.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3539409C1E612D20002AF590 /* BeyoundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 353940B41E612D20002AF590 /* Build configuration list for PBXNativeTarget "BeyoundTests" */;
+			buildPhases = (
+				353940991E612D20002AF590 /* Sources */,
+				3539409A1E612D20002AF590 /* Frameworks */,
+				3539409B1E612D20002AF590 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3539409F1E612D20002AF590 /* PBXTargetDependency */,
+			);
+			name = BeyoundTests;
+			productName = BeyoundTests;
+			productReference = 3539409D1E612D20002AF590 /* BeyoundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		353940A71E612D20002AF590 /* BeyoundUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 353940B71E612D20002AF590 /* Build configuration list for PBXNativeTarget "BeyoundUITests" */;
+			buildPhases = (
+				353940A41E612D20002AF590 /* Sources */,
+				353940A51E612D20002AF590 /* Frameworks */,
+				353940A61E612D20002AF590 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				353940AA1E612D20002AF590 /* PBXTargetDependency */,
+			);
+			name = BeyoundUITests;
+			productName = BeyoundUITests;
+			productReference = 353940A81E612D20002AF590 /* BeyoundUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3539407E1E612D1F002AF590 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = beyound;
+				TargetAttributes = {
+					353940851E612D1F002AF590 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					3539409C1E612D20002AF590 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 353940851E612D1F002AF590;
+					};
+					353940A71E612D20002AF590 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 353940851E612D1F002AF590;
+					};
+				};
+			};
+			buildConfigurationList = 353940811E612D1F002AF590 /* Build configuration list for PBXProject "Beyound" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3539407D1E612D1F002AF590;
+			productRefGroup = 353940871E612D1F002AF590 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				353940851E612D1F002AF590 /* Beyound */,
+				3539409C1E612D20002AF590 /* BeyoundTests */,
+				353940A71E612D20002AF590 /* BeyoundUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		353940841E612D1F002AF590 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				353940971E612D1F002AF590 /* LaunchScreen.storyboard in Resources */,
+				353940941E612D1F002AF590 /* Assets.xcassets in Resources */,
+				3539408F1E612D1F002AF590 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3539409B1E612D20002AF590 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		353940A61E612D20002AF590 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		353940821E612D1F002AF590 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3539408C1E612D1F002AF590 /* ViewController.swift in Sources */,
+				3539408A1E612D1F002AF590 /* AppDelegate.swift in Sources */,
+				353940921E612D1F002AF590 /* Beyound.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		353940991E612D20002AF590 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				353940A21E612D20002AF590 /* BeyoundTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		353940A41E612D20002AF590 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				353940AD1E612D20002AF590 /* BeyoundUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3539409F1E612D20002AF590 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 353940851E612D1F002AF590 /* Beyound */;
+			targetProxy = 3539409E1E612D20002AF590 /* PBXContainerItemProxy */;
+		};
+		353940AA1E612D20002AF590 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 353940851E612D1F002AF590 /* Beyound */;
+			targetProxy = 353940A91E612D20002AF590 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3539408D1E612D1F002AF590 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3539408E1E612D1F002AF590 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		353940951E612D1F002AF590 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				353940961E612D1F002AF590 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		353940AF1E612D20002AF590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		353940B01E612D20002AF590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		353940B21E612D20002AF590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Beyound/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		353940B31E612D20002AF590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Beyound/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		353940B51E612D20002AF590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BeyoundTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.BeyoundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Beyound.app/Beyound";
+			};
+			name = Debug;
+		};
+		353940B61E612D20002AF590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BeyoundTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.BeyoundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Beyound.app/Beyound";
+			};
+			name = Release;
+		};
+		353940B81E612D20002AF590 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = BeyoundUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.BeyoundUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Beyound;
+			};
+			name = Debug;
+		};
+		353940B91E612D20002AF590 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = BeyoundUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.BeyoundUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Beyound;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		353940811E612D1F002AF590 /* Build configuration list for PBXProject "Beyound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				353940AF1E612D20002AF590 /* Debug */,
+				353940B01E612D20002AF590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		353940B11E612D20002AF590 /* Build configuration list for PBXNativeTarget "Beyound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				353940B21E612D20002AF590 /* Debug */,
+				353940B31E612D20002AF590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		353940B41E612D20002AF590 /* Build configuration list for PBXNativeTarget "BeyoundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				353940B51E612D20002AF590 /* Debug */,
+				353940B61E612D20002AF590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		353940B71E612D20002AF590 /* Build configuration list for PBXNativeTarget "BeyoundUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				353940B81E612D20002AF590 /* Debug */,
+				353940B91E612D20002AF590 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		353940901E612D1F002AF590 /* Beyound.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				353940911E612D1F002AF590 /* Beyound.xcdatamodel */,
+			);
+			currentVersion = 353940911E612D1F002AF590 /* Beyound.xcdatamodel */;
+			path = Beyound.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3539407E1E612D1F002AF590 /* Project object */;
+}
