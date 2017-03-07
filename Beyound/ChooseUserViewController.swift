@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseUserViewController: UIViewController {
+class ChooseUserViewController: UIViewController, UIWebViewDelegate {
     
     
    // let instagram = Instagram(clientID: "a4af2fe2933c41e0ab2884c27d63247a", clientSecret: "cfe9a20495584620ba4524c9b5e65c35", redirectUri: "https://www.cloudrailauth.com/auth", state: "state")

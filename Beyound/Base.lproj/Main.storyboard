@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2B5-md-hLq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2B5-md-hLq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -390,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8et-15-MrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594.39999999999998" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-794" y="139"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="eGV-oM-pFC">
@@ -1247,6 +1247,53 @@
             </objects>
             <point key="canvasLocation" x="796" y="1721"/>
         </scene>
+        <!--Helper Web View Controller-->
+        <scene sceneID="w1w-dO-6sy">
+            <objects>
+                <viewController id="wT1-FA-aOG" customClass="HelperWebViewController" customModule="Beyound" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q4J-Fa-Gx8"/>
+                        <viewControllerLayoutGuide type="bottom" id="kfx-dB-39w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g7h-iT-Ve1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLO-dB-Khj">
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wT1-FA-aOG" id="h2f-xi-PO9"/>
+                                </connections>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zE6-Ry-2mI">
+                                <rect key="frame" x="311" y="28" width="48" height="30"/>
+                                <state key="normal" title="Fechar"/>
+                                <connections>
+                                    <action selector="closeWebView:" destination="wT1-FA-aOG" eventType="touchUpInside" id="YiF-HD-kKd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kfx-dB-39w" firstAttribute="top" secondItem="JLO-dB-Khj" secondAttribute="bottom" id="1sO-pp-F0R"/>
+                            <constraint firstAttribute="trailing" secondItem="JLO-dB-Khj" secondAttribute="trailing" id="KEY-iS-at5"/>
+                            <constraint firstItem="zE6-Ry-2mI" firstAttribute="top" secondItem="q4J-Fa-Gx8" secondAttribute="bottom" constant="8" id="WuM-y1-Ude"/>
+                            <constraint firstItem="JLO-dB-Khj" firstAttribute="top" secondItem="zE6-Ry-2mI" secondAttribute="bottom" constant="8" id="eRG-Y0-at2"/>
+                            <constraint firstItem="JLO-dB-Khj" firstAttribute="leading" secondItem="g7h-iT-Ve1" secondAttribute="leading" id="gwH-9Y-mLR"/>
+                            <constraint firstItem="zE6-Ry-2mI" firstAttribute="trailing" secondItem="g7h-iT-Ve1" secondAttribute="trailingMargin" id="n0n-Mv-0X8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonClose" destination="zE6-Ry-2mI" id="WFt-Ey-sWb"/>
+                        <outlet property="webView" destination="JLO-dB-Khj" id="XOB-VG-MfK"/>
+                        <segue destination="ZVa-yO-dbI" kind="presentation" identifier="toProfile" id="GvC-cv-WYa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HTk-mC-IfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-783" y="-824"/>
+        </scene>
         <!--Choose User View Controller-->
         <scene sceneID="aNx-Cw-bUO">
             <objects>
@@ -1265,7 +1312,7 @@
                                     <constraint firstAttribute="height" constant="89" id="1zN-sh-fM7"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUEM É VOCË?" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcX-84-ecf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUEM É VOCÊ?" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcX-84-ecf">
                                 <rect key="frame" x="134" y="152" width="107" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.17163710247105593" green="0.19344731228906667" blue="0.21490323604060912" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1286,6 +1333,7 @@
                                         </state>
                                         <connections>
                                             <action selector="LoginInfluenciadorTextField:" destination="2B5-md-hLq" eventType="touchUpInside" id="zGd-Jo-mHl"/>
+                                            <segue destination="wT1-FA-aOG" kind="presentation" id="H21-0c-dO4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kv6-J4-q7K">
@@ -1321,7 +1369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfD-qz-svc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1380" y="118.29085457271366"/>
+            <point key="canvasLocation" x="-1846" y="215"/>
         </scene>
         <!--Index Influenciador View Controller-->
         <scene sceneID="jlO-pS-gKh">
@@ -1359,7 +1407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Szl-lS-2if" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="-785"/>
+            <point key="canvasLocation" x="103" y="-838"/>
         </scene>
     </scenes>
     <resources>

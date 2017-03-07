@@ -39,6 +39,7 @@
 		4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */; };
 		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
 		EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */; };
+		F53F37A51E6E5BCC00379FE6 /* HelperWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beyound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				353940BE1E613231002AF590 /* TabBarController.swift */,
+				F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */,
 				353940BF1E613231002AF590 /* AddPostViewController.swift */,
 				353940C01E613231002AF590 /* LoginViewController.swift */,
 				353940C11E613231002AF590 /* SignUpViewController.swift */,
@@ -330,6 +333,7 @@
 				TargetAttributes = {
 					353940851E612D1F002AF590 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = US832MQT35;
 						ProvisioningStyle = Automatic;
 					};
 					3539409C1E612D20002AF590 = {
@@ -552,6 +556,7 @@
 				3539408A1E612D1F002AF590 /* AppDelegate.swift in Sources */,
 				353940D81E613254002AF590 /* User.swift in Sources */,
 				353940D11E613231002AF590 /* CommentsViewController.swift in Sources */,
+				F53F37A51E6E5BCC00379FE6 /* HelperWebViewController.swift in Sources */,
 				353940CF1E613231002AF590 /* FeedTableViewController.swift in Sources */,
 				353940D91E613254002AF590 /* Post.swift in Sources */,
 				353940CD1E613231002AF590 /* UserProfileTableViewController.swift in Sources */,
@@ -708,6 +713,7 @@
 			baseConfigurationReference = 5041436C24F471D03ED724A5 /* Pods-Beyound.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = US832MQT35;
 				INFOPLIST_FILE = Beyound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
@@ -721,6 +727,7 @@
 			baseConfigurationReference = 20814FB66C5CF5D256D4A4B8 /* Pods-Beyound.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = US832MQT35;
 				INFOPLIST_FILE = Beyound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
