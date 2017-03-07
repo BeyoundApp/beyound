@@ -1,0 +1,6 @@
+framework module Pods_BeyoundTests {
+  umbrella header "Pods-BeyoundTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

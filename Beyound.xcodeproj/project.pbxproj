@@ -8,13 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		3539408A1E612D1F002AF590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940891E612D1F002AF590 /* AppDelegate.swift */; };
-		3539408C1E612D1F002AF590 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539408B1E612D1F002AF590 /* ViewController.swift */; };
 		3539408F1E612D1F002AF590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3539408D1E612D1F002AF590 /* Main.storyboard */; };
 		353940921E612D1F002AF590 /* Beyound.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 353940901E612D1F002AF590 /* Beyound.xcdatamodeld */; };
 		353940941E612D1F002AF590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353940931E612D1F002AF590 /* Assets.xcassets */; };
 		353940971E612D1F002AF590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353940951E612D1F002AF590 /* LaunchScreen.storyboard */; };
 		353940A21E612D20002AF590 /* BeyoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940A11E612D20002AF590 /* BeyoundTests.swift */; };
 		353940AD1E612D20002AF590 /* BeyoundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940AC1E612D20002AF590 /* BeyoundUITests.swift */; };
+		353940BB1E613144002AF590 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 353940BA1E613144002AF590 /* GoogleService-Info.plist */; };
+		353940C91E613231002AF590 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940BE1E613231002AF590 /* TabBarController.swift */; };
+		353940CA1E613231002AF590 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940BF1E613231002AF590 /* AddPostViewController.swift */; };
+		353940CB1E613231002AF590 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C01E613231002AF590 /* LoginViewController.swift */; };
+		353940CC1E613231002AF590 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C11E613231002AF590 /* SignUpViewController.swift */; };
+		353940CD1E613231002AF590 /* UserProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C21E613231002AF590 /* UserProfileTableViewController.swift */; };
+		353940CE1E613231002AF590 /* ChooseUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C31E613231002AF590 /* ChooseUserViewController.swift */; };
+		353940CF1E613231002AF590 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C41E613231002AF590 /* FeedTableViewController.swift */; };
+		353940D01E613231002AF590 /* UpdateUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C51E613231002AF590 /* UpdateUserInfoViewController.swift */; };
+		353940D11E613231002AF590 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C61E613231002AF590 /* CommentsViewController.swift */; };
+		353940D21E613231002AF590 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C71E613231002AF590 /* UsersTableViewCell.swift */; };
+		353940D31E613231002AF590 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C81E613231002AF590 /* UsersTableViewController.swift */; };
+		353940D71E613254002AF590 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940D41E613254002AF590 /* AuthService.swift */; };
+		353940D81E613254002AF590 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940D51E613254002AF590 /* User.swift */; };
+		353940D91E613254002AF590 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940D61E613254002AF590 /* Post.swift */; };
+		353940DF1E613281002AF590 /* userBg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 353940DB1E613281002AF590 /* userBg.jpeg */; };
+		353940E21E613281002AF590 /* user-placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 353940DE1E613281002AF590 /* user-placeholder.jpg */; };
+		353940E41E613979002AF590 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940E31E613979002AF590 /* IndexViewController.swift */; };
+		353940E61E61403B002AF590 /* Bg.fw.png in Resources */ = {isa = PBXBuildFile; fileRef = 353940E51E61403B002AF590 /* Bg.fw.png */; };
+		353940E81E6156C2002AF590 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 353940E71E6156C2002AF590 /* user.png */; };
+		353940EA1E615F9E002AF590 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 353940E91E615F9D002AF590 /* Info.plist */; };
+		353940EC1E626F52002AF590 /* IndexInfluenciadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */; };
+		4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */; };
+		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
+		EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +59,49 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20814FB66C5CF5D256D4A4B8 /* Pods-Beyound.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beyound.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beyound/Pods-Beyound.release.xcconfig"; sourceTree = "<group>"; };
 		353940861E612D1F002AF590 /* Beyound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beyound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		353940891E612D1F002AF590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3539408B1E612D1F002AF590 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3539408E1E612D1F002AF590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		353940911E612D1F002AF590 /* Beyound.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Beyound.xcdatamodel; sourceTree = "<group>"; };
 		353940931E612D1F002AF590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		353940961E612D1F002AF590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		353940981E612D1F002AF590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3539409D1E612D20002AF590 /* BeyoundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeyoundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		353940A11E612D20002AF590 /* BeyoundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeyoundTests.swift; sourceTree = "<group>"; };
 		353940A31E612D20002AF590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		353940A81E612D20002AF590 /* BeyoundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeyoundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		353940AC1E612D20002AF590 /* BeyoundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeyoundUITests.swift; sourceTree = "<group>"; };
 		353940AE1E612D20002AF590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		353940BA1E613144002AF590 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		353940BE1E613231002AF590 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		353940BF1E613231002AF590 /* AddPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		353940C01E613231002AF590 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		353940C11E613231002AF590 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		353940C21E613231002AF590 /* UserProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewController.swift; sourceTree = "<group>"; };
+		353940C31E613231002AF590 /* ChooseUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserViewController.swift; sourceTree = "<group>"; };
+		353940C41E613231002AF590 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		353940C51E613231002AF590 /* UpdateUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoViewController.swift; sourceTree = "<group>"; };
+		353940C61E613231002AF590 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		353940C71E613231002AF590 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		353940C81E613231002AF590 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		353940D41E613254002AF590 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		353940D51E613254002AF590 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		353940D61E613254002AF590 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		353940DB1E613281002AF590 /* userBg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userBg.jpeg; sourceTree = "<group>"; };
+		353940DE1E613281002AF590 /* user-placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "user-placeholder.jpg"; sourceTree = "<group>"; };
+		353940E31E613979002AF590 /* IndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		353940E51E61403B002AF590 /* Bg.fw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg.fw.png; sourceTree = "<group>"; };
+		353940E71E6156C2002AF590 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		353940E91E615F9D002AF590 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexInfluenciadorViewController.swift; sourceTree = "<group>"; };
+		5041436C24F471D03ED724A5 /* Pods-Beyound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beyound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beyound/Pods-Beyound.debug.xcconfig"; sourceTree = "<group>"; };
+		6402EF3A0F635DD20173E59F /* Pods-BeyoundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundTests/Pods-BeyoundTests.debug.xcconfig"; sourceTree = "<group>"; };
+		68E7E1173953C88D1DEC23E8 /* Pods-BeyoundUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundUITests/Pods-BeyoundUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8DCBC16F96B6D2E453393B1B /* Pods-BeyoundUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundUITests/Pods-BeyoundUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A6E5BD152479B958583884CB /* Pods-BeyoundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundTests/Pods-BeyoundTests.release.xcconfig"; sourceTree = "<group>"; };
+		AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beyound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +125,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3330FF81882B668C9BA313C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5041436C24F471D03ED724A5 /* Pods-Beyound.debug.xcconfig */,
+				20814FB66C5CF5D256D4A4B8 /* Pods-Beyound.release.xcconfig */,
+				6402EF3A0F635DD20173E59F /* Pods-BeyoundTests.debug.xcconfig */,
+				A6E5BD152479B958583884CB /* Pods-BeyoundTests.release.xcconfig */,
+				68E7E1173953C88D1DEC23E8 /* Pods-BeyoundUITests.debug.xcconfig */,
+				8DCBC16F96B6D2E453393B1B /* Pods-BeyoundUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3539407D1E612D1F002AF590 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +152,8 @@
 				353940A01E612D20002AF590 /* BeyoundTests */,
 				353940AB1E612D20002AF590 /* BeyoundUITests */,
 				353940871E612D1F002AF590 /* Products */,
+				3330FF81882B668C9BA313C5 /* Pods */,
+				7A9B07C6E9A52915ADB0DCA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +170,14 @@
 		353940881E612D1F002AF590 /* Beyound */ = {
 			isa = PBXGroup;
 			children = (
-				353940891E612D1F002AF590 /* AppDelegate.swift */,
-				3539408B1E612D1F002AF590 /* ViewController.swift */,
-				3539408D1E612D1F002AF590 /* Main.storyboard */,
+				353940BC1E61320C002AF590 /* View Controllers */,
+				353940BD1E613220002AF590 /* Models */,
 				353940931E612D1F002AF590 /* Assets.xcassets */,
+				3539408D1E612D1F002AF590 /* Main.storyboard */,
 				353940951E612D1F002AF590 /* LaunchScreen.storyboard */,
-				353940981E612D1F002AF590 /* Info.plist */,
 				353940901E612D1F002AF590 /* Beyound.xcdatamodeld */,
+				353940E91E615F9D002AF590 /* Info.plist */,
+				353940BA1E613144002AF590 /* GoogleService-Info.plist */,
 			);
 			path = Beyound;
 			sourceTree = "<group>";
@@ -128,6 +200,59 @@
 			path = BeyoundUITests;
 			sourceTree = "<group>";
 		};
+		353940BC1E61320C002AF590 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				353940BE1E613231002AF590 /* TabBarController.swift */,
+				353940BF1E613231002AF590 /* AddPostViewController.swift */,
+				353940C01E613231002AF590 /* LoginViewController.swift */,
+				353940C11E613231002AF590 /* SignUpViewController.swift */,
+				353940C21E613231002AF590 /* UserProfileTableViewController.swift */,
+				353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */,
+				353940E31E613979002AF590 /* IndexViewController.swift */,
+				353940C31E613231002AF590 /* ChooseUserViewController.swift */,
+				353940C41E613231002AF590 /* FeedTableViewController.swift */,
+				353940C51E613231002AF590 /* UpdateUserInfoViewController.swift */,
+				353940C61E613231002AF590 /* CommentsViewController.swift */,
+				353940C71E613231002AF590 /* UsersTableViewCell.swift */,
+				353940C81E613231002AF590 /* UsersTableViewController.swift */,
+				353940891E612D1F002AF590 /* AppDelegate.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		353940BD1E613220002AF590 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				353940DA1E613266002AF590 /* Images */,
+				353940D41E613254002AF590 /* AuthService.swift */,
+				353940D51E613254002AF590 /* User.swift */,
+				353940D61E613254002AF590 /* Post.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		353940DA1E613266002AF590 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				353940DB1E613281002AF590 /* userBg.jpeg */,
+				353940E51E61403B002AF590 /* Bg.fw.png */,
+				353940E71E6156C2002AF590 /* user.png */,
+				353940DE1E613281002AF590 /* user-placeholder.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		7A9B07C6E9A52915ADB0DCA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */,
+				AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */,
+				C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +260,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 353940B11E612D20002AF590 /* Build configuration list for PBXNativeTarget "Beyound" */;
 			buildPhases = (
+				422F6DB37AE74229C0350007 /* [CP] Check Pods Manifest.lock */,
 				353940821E612D1F002AF590 /* Sources */,
 				353940831E612D1F002AF590 /* Frameworks */,
 				353940841E612D1F002AF590 /* Resources */,
+				A064CF686E950AA022A67820 /* [CP] Embed Pods Frameworks */,
+				BEAD58C3D44C6466DED973AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +280,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 353940B41E612D20002AF590 /* Build configuration list for PBXNativeTarget "BeyoundTests" */;
 			buildPhases = (
+				71BC262F5703BDA0B704A886 /* [CP] Check Pods Manifest.lock */,
 				353940991E612D20002AF590 /* Sources */,
 				3539409A1E612D20002AF590 /* Frameworks */,
 				3539409B1E612D20002AF590 /* Resources */,
+				5A04DD13CB6F46FDD8126324 /* [CP] Embed Pods Frameworks */,
+				C2E6B2930E8F54B406D8F38E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +301,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 353940B71E612D20002AF590 /* Build configuration list for PBXNativeTarget "BeyoundUITests" */;
 			buildPhases = (
+				186C213F01AF29E70C2A58B7 /* [CP] Check Pods Manifest.lock */,
 				353940A41E612D20002AF590 /* Sources */,
 				353940A51E612D20002AF590 /* Frameworks */,
 				353940A61E612D20002AF590 /* Resources */,
+				BFFC93C28F5605204E132070 /* [CP] Embed Pods Frameworks */,
+				FD4DA399DA54F10D158D2E7F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,9 +369,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				353940DF1E613281002AF590 /* userBg.jpeg in Resources */,
 				353940971E612D1F002AF590 /* LaunchScreen.storyboard in Resources */,
+				353940E21E613281002AF590 /* user-placeholder.jpg in Resources */,
+				353940BB1E613144002AF590 /* GoogleService-Info.plist in Resources */,
 				353940941E612D1F002AF590 /* Assets.xcassets in Resources */,
+				353940E81E6156C2002AF590 /* user.png in Resources */,
+				353940EA1E615F9E002AF590 /* Info.plist in Resources */,
 				3539408F1E612D1F002AF590 /* Main.storyboard in Resources */,
+				353940E61E61403B002AF590 /* Bg.fw.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,14 +397,167 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		186C213F01AF29E70C2A58B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		422F6DB37AE74229C0350007 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A04DD13CB6F46FDD8126324 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeyoundTests/Pods-BeyoundTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71BC262F5703BDA0B704A886 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A064CF686E950AA022A67820 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Beyound/Pods-Beyound-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEAD58C3D44C6466DED973AB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Beyound/Pods-Beyound-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFFC93C28F5605204E132070 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeyoundUITests/Pods-BeyoundUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2E6B2930E8F54B406D8F38E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeyoundTests/Pods-BeyoundTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD4DA399DA54F10D158D2E7F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeyoundUITests/Pods-BeyoundUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		353940821E612D1F002AF590 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3539408C1E612D1F002AF590 /* ViewController.swift in Sources */,
+				353940CB1E613231002AF590 /* LoginViewController.swift in Sources */,
+				353940CE1E613231002AF590 /* ChooseUserViewController.swift in Sources */,
+				353940CC1E613231002AF590 /* SignUpViewController.swift in Sources */,
+				353940D21E613231002AF590 /* UsersTableViewCell.swift in Sources */,
+				353940CA1E613231002AF590 /* AddPostViewController.swift in Sources */,
+				353940EC1E626F52002AF590 /* IndexInfluenciadorViewController.swift in Sources */,
+				353940C91E613231002AF590 /* TabBarController.swift in Sources */,
+				353940D01E613231002AF590 /* UpdateUserInfoViewController.swift in Sources */,
+				353940E41E613979002AF590 /* IndexViewController.swift in Sources */,
 				3539408A1E612D1F002AF590 /* AppDelegate.swift in Sources */,
+				353940D81E613254002AF590 /* User.swift in Sources */,
+				353940D11E613231002AF590 /* CommentsViewController.swift in Sources */,
+				353940CF1E613231002AF590 /* FeedTableViewController.swift in Sources */,
+				353940D91E613254002AF590 /* Post.swift in Sources */,
+				353940CD1E613231002AF590 /* UserProfileTableViewController.swift in Sources */,
+				353940D31E613231002AF590 /* UsersTableViewController.swift in Sources */,
 				353940921E612D1F002AF590 /* Beyound.xcdatamodeld in Sources */,
+				353940D71E613254002AF590 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +705,7 @@
 		};
 		353940B21E612D20002AF590 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5041436C24F471D03ED724A5 /* Pods-Beyound.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Beyound/Info.plist;
@@ -424,6 +718,7 @@
 		};
 		353940B31E612D20002AF590 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20814FB66C5CF5D256D4A4B8 /* Pods-Beyound.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Beyound/Info.plist;
@@ -436,6 +731,7 @@
 		};
 		353940B51E612D20002AF590 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6402EF3A0F635DD20173E59F /* Pods-BeyoundTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -450,6 +746,7 @@
 		};
 		353940B61E612D20002AF590 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6E5BD152479B958583884CB /* Pods-BeyoundTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -464,6 +761,7 @@
 		};
 		353940B81E612D20002AF590 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68E7E1173953C88D1DEC23E8 /* Pods-BeyoundUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = BeyoundUITests/Info.plist;
@@ -477,6 +775,7 @@
 		};
 		353940B91E612D20002AF590 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DCBC16F96B6D2E453393B1B /* Pods-BeyoundUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = BeyoundUITests/Info.plist;
@@ -507,6 +806,7 @@
 				353940B31E612D20002AF590 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		353940B41E612D20002AF590 /* Build configuration list for PBXNativeTarget "BeyoundTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +815,7 @@
 				353940B61E612D20002AF590 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		353940B71E612D20002AF590 /* Build configuration list for PBXNativeTarget "BeyoundUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +824,7 @@
 				353940B91E612D20002AF590 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
