@@ -22,9 +22,61 @@ class IndexInfluenciadorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadUserData()
         // Do any additional setup after loading the view.
 
     }
     
+    func parseJson(response: Data){
+        
+        do {
+            if let jsonResult = try JSONSerialization.jsonObject(with: response, options: []) as? NSDictionary {
+                
+                let dataObject = jsonResult.object(forKey: "data") as! NSDictionary
+                
+                let name = dataObject.value(forKey: "full_name") as! String
+                
+                print(name)
+
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func loadUserData(){
+        
+        let defaults = UserDefaults.standard
+        if let accessToken = defaults.string(forKey: "accessToken"){
+            var url = "https://api.instagram.com/v1/users/self/?access_token=" + accessToken
+
+            var request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
+            var session = URLSession.shared
+            request.httpMethod = "GET"
+            
+            
+            var err: NSError?
+            
+            var task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+                
+                var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                var err: NSError?
+                
+                self.parseJson(response: data!)
+                
+                if(err != nil) {
+                    print(err!.localizedDescription)
+                }
+                
+            })
+            
+            task.resume()
+            
+            
+        }
+        
+        
+    }
 
 }
