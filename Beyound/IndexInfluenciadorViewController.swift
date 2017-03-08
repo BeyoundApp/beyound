@@ -40,6 +40,16 @@ class IndexInfluenciadorViewController: UIViewController {
                 let dataObject = jsonResult.object(forKey: "data") as! NSDictionary
                 
                 let name = dataObject.value(forKey: "full_name") as! String
+                let id = dataObject.value(forKey: "id") as! String
+
+                let followers = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "followed_by") as! Int
+                let following = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "follows") as! Int
+                let media = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "media") as! Int
+
+                let website = dataObject.value(forKey: "website") as! String
+                let biography = dataObject.value(forKey: "bio") as! String
+
+                
                 let username = dataObject.value(forKey: "username") as! String
                 let profile_picture = dataObject.value(forKey: "profile_picture") as! String
                 let url = NSURL(string: profile_picture)!
@@ -48,6 +58,15 @@ class IndexInfluenciadorViewController: UIViewController {
                 self.nameLabel.text = name
                 self.usernameLabel.text = "@" + username
                 self.perfil.image = UIImage(data: profile as! Data)
+                
+                var authService = AuthService()
+                
+                let result = authService.signupInfluenciador(uid: id, username: username, fullName: name, followers: followers, following: following, biography: biography, website: website, mediaCount: media, pictureData: profile) as Bool
+                
+                if(result){
+                    print("sucesso")
+                }
+                
             }
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -73,8 +92,14 @@ class IndexInfluenciadorViewController: UIViewController {
                 var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 var err: NSError?
                 
-                self.parseJson(response: data!)
-                
+                // Move to a background thread to do some long running work
+                DispatchQueue.global(qos: .userInitiated).async {
+                    DispatchQueue.main.async {
+                        self.parseJson(response: data!)
+                    }
+                }
+
+    
                 if(err != nil) {
                     print(err!.localizedDescription)
                 }

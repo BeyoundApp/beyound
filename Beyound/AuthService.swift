@@ -127,10 +127,150 @@ struct AuthService {
     }
     
     
+    // SET E SAVE INFLUENCIADORES
     
     
     
+//    public func setInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!) -> Bool{
+//        
+//        let imagePath = "profileImage\(uid)/userPic.jpg"
+//        
+//        let imageRef = storageRef.child(imagePath)
+//        
+//        let metaData = FIRStorageMetadata()
+//        metaData.contentType = "image/jpeg"
+//        
+//        var success = false
+//
+//        
+//        imageRef.put(pictureData as Data, metadata: metaData) { (newMetaData, error) in
+//            
+//            
+//            if error == nil {
+//                
+//                if let photoURL = newMetaData!.downloadURL() {
+//                    let result = self.saveInfluenciador(uid: uid ,username:username, fullName:fullName, followers:followers, following:following, biography:biography, website: website,mediaCount:mediaCount, photoURL: String(describing:photoURL))
+//                    success = result;
+//                }else{
+//                    print(error!.localizedDescription)
+//                    
+//                }
+//                
+//            }else {
+//                print(error!.localizedDescription)
+//            }
+//            
+//        }
+//        
+//        return success
+//        
+//    }
+//    
+//    private func saveInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, photoURL: String) -> Bool{
+//        
+//        let userInfo = ["uid":uid,"username": username, "full_name": fullName, "followers": followers, "following":following, "media_count": mediaCount, "biography":biography, "website":website, "photoURL": photoURL] as [String : Any]
+//        
+//        let userRef = dataBaseRef.child("influenciadores").child(uid)
+//        
+//        var success = false
+//        
+//        userRef.setValue(userInfo) { (error, ref) in
+//            if error == nil {
+//                print("user info saved successfully")
+//                success = true
+//            }else {
+//                print(error!.localizedDescription)
+//            }
+//        }
+//
+//        return success
+//    }
+//
+//    
     
+    //com autenticacao requerida
+    //    // SET E SAVE INFLUENCIADORES
+    
+        public func signupInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!) -> Bool{
+    
+            var success = false
+            FIRAuth.auth()?.createUser(withEmail: username+"@testings.com", password: uid+"123", completion: { (user, error) in
+                if error == nil {
+    
+                    success = self.setInfluenciador(user:user, uid: uid, username: username, fullName: fullName, followers: followers, following: following, biography: biography, website: website, mediaCount: mediaCount, pictureData: pictureData)
+                } else {
+                    print(error!.localizedDescription)
+                }
+            })
+    
+            return success
+        }
+    
+    
+        private func setInfluenciador(user: FIRUser!, uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!) -> Bool{
+    
+            let imagePath = "profileImage\(user.uid)/userPic.jpg"
+    
+            let imageRef = storageRef.child(imagePath)
+    
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+    
+            var success = false
+    
+            imageRef.put(pictureData as Data, metadata: metaData) { (newMetaData, error) in
+    
+    
+                if error == nil {
+    
+                    let changeRequest = user.profileChangeRequest()
+                    changeRequest.displayName = username
+    
+                    if let photoURL = newMetaData!.downloadURL() {
+                        changeRequest.photoURL = photoURL
+                    }
+    
+                    changeRequest.commitChanges(completion: { (error) in
+                        if error == nil {
+    
+                            let result = self.saveInfluenciador(user:user, uid: uid ,username:username, fullName:fullName, followers:followers, following:following, biography:biography, website: website,mediaCount:mediaCount)
+                            success = result;
+    
+                        }else{
+                            print(error!.localizedDescription)
+    
+                        }
+                    })
+                }else {
+                    print(error!.localizedDescription)
+                }
+    
+            }
+    
+            return success
+    
+        }
+    
+        private func saveInfluenciador(user: FIRUser!, uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int) -> Bool{
+    
+            let userInfo = ["uid":uid,"username": username, "full_name": fullName, "followers": followers, "following":following, "media_count": mediaCount, "biography":biography, "website":website, "photoURL": String(describing: user.photoURL!)] as [String : Any]
+    
+            let userRef = dataBaseRef.child("influenciadores").child(uid)
+    
+            var success = false
+    
+            userRef.setValue(userInfo) { (error, ref) in
+                if error == nil {
+                    print("user info saved successfully")
+                    success = true
+                }else {
+                    print(error!.localizedDescription)
+                }
+            }
+            
+            return success
+        }
+
     
     
     
