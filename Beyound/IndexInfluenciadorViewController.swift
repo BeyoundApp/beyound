@@ -10,21 +10,26 @@ import UIKit
 
 class IndexInfluenciadorViewController: UIViewController {
     
-   // let instagram = Instagram(clientID: "a4af2fe2933c41e0ab2884c27d63247a", clientSecret: "cfe9a20495584620ba4524c9b5e65c35", redirectUri: "https://www.cloudrailauth.com/auth", state: "state")
-
     @IBAction func LogoutAction(_ sender: Any) {
         //do something with this logout button
     }
     
- @IBOutlet weak var usernameTextField: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBOutlet weak var perfil: UIImageView!{
+        didSet{
+            perfil.layer.cornerRadius = 45
+            perfil.layer.masksToBounds = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadUserData()
         // Do any additional setup after loading the view.
-
+        
     }
     
     func parseJson(response: Data){
@@ -35,9 +40,14 @@ class IndexInfluenciadorViewController: UIViewController {
                 let dataObject = jsonResult.object(forKey: "data") as! NSDictionary
                 
                 let name = dataObject.value(forKey: "full_name") as! String
+                let username = dataObject.value(forKey: "username") as! String
+                let profile_picture = dataObject.value(forKey: "profile_picture") as! String
+                let url = NSURL(string: profile_picture)!
+                let profile = NSData(contentsOf: url as URL)
                 
-                print(name)
-
+                self.nameLabel.text = name
+                self.usernameLabel.text = "@" + username
+                self.perfil.image = UIImage(data: profile as! Data)
             }
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -50,7 +60,7 @@ class IndexInfluenciadorViewController: UIViewController {
         let defaults = UserDefaults.standard
         if let accessToken = defaults.string(forKey: "accessToken"){
             var url = "https://api.instagram.com/v1/users/self/?access_token=" + accessToken
-
+            
             var request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
             var session = URLSession.shared
             request.httpMethod = "GET"
@@ -78,5 +88,5 @@ class IndexInfluenciadorViewController: UIViewController {
         
         
     }
-
+    
 }

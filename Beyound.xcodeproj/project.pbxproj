@@ -34,7 +34,6 @@
 		353940E41E613979002AF590 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940E31E613979002AF590 /* IndexViewController.swift */; };
 		353940E61E61403B002AF590 /* Bg.fw.png in Resources */ = {isa = PBXBuildFile; fileRef = 353940E51E61403B002AF590 /* Bg.fw.png */; };
 		353940E81E6156C2002AF590 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 353940E71E6156C2002AF590 /* user.png */; };
-		353940EA1E615F9E002AF590 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 353940E91E615F9D002AF590 /* Info.plist */; };
 		353940EC1E626F52002AF590 /* IndexInfluenciadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */; };
 		4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */; };
 		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
@@ -379,7 +378,6 @@
 				353940BB1E613144002AF590 /* GoogleService-Info.plist in Resources */,
 				353940941E612D1F002AF590 /* Assets.xcassets in Resources */,
 				353940E81E6156C2002AF590 /* user.png in Resources */,
-				353940EA1E615F9E002AF590 /* Info.plist in Resources */,
 				3539408F1E612D1F002AF590 /* Main.storyboard in Resources */,
 				353940E61E61403B002AF590 /* Bg.fw.png in Resources */,
 			);
