@@ -35,7 +35,13 @@ class IndexInfluenciadorViewController: UIViewController {
                 let dataObject = jsonResult.object(forKey: "data") as! NSDictionary
                 
                 let name = dataObject.value(forKey: "full_name") as! String
-                
+                let uid = dataObject.value(forKey: "id") as! String
+                let profile_picture_url = dataObject.value(forKey: "profile_picture") as! String
+                let biography = dataObject.value(forKey: "bio") as! String
+                let website = dataObject.value(forKey: "website") as! String
+                let followers = (dataObject.value(forKey: "count") as! NSDictionary).value(forKey: "followed_by") as! Int
+                let following = (dataObject.value(forKey: "count") as! NSDictionary).value(forKey: "follows") as! Int
+
                 print(name)
 
             }
