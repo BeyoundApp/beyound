@@ -30,9 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func logUser(){
         
         if FIRAuth.auth()!.currentUser != nil {
-            
+                        
             let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBar") as! TabBarController
             self.window?.rootViewController = tabBar
+        }else{
+            
+            let defaults = UserDefaults.standard
+            if let accessToken = defaults.string(forKey: "accessToken"){
+                let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "helperWebView") as! UIViewController
+                self.window?.rootViewController = tabBar
+            }
+            
         }
         
         
