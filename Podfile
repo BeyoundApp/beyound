@@ -10,6 +10,7 @@ target 'Beyound' do
   pod ‘Firebase/Database’
   pod ‘Firebase/Auth’
   pod ‘Firebase/Storage’
+  pod ’TagControl’
 
   target 'BeyoundTests' do
     inherit! :search_paths

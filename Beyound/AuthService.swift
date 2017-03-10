@@ -131,7 +131,7 @@ struct AuthService {
     
     
     
-    public func setInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!) -> Bool{
+    public func setInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!, answered: Bool) -> Bool{
         
         let imagePath = "profileImage\(uid)/userPic.jpg"
         
@@ -149,7 +149,7 @@ struct AuthService {
             if error == nil {
                 
                 if let photoURL = newMetaData!.downloadURL() {
-                    let result = self.saveInfluenciador(uid: uid ,username:username, fullName:fullName, followers:followers, following:following, biography:biography, website: website,mediaCount:mediaCount, photoURL: String(describing:photoURL))
+                    let result = self.saveInfluenciador(uid: uid ,username:username, fullName:fullName, followers:followers, following:following, biography:biography, website: website,mediaCount:mediaCount, photoURL: String(describing:photoURL), answered: answered)
                     success = result;
                 }else{
                     print(error!.localizedDescription)
@@ -166,9 +166,9 @@ struct AuthService {
         
     }
     
-    private func saveInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, photoURL: String) -> Bool{
+    private func saveInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, photoURL: String, answered: Bool) -> Bool{
         
-        let userInfo = ["uid":uid,"username": username, "full_name": fullName, "followers": followers, "following":following, "media_count": mediaCount, "biography":biography, "website":website, "photoURL": photoURL] as [String : Any]
+        let userInfo = ["uid":uid,"username": username, "full_name": fullName, "followers": followers, "following":following, "media_count": mediaCount, "biography":biography, "website":website, "photoURL": photoURL, "answered": answered] as [String : Any]
         
         let userRef = dataBaseRef.child("influenciadores").child(uid)
         
@@ -202,6 +202,20 @@ struct AuthService {
 
         
         
+    }
+    
+    public func findInfluenciador(uid: String) -> NSDictionary? {
+        
+        var toBeReturned = nil as NSDictionary?
+        
+        let find = dataBaseRef.child("influenciadores").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                let toBeReturned = snapshot.value as? NSDictionary
+            
+            }) { (error) in
+                print(error.localizedDescription)
+        }
+        return toBeReturned
     }
     
     //com autenticacao requerida
@@ -300,7 +314,7 @@ extension LoginViewController {
     
     func resetPassword (){
         var email = ""
-        let alertController = UIAlertController(title: "OOPS", message: "Um email para enviar as informaçöes de troca de senha foi enviado para o email a seguir: \(email) ", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Trocar de Senha", message: "Um email para enviar as informaçöes de troca de senha foi enviado para o email a seguir: \(email) ", preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { (textfield) in
             textfield.placeholder = "contato@mail.com"
             

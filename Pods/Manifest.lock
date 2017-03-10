@@ -40,12 +40,14 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
+  - TagControl (0.0.3)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - TagControl
 
 SPEC CHECKSUMS:
   Firebase: 5bc34d7b5ff5792e3386c8b28dc6265deeab0da4
@@ -57,7 +59,8 @@ SPEC CHECKSUMS:
   FirebaseStorage: 63628572a5fde258f8e933b5fb42697468da0158
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  TagControl: cf5d04c5152d48534efb93f6927fffeeea0acc65
 
-PODFILE CHECKSUM: 1574c4c4b0db1aca93053a30a95f670b2a537044
+PODFILE CHECKSUM: fb6473b7ed52d1cc2979eb8fa72a5e6120a70b83
 
 COCOAPODS: 1.2.0
