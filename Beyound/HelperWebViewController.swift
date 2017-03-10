@@ -55,7 +55,7 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
         let defaults = UserDefaults.standard
         defaults.set(accessToken, forKey: "accessToken")
         
-        self.performSegue(withIdentifier: "toProfile", sender: self)
+        self.performSegue(withIdentifier: "toQuestions", sender: self)
     }
     
     @IBAction func closeWebView(_ sender: Any) {

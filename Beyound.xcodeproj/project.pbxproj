@@ -35,6 +35,7 @@
 		353940E61E61403B002AF590 /* Bg.fw.png in Resources */ = {isa = PBXBuildFile; fileRef = 353940E51E61403B002AF590 /* Bg.fw.png */; };
 		353940E81E6156C2002AF590 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 353940E71E6156C2002AF590 /* user.png */; };
 		353940EC1E626F52002AF590 /* IndexInfluenciadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */; };
+		35F2BC281E7216F5003F33F1 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */; };
 		4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */; };
 		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
 		EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */; };
@@ -94,6 +95,7 @@
 		353940E71E6156C2002AF590 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		353940E91E615F9D002AF590 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexInfluenciadorViewController.swift; sourceTree = "<group>"; };
+		35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		5041436C24F471D03ED724A5 /* Pods-Beyound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beyound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beyound/Pods-Beyound.debug.xcconfig"; sourceTree = "<group>"; };
 		6402EF3A0F635DD20173E59F /* Pods-BeyoundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundTests/Pods-BeyoundTests.debug.xcconfig"; sourceTree = "<group>"; };
 		68E7E1173953C88D1DEC23E8 /* Pods-BeyoundUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundUITests/Pods-BeyoundUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		353940BC1E61320C002AF590 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */,
 				353940BE1E613231002AF590 /* TabBarController.swift */,
 				F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */,
 				353940BF1E613231002AF590 /* AddPostViewController.swift */,
@@ -548,6 +551,7 @@
 				353940D21E613231002AF590 /* UsersTableViewCell.swift in Sources */,
 				353940CA1E613231002AF590 /* AddPostViewController.swift in Sources */,
 				353940EC1E626F52002AF590 /* IndexInfluenciadorViewController.swift in Sources */,
+				35F2BC281E7216F5003F33F1 /* QuestionsViewController.swift in Sources */,
 				353940C91E613231002AF590 /* TabBarController.swift in Sources */,
 				353940D01E613231002AF590 /* UpdateUserInfoViewController.swift in Sources */,
 				353940E41E613979002AF590 /* IndexViewController.swift in Sources */,
