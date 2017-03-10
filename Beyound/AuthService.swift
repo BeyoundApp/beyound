@@ -204,18 +204,16 @@ struct AuthService {
         
     }
     
-    public func findInfluenciador(uid: String) -> NSDictionary? {
-        
-        var toBeReturned = nil as NSDictionary?
+    public func findInfluenciador(uid: String, completion: @escaping (NSDictionary?) -> ()) {
         
         let find = dataBaseRef.child("influenciadores").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
-                let toBeReturned = snapshot.value as? NSDictionary
-            
+                let influenciador = snapshot.value as! NSDictionary
+                completion(influenciador)
             }) { (error) in
+                completion(nil)
                 print(error.localizedDescription)
         }
-        return toBeReturned
     }
     
     //com autenticacao requerida

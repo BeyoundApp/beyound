@@ -23,6 +23,7 @@ class QuestionsViewController: UIViewController, TagViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func initQuestionary(_ sender: Any) {
       self.addTagView()
     }
