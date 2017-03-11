@@ -25,7 +25,22 @@ class QuestionsViewController: UIViewController, TagViewDelegate {
     }
     
     @IBAction func initQuestionary(_ sender: Any) {
-      self.addTagView()
+      
+        self.performSegue(withIdentifier: "initQuestionary", sender: self);
+        
+        //self.addTagView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "initQuestionary"){
+            
+            var questionViewController = segue.destination as! QuestionViewController
+            
+            questionViewController.page = 1
+            
+        }
+        
     }
     
     func addTagView() {

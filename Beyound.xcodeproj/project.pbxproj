@@ -41,6 +41,9 @@
 		EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */; };
 		F5124B4D1E7252150025C24E /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5124B4C1E7252150025C24E /* Singleton.swift */; };
 		F53F37A51E6E5BCC00379FE6 /* HelperWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */; };
+		F59E8BFC1E7381680011202F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E8BFB1E7381680011202F /* QuestionViewController.swift */; };
+		F59E8BFE1E7384F70011202F /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E8BFD1E7384F70011202F /* TagViewCell.swift */; };
+		F59E8C001E7386340011202F /* TagViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F59E8BFF1E7386340011202F /* TagViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,9 @@
 		CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beyound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5124B4C1E7252150025C24E /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperWebViewController.swift; sourceTree = "<group>"; };
+		F59E8BFB1E7381680011202F /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		F59E8BFD1E7384F70011202F /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
+		F59E8BFF1E7386340011202F /* TagViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,7 @@
 				353940BD1E613220002AF590 /* Models */,
 				353940931E612D1F002AF590 /* Assets.xcassets */,
 				3539408D1E612D1F002AF590 /* Main.storyboard */,
+				F59E8BFF1E7386340011202F /* TagViewCell.xib */,
 				353940951E612D1F002AF590 /* LaunchScreen.storyboard */,
 				353940901E612D1F002AF590 /* Beyound.xcdatamodeld */,
 				353940E91E615F9D002AF590 /* Info.plist */,
@@ -209,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */,
+				F59E8BFB1E7381680011202F /* QuestionViewController.swift */,
+				F59E8BFD1E7384F70011202F /* TagViewCell.swift */,
 				353940BE1E613231002AF590 /* TabBarController.swift */,
 				F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */,
 				353940BF1E613231002AF590 /* AddPostViewController.swift */,
@@ -381,6 +390,7 @@
 				353940DF1E613281002AF590 /* userBg.jpeg in Resources */,
 				353940971E612D1F002AF590 /* LaunchScreen.storyboard in Resources */,
 				353940E21E613281002AF590 /* user-placeholder.jpg in Resources */,
+				F59E8C001E7386340011202F /* TagViewCell.xib in Resources */,
 				353940BB1E613144002AF590 /* GoogleService-Info.plist in Resources */,
 				353940941E612D1F002AF590 /* Assets.xcassets in Resources */,
 				353940E81E6156C2002AF590 /* user.png in Resources */,
@@ -553,11 +563,13 @@
 				353940CC1E613231002AF590 /* SignUpViewController.swift in Sources */,
 				353940D21E613231002AF590 /* UsersTableViewCell.swift in Sources */,
 				353940CA1E613231002AF590 /* AddPostViewController.swift in Sources */,
+				F59E8BFE1E7384F70011202F /* TagViewCell.swift in Sources */,
 				353940EC1E626F52002AF590 /* IndexInfluenciadorViewController.swift in Sources */,
 				35F2BC281E7216F5003F33F1 /* QuestionsViewController.swift in Sources */,
 				353940C91E613231002AF590 /* TabBarController.swift in Sources */,
 				353940D01E613231002AF590 /* UpdateUserInfoViewController.swift in Sources */,
 				353940E41E613979002AF590 /* IndexViewController.swift in Sources */,
+				F59E8BFC1E7381680011202F /* QuestionViewController.swift in Sources */,
 				3539408A1E612D1F002AF590 /* AppDelegate.swift in Sources */,
 				353940D81E613254002AF590 /* User.swift in Sources */,
 				353940D11E613231002AF590 /* CommentsViewController.swift in Sources */,
