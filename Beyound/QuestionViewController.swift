@@ -88,6 +88,20 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         
+        
+        if(page == totalQuestions){
+            
+            //encerra formulario
+            
+        }else{
+            
+            var nextQuestion = self.storyboard?.instantiateViewController(withIdentifier: "questionController") as! QuestionViewController
+            
+            nextQuestion.page = self.page+1
+            self.navigationController?.pushViewController(nextQuestion, animated: true)
+
+        }
+        
     }
    
     

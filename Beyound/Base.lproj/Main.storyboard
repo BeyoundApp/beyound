@@ -1303,15 +1303,15 @@
                         <viewControllerLayoutGuide type="top" id="a9n-jo-De0"/>
                         <viewControllerLayoutGuide type="bottom" id="fNj-m0-LyL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8pQ-AW-VST">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="8pQ-AW-VST">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pergun" translatesAutoresizingMaskIntoConstraints="NO" id="dIq-sz-IEB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="3H2-kP-7o9">
-                                <rect key="frame" x="24.5" y="70" width="327.5" height="330"/>
+                                <rect key="frame" x="24.5" y="114" width="327.5" height="330"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUEREMOS CONHECÊ-LO!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5t-G7-IkI">
                                         <rect key="frame" x="0.0" y="0.0" width="327.5" height="70"/>
@@ -1323,7 +1323,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUE TAL RESPONDER ALGUMAS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaH-jB-eYT">
-                                        <rect key="frame" x="46.5" y="77" width="234" height="29"/>
+                                        <rect key="frame" x="47" y="77" width="234" height="29"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1335,7 +1335,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e8-su-qpI">
-                                        <rect key="frame" x="121.5" y="149" width="84" height="181"/>
+                                        <rect key="frame" x="122" y="149" width="84" height="181"/>
                                         <state key="normal" image="continue.fw-2"/>
                                         <connections>
                                             <action selector="initQuestionary:" destination="tsR-dn-EdT" eventType="touchUpInside" id="lYn-qF-HSF"/>
@@ -1369,7 +1369,7 @@
         <!--Question View Controller-->
         <scene sceneID="uTB-st-zNm">
             <objects>
-                <viewController id="dLn-RA-lR8" customClass="QuestionViewController" customModule="Beyound" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="questionController" id="dLn-RA-lR8" customClass="QuestionViewController" customModule="Beyound" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QSk-XD-Zhh"/>
                         <viewControllerLayoutGuide type="bottom" id="FCf-6N-dGg"/>
@@ -1385,13 +1385,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3m-5T-cLe">
-                                        <rect key="frame" x="172" y="30" width="32" height="23"/>
+                                        <rect key="frame" x="172" y="70" width="32" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czu-e2-UUW">
-                                        <rect key="frame" x="20" y="83" width="335" height="23"/>
+                                        <rect key="frame" x="20" y="123" width="335" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1410,7 +1410,7 @@
                                         </connections>
                                     </textField>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DnJ-Zk-FCH">
-                                        <rect key="frame" x="10" y="114" width="355" height="493"/>
+                                        <rect key="frame" x="10" y="154" width="355" height="453"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xtu-aT-cAN">
                                             <size key="itemSize" width="60" height="35"/>
@@ -1495,7 +1495,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAD-qo-Xpw">
-                                        <rect key="frame" x="315" y="30" width="50" height="50"/>
+                                        <rect key="frame" x="315" y="70" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="aXb-NU-Gil"/>
                                             <constraint firstAttribute="height" constant="50" id="gvO-9G-jCg"/>
@@ -1518,8 +1518,8 @@
                                     <constraint firstItem="Czu-e2-UUW" firstAttribute="centerX" secondItem="FoB-XG-jaK" secondAttribute="centerX" id="RjO-ah-NuI"/>
                                     <constraint firstAttribute="trailing" secondItem="EAD-qo-Xpw" secondAttribute="trailing" constant="10" id="Ukv-Xz-QYm"/>
                                     <constraint firstItem="LJs-XD-HNy" firstAttribute="leading" secondItem="FoB-XG-jaK" secondAttribute="leading" constant="10" id="cRy-4h-HtE"/>
-                                    <constraint firstItem="X3m-5T-cLe" firstAttribute="top" secondItem="FoB-XG-jaK" secondAttribute="top" constant="30" id="gQf-NP-pbp"/>
-                                    <constraint firstItem="EAD-qo-Xpw" firstAttribute="top" secondItem="FoB-XG-jaK" secondAttribute="top" constant="30" id="hKW-yG-GIm"/>
+                                    <constraint firstItem="X3m-5T-cLe" firstAttribute="top" secondItem="FoB-XG-jaK" secondAttribute="top" constant="70" id="gQf-NP-pbp"/>
+                                    <constraint firstItem="EAD-qo-Xpw" firstAttribute="top" secondItem="FoB-XG-jaK" secondAttribute="top" constant="70" id="hKW-yG-GIm"/>
                                     <constraint firstAttribute="trailing" secondItem="Czu-e2-UUW" secondAttribute="trailing" constant="20" id="jln-M8-Xa4"/>
                                     <constraint firstItem="DnJ-Zk-FCH" firstAttribute="top" secondItem="Czu-e2-UUW" secondAttribute="bottom" constant="8" id="kIO-ZA-zU9"/>
                                     <constraint firstItem="DnJ-Zk-FCH" firstAttribute="centerX" secondItem="FoB-XG-jaK" secondAttribute="centerX" id="pti-0R-R2l"/>
@@ -1551,7 +1551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGD-iB-3LI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1840.8" y="-985.45727136431788"/>
+            <point key="canvasLocation" x="1842" y="-994"/>
         </scene>
         <!--Choose User View Controller-->
         <scene sceneID="aNx-Cw-bUO">
@@ -1719,9 +1719,9 @@
         <!--Navigation Controller-->
         <scene sceneID="FnT-l8-yO2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="4sy-iF-zB2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4sy-iF-zB2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l6r-aw-hp5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="l6r-aw-hp5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
