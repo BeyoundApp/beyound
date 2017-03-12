@@ -8,15 +8,16 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+class QuestionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var labelQuestionTitle: UILabel!
-    @IBOutlet weak var scrollView: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageCounter: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var fieldTag: UITextField!
-
-    var page: Int?
+    @IBOutlet weak var buttonAdd: UIButton!
+    
+    var page: Int!
     var question : String?
     
     var tags = [String]()
@@ -25,16 +26,45 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.allowsMultipleSelection = true
+        
         var nib = UINib(nibName: "TagViewCell", bundle:nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "TagCell");
         
-        self.pageCounter.text = "\(page)/\(totalQuestions)"
+        self.pageCounter.text = "\(page!)/\(totalQuestions)"
         
         tags = ["Prema", "Photography", "Design", "Humor", "Love Traveling", "Music", "Writing", "Easy Life", "Education", "Engineer", "Startup", "Funny", "Women In Tech", "Female", "Business", "Songs", "Love", "Food", "Sports"]
 
         // Do any additional setup after loading the view.
+        
+        let touch = UITapGestureRecognizer(target: self, action: #selector(QuestionViewController.hideKeyboard));
+        touch.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(touch)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+        
     }
 
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -42,6 +72,24 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tags.count
     }
+    
+    func hideKeyboard(){
+        view.endEditing(true);
+    }
+    
+    @IBAction func goToNextQuestion(_ sender: Any) {
+        
+        let indexPaths = collectionView.indexPathsForSelectedItems
+        
+        for item in indexPaths! {
+            
+            print(tags[item.row])
+            
+        }
+        
+        
+    }
+   
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -73,20 +121,33 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagViewCell
         
-        if(cell.isMarked!){
-            cell.isMarked = false
-            cell.backgroundColor = UIColor.blue
-            collectionView.deselectItem(at: indexPath, animated: true)
-        }else{
-            cell.isMarked = true
-            cell.backgroundColor = UIColor.green
-        }
+        var cell = collectionView.cellForItem(at: indexPath) as! TagViewCell
+
+        cell.isMarked = true
+        cell.contentView.backgroundColor = UIColor.green
+        
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        var cell = collectionView.cellForItem(at: indexPath) as! TagViewCell
+
+        cell.isMarked = false
+        cell.contentView.backgroundColor = UIColor.blue
+        
+    }
     
+    @IBAction func addNewTag(_ sender: Any) {
+        
+        if((fieldTag.text?.characters.count)! > 0){
+            tags.append(fieldTag.text!)
+            fieldTag.text = ""
+            collectionView.reloadData()
+        }
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
