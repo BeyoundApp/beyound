@@ -192,7 +192,7 @@ struct AuthService {
         
         let postRef = dataBaseRef.child("influenciadores").child(uid).child("posts").child(id)
 
-        postRef.setValue(postInfo) { (error, ref) in
+        postRef.updateChildValues(postInfo) { (error, ref) in
             if error == nil {
                 print("post info saved successfully")
             }else {
@@ -208,7 +208,7 @@ struct AuthService {
         
         let find = dataBaseRef.child("influenciadores").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
-                let influenciador = snapshot.value as! NSDictionary
+                let influenciador = snapshot.value as? NSDictionary
                 completion(influenciador)
             }) { (error) in
                 completion(nil)

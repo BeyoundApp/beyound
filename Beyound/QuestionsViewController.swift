@@ -35,7 +35,7 @@ class QuestionsViewController: UIViewController, TagViewDelegate {
         
         if(segue.identifier == "initQuestionary"){
             
-            var questionViewController = segue.destination as! QuestionViewController
+            var questionViewController = segue.destination.childViewControllers[0] as! QuestionViewController
             
             questionViewController.page = 1
             

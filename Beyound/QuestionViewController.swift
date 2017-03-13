@@ -8,11 +8,10 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class QuestionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
     @IBOutlet weak var labelQuestionTitle: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var pageCounter: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var fieldTag: UITextField!
     @IBOutlet weak var buttonAdd: UIButton!
@@ -31,15 +30,17 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         var nib = UINib(nibName: "TagViewCell", bundle:nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "TagCell");
         
-        self.pageCounter.text = "\(page!)/\(totalQuestions)"
+        self.navigationItem.title = "Pergunta \(page!) de \(totalQuestions)"
         
         tags = ["Prema", "Photography", "Design", "Humor", "Love Traveling", "Music", "Writing", "Easy Life", "Education", "Engineer", "Startup", "Funny", "Women In Tech", "Female", "Business", "Songs", "Love", "Food", "Sports"]
-
-        // Do any additional setup after loading the view.
+        
+        //colocar titulo da pergunta
+        //labelQuestionTitle.text = dictPlist[page]
+        
         
         let touch = UITapGestureRecognizer(target: self, action: #selector(QuestionViewController.hideKeyboard));
         touch.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(touch)
+        self.scrollView.addGestureRecognizer(touch)
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -51,9 +52,8 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
     func keyboardWillShow(notification: NSNotification) {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
+            self.view.frame.origin.y -= keyboardSize.height
+
         }
     }
     
@@ -159,9 +159,24 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
             tags.append(fieldTag.text!)
             fieldTag.text = ""
             collectionView.reloadData()
+            self.hideKeyboard()
         }
         
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if((fieldTag.text?.characters.count)! > 0){
+            tags.append(fieldTag.text!)
+            fieldTag.text = ""
+            collectionView.reloadData()
+            self.hideKeyboard()
+        }
+        
+        return true
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
