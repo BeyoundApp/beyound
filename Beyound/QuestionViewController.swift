@@ -32,11 +32,11 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationItem.title = "Pergunta \(page!) de \(totalQuestions)"
         
-        tags = ["Prema", "Photography", "Design", "Humor", "Love Traveling", "Music", "Writing", "Easy Life", "Education", "Engineer", "Startup", "Funny", "Women In Tech", "Female", "Business", "Songs", "Love", "Food", "Sports"]
         
-        //colocar titulo da pergunta
-        //labelQuestionTitle.text = dictPlist[page]
+        tags = ["Maquiagem", "Acessórios","Body", "Belo", "Beleza","Fotografia", "Desenho", "Foto",  "Youtuber",  "Expert"]
         
+         ///Sequencia das tags
+         //tags = ["1": ["Maquiagem", "Sapatos", "Acessórios"], "2": ["Estiloso", "Feliz", "Rico"], "3": ["Nike", "Globo", "Melissa"], "4": ["Selfie", "Paisagem", "Cotidiano"], "5": ["Homens", "Mulheres", "Entre 15 a 30 anos"], "6": ["100", "1000", "10000"], "7": ["Toda semana", "Quase todo mês", "Raramente"], "8": ["Expert", "Youtuber", "Instagrammer"], "9": ["Merchandising de produtos", "Makes", "Body Builder"], "10": ["Postando frequentemente", "Postando o assunto que eles gostam", "Respondendo eles rapidamente"]]
         
         let touch = UITapGestureRecognizer(target: self, action: #selector(QuestionViewController.hideKeyboard));
         touch.cancelsTouchesInView = false
@@ -45,25 +45,42 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-
-        
+ 
+        if let url = Bundle.main.url(forResource:"questions", withExtension: "plist") {
+            do {
+                let data = try Data(contentsOf:url)
+                let swiftDictionary = try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String:Any]
+              
+            
+                let x : Int = self.page+1
+                let myString = String(x)
+                        labelQuestionTitle.text = swiftDictionary[myString] as! String?
+                    //}
+            } catch {
+                print(error)
+            }
+        }
+    
     }
+    
+   
 
     func keyboardWillShow(notification: NSNotification) {
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      /*  if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             self.view.frame.origin.y -= keyboardSize.height
 
-        }
+        }*/
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+       /* if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
                 self.view.frame.origin.y += keyboardSize.height
             }
-        }
+        }*/
     }
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -93,9 +110,10 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             //encerra formulario
             
+            
         }else{
             
-            var nextQuestion = self.storyboard?.instantiateViewController(withIdentifier: "questionController") as! QuestionViewController
+            let nextQuestion = self.storyboard?.instantiateViewController(withIdentifier: "questionController") as! QuestionViewController
             
             nextQuestion.page = self.page+1
             self.navigationController?.pushViewController(nextQuestion, animated: true)
@@ -176,23 +194,6 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         return true
         
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

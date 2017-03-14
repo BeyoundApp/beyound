@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>1</key>
-		<string>Quais produtos/serviços você gostaria de divulgar?</string>
+<dict>
 		<key>2</key>
-		<string>O que seus seguidores pensam sobre você?</string>
+		<string>Quais produtos/serviços você gostaria de divulgar?</string>
 		<key>3</key>
-		<string>Quais são as marcas que você se identifica?</string>
+		<string>O que seus seguidores pensam sobre você?</string>
 		<key>4</key>
-		<string>Qual estilo de publicação que você ganha mais likes?</string>
+		<string>Quais são as marcas que você se identifica?</string>
 		<key>5</key>
-		<string>Como você definiria o seu público?</string>
+		<string>Qual estilo de publicação que você ganha mais likes?</string>
 		<key>6</key>
-		<string>Quantos likes você ganha em média por publicação?</string>
+		<string>Como você definiria o seu público?</string>
 		<key>7</key>
-		<string>Qual é a frequência que você publica no Instagram?</string>
+		<string>Quantos likes você ganha em média por publicação?</string>
 		<key>8</key>
-		<string>Qual é o seu perfil como influenciador?</string>
+		<string>Qual é a frequência que você publica no Instagram?</string>
 		<key>9</key>
-		<string>Quais assuntos você costuma compartilhar no Instagram?</string>
+		<string>Qual é o seu perfil como influenciador?</string>
 		<key>10</key>
+		<string>Quais assuntos você costuma compartilhar no Instagram?</string>
+		<key>11</key>
 		<string>Você procura engajar seus seguidores? De quais formas você faz isso?</string>
-	</dict>
-</array>
+
+</dict>
 </plist>

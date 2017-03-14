@@ -131,5 +131,115 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/QuestionViewController.swift"
+            timestampString = "511163419.182395"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/QuestionViewController.swift"
+            timestampString = "511163419.182395"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/QuestionViewController.swift"
+            timestampString = "511162355.086547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "QuestionViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beyound.QuestionViewController.tags.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "Beyound"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
+                  timestampString = "511163421.081008"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beyound.QuestionViewController.tags.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "Beyound"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
+                  timestampString = "511163421.088912"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beyound.QuestionViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Beyound.QuestionViewController"
+                  moduleName = "Beyound"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
+                  timestampString = "511163421.096814"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "492">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beyound.QuestionViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Beyound.QuestionViewController&gt;"
+                  moduleName = "Beyound"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
+                  timestampString = "511163421.10576"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "428">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
