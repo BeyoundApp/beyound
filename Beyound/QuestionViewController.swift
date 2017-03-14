@@ -139,7 +139,7 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         var cell = collectionView.cellForItem(at: indexPath) as! TagViewCell
 
         cell.isMarked = true
-        cell.contentView.backgroundColor = UIColor.green
+        cell.contentView.backgroundColor = UIColor(red: 0.1, green: 0.7, blue: 0.7, alpha: 1)
         
         
     }
@@ -149,7 +149,7 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         var cell = collectionView.cellForItem(at: indexPath) as! TagViewCell
 
         cell.isMarked = false
-        cell.contentView.backgroundColor = UIColor.blue
+        cell.contentView.backgroundColor = UIColor(red: 0.31, green: 0.87, blue: 0.87, alpha: 1)
         
     }
     

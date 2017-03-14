@@ -35,6 +35,7 @@
 		353940E61E61403B002AF590 /* Bg.fw.png in Resources */ = {isa = PBXBuildFile; fileRef = 353940E51E61403B002AF590 /* Bg.fw.png */; };
 		353940E81E6156C2002AF590 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 353940E71E6156C2002AF590 /* user.png */; };
 		353940EC1E626F52002AF590 /* IndexInfluenciadorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */; };
+		35824B361E765AE500C993E7 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35824B351E765AE500C993E7 /* questions.plist */; };
 		35F2BC281E7216F5003F33F1 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */; };
 		4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */; };
 		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
@@ -99,6 +100,7 @@
 		353940E71E6156C2002AF590 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		353940E91E615F9D002AF590 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexInfluenciadorViewController.swift; sourceTree = "<group>"; };
+		35824B351E765AE500C993E7 /* questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
 		35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		5041436C24F471D03ED724A5 /* Pods-Beyound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beyound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beyound/Pods-Beyound.debug.xcconfig"; sourceTree = "<group>"; };
 		6402EF3A0F635DD20173E59F /* Pods-BeyoundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundTests/Pods-BeyoundTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				353940951E612D1F002AF590 /* LaunchScreen.storyboard */,
 				353940901E612D1F002AF590 /* Beyound.xcdatamodeld */,
 				353940E91E615F9D002AF590 /* Info.plist */,
+				35824B351E765AE500C993E7 /* questions.plist */,
 				353940BA1E613144002AF590 /* GoogleService-Info.plist */,
 			);
 			path = Beyound;
@@ -347,7 +350,7 @@
 				TargetAttributes = {
 					353940851E612D1F002AF590 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = US832MQT35;
+						DevelopmentTeam = JHQ5ZDAG5K;
 						ProvisioningStyle = Automatic;
 					};
 					3539409C1E612D20002AF590 = {
@@ -389,6 +392,7 @@
 			files = (
 				353940DF1E613281002AF590 /* userBg.jpeg in Resources */,
 				353940971E612D1F002AF590 /* LaunchScreen.storyboard in Resources */,
+				35824B361E765AE500C993E7 /* questions.plist in Resources */,
 				353940E21E613281002AF590 /* user-placeholder.jpg in Resources */,
 				F59E8C001E7386340011202F /* TagViewCell.xib in Resources */,
 				353940BB1E613144002AF590 /* GoogleService-Info.plist in Resources */,
@@ -731,7 +735,7 @@
 			baseConfigurationReference = 5041436C24F471D03ED724A5 /* Pods-Beyound.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = US832MQT35;
+				DEVELOPMENT_TEAM = JHQ5ZDAG5K;
 				INFOPLIST_FILE = Beyound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
@@ -745,7 +749,7 @@
 			baseConfigurationReference = 20814FB66C5CF5D256D4A4B8 /* Pods-Beyound.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = US832MQT35;
+				DEVELOPMENT_TEAM = JHQ5ZDAG5K;
 				INFOPLIST_FILE = Beyound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
