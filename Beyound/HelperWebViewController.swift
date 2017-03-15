@@ -60,12 +60,9 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
         
         let defaults = UserDefaults.standard
         defaults.set(accessToken, forKey: "accessToken")
+    
         
-        if (Singleton.sharedInstance.getInfluenciador().value(forKey: "answered") as! Bool){
-            self.performSegue(withIdentifier: "toProfile", sender: self)
-        }else{
-            self.performSegue(withIdentifier: "toQuestions", sender: self)
-        }
+        
     }
     
     @IBAction func closeWebView(_ sender: Any) {
@@ -85,13 +82,13 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
                 
                 let id = dataObject.value(forKey: "id") as! String
                 
-                loadPosts(uid:id)
-                
                 authService.findInfluenciador(uid: id){ (influenciador) -> () in
 
                     if (influenciador != nil){
                         Singleton.sharedInstance.setInfluenciador(influenciador: influenciador!)
                         self.saveAccessToken(accessToken: accessToken)
+                        self.loadPosts(uid:id)
+
                     }else{
                         let name = dataObject.value(forKey: "full_name") as! String
                         
@@ -112,29 +109,28 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
                         
                         let answered = false
                         
-                        let result = authService.setInfluenciador(uid: id, username: username, fullName: name, followers: followers, following: following, biography: biography, website: website, mediaCount: media, pictureData: profile, answered: answered) as Bool
+                        authService.setInfluenciador(uid: id, username: username, fullName: name, followers: followers, following: following, biography: biography, website: website, mediaCount: media, pictureData: profile, answered: answered){ (error) -> () in
                         
-                        if(result){
-                            authService.findInfluenciador(uid: id){ (influenciador) -> () in
-                            
-                                if (influenciador != nil){
+                            if(error == nil){
+                                authService.findInfluenciador(uid: id){ (influenciador) -> () in
                                     
-                                    Singleton.sharedInstance.setInfluenciador(influenciador: influenciador!)
-                                    self.saveAccessToken(accessToken: accessToken)
+                                    if (influenciador != nil){
+                                        
+                                        Singleton.sharedInstance.setInfluenciador(influenciador: influenciador!)
+                                        self.saveAccessToken(accessToken: accessToken)
+                                        self.loadPosts(uid:id)
+                                        
+                                    }else{
+                                        self.dismiss(animated: true, completion: nil)
+                                    }
                                     
-                                }else{
-                                    self.dismiss(animated: true, completion: nil)
                                 }
-                                
+                            }else{
+                                self.dismiss(animated: true, completion: nil)
                             }
-                        }else{
-                            self.dismiss(animated: true, completion: nil)
                         }
                     }
-
-
                 }
-                
             }
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -187,25 +183,36 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
                 
                 let dataObject = jsonResult.object(forKey: "data") as! NSArray
                 
-                for object in dataObject as! [NSDictionary]{
-                    
-                    let created_time = object.value(forKey: "created_time") as! String
-                    var text = ""
-                    
-                    let caption = (object.value(forKey: "caption") as? NSDictionary)
-                    
-                    let likes = (object.value(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
-                    let link = object.value(forKey: "link") as! String
-                    let comments = (object.value(forKey: "comments") as! NSDictionary).value(forKey: "count") as! Int
-                    let id = object.value(forKey: "id") as! String
-                    
-                    let location = object.value(forKey: "location") as? NSDictionary
-                    
-                    
-                    let tags = object.value(forKey: "tags") as? NSArray
-                    
-                    
-                    authService.savePost(uid: uid, createdTime: created_time, caption: caption, likes: likes, link: link, comments: comments, id: id, location:location, tags: tags)
+//                for object in dataObject as! [NSDictionary]{
+//                    
+//                    let created_time = object.value(forKey: "created_time") as! String
+//                    var text = ""
+//                    
+//                    let caption = (object.value(forKey: "caption") as? NSDictionary)
+//                    
+//                    let likes = (object.value(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
+//                    let link = object.value(forKey: "link") as! String
+//                    let comments = (object.value(forKey: "comments") as! NSDictionary).value(forKey: "count") as! Int
+//                    let id = object.value(forKey: "id") as! String
+//                    
+//                    let location = object.value(forKey: "location") as? NSDictionary
+//                    
+//                    
+//                    let tags = object.value(forKey: "tags") as? NSArray
+//                    
+//                    
+//                    authService.savePost(uid: uid, createdTime: created_time, caption: caption, likes: likes, link: link, comments: comments, id: id, location:location, tags: tags)
+//                }
+
+                authService.savePosts(uid: uid, posts: dataObject){ () -> () in
+                
+                    if (Singleton.sharedInstance.getInfluenciador().value(forKey: "answered") as! Bool){
+                        self.performSegue(withIdentifier: "toProfile", sender: self)
+                    }else{
+                        self.performSegue(withIdentifier: "toQuestions", sender: self)
+                    }
+
+                
                 }
                 
                 

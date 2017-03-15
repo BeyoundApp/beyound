@@ -4,7 +4,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView! {
         didSet{
-            userImageView.layer.cornerRadius = 50
+            userImageView.layer.cornerRadius = 20
             userImageView.isUserInteractionEnabled = true
         }
     }
@@ -99,6 +99,15 @@ class SignUpViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        
+        let screenWidth = UIScreen.main.bounds.size.width as CGFloat
+        let contentHeight = signUpButton.frame.maxY + 50
+        scrollView.contentSize = CGSize(width: screenWidth, height: contentHeight)
+        
+    }
     
     var pickerView: UIPickerView!
     var categoryArrays = [String]()
@@ -112,9 +121,17 @@ class SignUpViewController: UIViewController {
         setGestureRecognizersToDismissKeyboard()
         retrievingCategory()
         
-        
-            }
+        scrollView.bounces = false
+        scrollView.alwaysBounceVertical = true
+        scrollView.alwaysBounceHorizontal = true
+    }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let screenWidth = UIScreen.main.bounds.size.width as CGFloat
+        let contentHeight = signUpButton.frame.maxY + 50
+        scrollView.contentSize = CGSize(width: screenWidth, height: contentHeight)
+
+    }
     
     func showMessage() {
         
@@ -264,12 +281,18 @@ extension SignUpViewController: UITextFieldDelegate,UIPickerViewDelegate, UIPick
     
     // Moving the View down after the Keyboard appears
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        animateView(up: true, moveValue: 45)
+        
+        scrollView.contentOffset.y = textField.frame.origin.y
+        
+        //animateView(up: true, moveValue: 45)
     }
     
     // Moving the View down after the Keyboard disappears
     func textFieldDidEndEditing(_ textField: UITextField) {
-        animateView(up: false, moveValue: 45)
+        
+        scrollView.contentOffset.y = 0
+        
+        //animateView(up: false, moveValue: 45)
     }
     
     

@@ -46,12 +46,34 @@ class LoginViewController: UIViewController {
             loginButton.layer.backgroundColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
         }
     }
+
+    @IBOutlet weak var registerButton: UIButton!
+
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        
+        let screenWidth = UIScreen.main.bounds.size.width as CGFloat
+        let contentHeight = registerButton.frame.maxY + 50
+        scrollView.contentSize = CGSize(width: screenWidth, height: contentHeight)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGestureRecognizersToDismissKeyboard()
+        
+        scrollView.bounces = false
+        scrollView.alwaysBounceVertical = true
+        scrollView.alwaysBounceHorizontal = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let screenWidth = UIScreen.main.bounds.size.width as CGFloat
+        let contentHeight = registerButton.frame.maxY + 50
+        scrollView.contentSize = CGSize(width: screenWidth, height: contentHeight)
+        
+    }
     
     @IBAction func resetPasswordAction(sender: UIButton) {
         self.view.endEditing(true)
@@ -103,12 +125,16 @@ extension LoginViewController: UITextFieldDelegate  {
     
     // Moving the View down after the Keyboard appears
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        animateView(up: true, moveValue: 80)
+        scrollView.contentOffset.y = 45
+
+        //animateView(up: true, moveValue: 80)
     }
     
     // Moving the View down after the Keyboard disappears
     func textFieldDidEndEditing(_ textField: UITextField) {
-        animateView(up: false, moveValue: 80)
+        scrollView.contentOffset.y = 0
+
+        //animateView(up: false, moveValue: 80)
     }
     
     // Move the View Up & Down when the Keyboard appears

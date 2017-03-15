@@ -131,7 +131,7 @@ struct AuthService {
     
     
     
-    public func setInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!, answered: Bool) -> Bool{
+    public func setInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!, answered: Bool, completion: @escaping (Error?) -> ()){
         
         let imagePath = "profileImage\(uid)/userPic.jpg"
         
@@ -140,8 +140,6 @@ struct AuthService {
         let metaData = FIRStorageMetadata()
         metaData.contentType = "image/jpeg"
         
-        var success = true
-
         
         imageRef.put(pictureData as Data, metadata: metaData) { (newMetaData, error) in
             
@@ -149,20 +147,36 @@ struct AuthService {
             if error == nil {
                 
                 if let photoURL = newMetaData!.downloadURL() {
-                    let result = self.saveInfluenciador(uid: uid ,username:username, fullName:fullName, followers:followers, following:following, biography:biography, website: website,mediaCount:mediaCount, photoURL: String(describing:photoURL), answered: answered)
-                    success = result;
+                    
+                    let userInfo = ["uid":uid,"username": username, "full_name": fullName, "followers": followers, "following":following, "media_count": mediaCount, "biography":biography, "website":website, "photoURL": String(describing:photoURL), "answered": answered] as [String : Any]
+                    
+                    let userRef = self.dataBaseRef.child("influenciadores").child(uid)
+                    
+                    userRef.updateChildValues(userInfo) { (error, ref) in
+                        if error == nil {
+                            print("user info saved successfully")
+
+                        }else {
+                            print(error!.localizedDescription)
+                        }
+                        
+                        completion(nil)
+                    }
+
+                    
                 }else{
                     print(error!.localizedDescription)
-                    
+                    completion(nil)
+
                 }
                 
             }else {
                 print(error!.localizedDescription)
+                completion(nil)
             }
             
         }
         
-        return success
         
     }
     
@@ -200,6 +214,27 @@ struct AuthService {
             }
         }
 
+        
+        
+    }
+    
+    public func savePosts(uid: String, posts : NSArray?, completion: @escaping () -> ()){
+        
+        
+        let postRef = dataBaseRef.child("influenciadores").child(uid)
+        
+        let postsData = ["posts" : posts ?? "error"] as [String : Any]
+        
+        postRef.updateChildValues(postsData) { (error, ref) in
+            if error == nil {
+                print("posts info saved successfully")
+                completion()
+            }else {
+                print(error!.localizedDescription)
+                completion()
+            }
+        }
+        
         
         
     }
