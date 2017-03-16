@@ -42,16 +42,12 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
          ///Sequencia das tags
          let allTags = ["1": ["Maquiagem", "Sapatos", "Acessórios"], "2": ["Estiloso", "Feliz", "Rico"], "3": ["Nike", "Globo", "Melissa"], "4": ["Selfie", "Paisagem", "Cotidiano"], "5": ["Homens", "Mulheres", "Entre 15 a 30 anos"], "6": ["100", "1000", "10000"], "7": ["Toda semana", "Quase todo mês", "Raramente"], "8": ["Expert", "Youtuber", "Instagrammer"], "9": ["Merchandising de produtos", "Makes", "Body Builder"], "10": ["Postando frequentemente", "Postando o assunto que eles gostam", "Respondendo eles rapidamente"]] as NSDictionary
         
+        ///Sequencia das tags
+        let allTagsGrades = ["1": [5, 4, 3], "2": [3, 4, 5], "3": [1, 1, 1], "4": [3, 4, 5], "5": [5, 5, 5], "6": [1, 2, 4], "7": [5, 4, 3], "8": [5, 4, 4], "9": [4, 5, 4], "10": [4, 5, 6]] as NSDictionary
+
+        
         tags = allTags.value(forKey: String(page)) as! [String]
         
-        let touch = UITapGestureRecognizer(target: self, action: #selector(QuestionViewController.hideKeyboard));
-        touch.cancelsTouchesInView = false
-        self.scrollView.addGestureRecognizer(touch)
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
- 
         if let url = Bundle.main.url(forResource:"questions", withExtension: "plist") {
             do {
                 let data = try Data(contentsOf:url)
@@ -69,41 +65,12 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     }
     
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        
-        self.hideKeyboard()
-        
-    }
-   
-
-    func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.view.frame.origin.y -= keyboardSize.height
-
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
-    }
-    
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tags.count
-    }
-    
-    func hideKeyboard(){
-        view.endEditing(true);
     }
     
     @IBAction func goToNextQuestion(_ sender: Any) {
@@ -116,12 +83,10 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
             
         }
         
-        
-        
-        if(page == totalQuestions){
+        //page == totalQuestions
+        if(page == 3){
             
-            //encerra formulario
-            
+            calculateRanking()
             
         }else{
             
@@ -134,7 +99,6 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
    
-    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -165,12 +129,10 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
         var cell = collectionView.cellForItem(at: indexPath) as! TagViewCell
 
         cell.isMarked = true
         cell.contentView.backgroundColor = UIColor(red: 0.1, green: 0.7, blue: 0.7, alpha: 1)
-        
         
     }
     
@@ -183,29 +145,74 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    @IBAction func addNewTag(_ sender: Any) {
+    func calculateRanking(){
         
-        if((fieldTag.text?.characters.count)! > 0){
-            tags.append(fieldTag.text!)
-            fieldTag.text = ""
-            collectionView.reloadData()
-            self.hideKeyboard()
-        }
+        let likes = self.calculatePostsLikes()
+        
         
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func calculatePostsLikes() -> Int{
         
-        if((fieldTag.text?.characters.count)! > 0){
-            tags.append(fieldTag.text!)
-            fieldTag.text = ""
-            collectionView.reloadData()
-            self.hideKeyboard()
-        }
+        let influenciador = Singleton.sharedInstance.getInfluenciador() as NSDictionary
+        let uid = influenciador.value(forKey: "uid") as! String
         
-        return true
+        var url = "https://tcc-beyound.firebaseio.com/influenciadores/"+uid+"/posts.json?print=pretty"
         
+        var request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
+        var session = URLSession.shared
+        request.httpMethod = "GET"
+        
+        
+        var err: NSError?
+        
+        var task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+            
+            var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            var err: NSError?
+            
+            do{
+                
+                var totalLikes = 0 as Int
+                var totalHashTags = 0 as Int
+
+                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
+                
+                    for item in jsonResult as! [NSDictionary] {
+                        
+                        //quantidade de likes desse post
+                        let count = (item.object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
+                        
+                        //quantidade de hashtags do post
+                        var numberTags = 0 as Int
+                        let tags = (item.object(forKey: "tags") as? NSDictionary)
+                        if((tags) != nil){
+                            numberTags = (tags?.count)!
+                        }
+                        
+                        totalHashTags += numberTags
+                        
+                        let caption = item.object(forKey: "caption") as? NSDictionary
+                        
+                        //verifica se o post tem legenda
+                        if((caption) != nil){
+                            
+                            //palavras da legenda desse post
+                            let subtitle = caption?.value(forKey: "text")
+                            
+                        }
+                        
+                    }
+                }
+                
+            }catch let error as NSError{
+                
+            }
+        })
+        
+        task.resume()
+        
+        return 0
     }
-
-
+    
 }
