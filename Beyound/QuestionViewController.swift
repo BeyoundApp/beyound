@@ -157,16 +157,16 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         let influenciador = Singleton.sharedInstance.getInfluenciador() as NSDictionary
         let uid = influenciador.value(forKey: "uid") as! String
         
-        var url = "https://tcc-beyound.firebaseio.com/influenciadores/"+uid+"/posts.json?print=pretty"
+        let url = "https://tcc-beyound.firebaseio.com/influenciadores/"+uid+"/posts.json?print=pretty"
         
-        var request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
-        var session = URLSession.shared
+        let request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
+        let session = URLSession.shared
         request.httpMethod = "GET"
         
         
         var err: NSError?
         
-        var task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             
             var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             var err: NSError?
@@ -198,15 +198,25 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
                         if((caption) != nil){
                             
                             //palavras da legenda desse post
-                            let subtitle = caption?.value(forKey: "text")
+                            let subtitle = caption?.value(forKey: "text") as! String
+                            let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:"))
                             
+                           
+                            for var i in (0..<components.count).reversed(){
+                                var dictionary = [[String: AnyObject]]()
+                                let word = components
+                                
+                                if word[i].isEmpty == false{
+                                    dictionary.append(["nome" : word[i] as AnyObject, "like" : count as AnyObject])
+                                }
+                            }
                         }
                         
                     }
                 }
                 
             }catch let error as NSError{
-                
+               print(error)
             }
         })
         
