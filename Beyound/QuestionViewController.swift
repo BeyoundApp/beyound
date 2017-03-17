@@ -19,8 +19,12 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
     var page: Int!
     var question : String?
     
+    var totalGrades : Int!
+    
+    var tagsGrades = [Int]()
     var tags = [String]()
     var totalQuestions :Int = 10
+    var weight : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +45,16 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         
          ///Sequencia das tags
          let allTags = ["1": ["Maquiagem", "Sapatos", "Acessórios"], "2": ["Estiloso", "Feliz", "Rico"], "3": ["Nike", "Globo", "Melissa"], "4": ["Selfie", "Paisagem", "Cotidiano"], "5": ["Homens", "Mulheres", "Entre 15 a 30 anos"], "6": ["100", "1000", "10000"], "7": ["Toda semana", "Quase todo mês", "Raramente"], "8": ["Expert", "Youtuber", "Instagrammer"], "9": ["Merchandising de produtos", "Makes", "Body Builder"], "10": ["Postando frequentemente", "Postando o assunto que eles gostam", "Respondendo eles rapidamente"]] as NSDictionary
-        
-        ///Sequencia das tags
-        let allTagsGrades = ["1": [5, 4, 3], "2": [3, 4, 5], "3": [1, 1, 1], "4": [3, 4, 5], "5": [5, 5, 5], "6": [1, 2, 4], "7": [5, 4, 3], "8": [5, 4, 4], "9": [4, 5, 4], "10": [4, 5, 6]] as NSDictionary
-
-        
         tags = allTags.value(forKey: String(page)) as! [String]
+
+        ///Notas das tags
+        let allTagsGrades = ["1": [5, 4, 3], "2": [3, 4, 5], "3": [1, 1, 1], "4": [3, 4, 5], "5": [5, 5, 5], "6": [1, 2, 4], "7": [5, 4, 3], "8": [5, 4, 4], "9": [4, 5, 4], "10": [4, 5, 6]] as NSDictionary
+        tagsGrades = allTagsGrades.value(forKey: String(page)) as! [Int]
+
+        //pesos das perguntas
+        let allWeights = [10, 5, 5, 10, 4, 3, 5, 10, 5, 3] as [Int]
+        //peso da pergunta atual
+        weight = allWeights[page-1]
         
         if let url = Bundle.main.url(forResource:"questions", withExtension: "plist") {
             do {
@@ -77,22 +85,29 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let indexPaths = collectionView.indexPathsForSelectedItems
         
+        //calcula a primeira parte da equação, soma das medias dos resultados da pergunta de acordo com as notas das tags
+        var sum = 0
+        var avg = 0
+        
         for item in indexPaths! {
-            
-            print(tags[item.row])
-            
+            sum += tagsGrades[item.row]
         }
         
-        //page == totalQuestions
-        if(page == 3){
-            
-            calculateRanking()
+        avg = sum / indexPaths!.count
+        //multiplica a média das respostas das tags pelo peso da pergunta
+        avg *= weight
+        
+        if(page == totalQuestions){
+
+            self.totalGrades! += avg
+            performSegue(withIdentifier: "questionToProfile", sender: self)
             
         }else{
             
             let nextQuestion = self.storyboard?.instantiateViewController(withIdentifier: "questionController") as! QuestionViewController
             
             nextQuestion.page = self.page+1
+            nextQuestion.totalGrades = self.totalGrades + avg
             self.navigationController?.pushViewController(nextQuestion, animated: true)
 
         }
@@ -145,84 +160,15 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    func calculateRanking(){
-        
-        let likes = self.calculatePostsLikes()
-        
-        
-    }
-    
-    func calculatePostsLikes() -> Int{
-        
-        let influenciador = Singleton.sharedInstance.getInfluenciador() as NSDictionary
-        let uid = influenciador.value(forKey: "uid") as! String
-        
-        let url = "https://tcc-beyound.firebaseio.com/influenciadores/"+uid+"/posts.json?print=pretty"
-        
-        let request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
-        let session = URLSession.shared
-        request.httpMethod = "GET"
-        
-        
-        var err: NSError?
-        
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-            
-            var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            var err: NSError?
-            
-            do{
-                
-                var totalLikes = 0 as Int
-                var totalHashTags = 0 as Int
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
-                
-                    for item in jsonResult as! [NSDictionary] {
-                        
-                        //quantidade de likes desse post
-                        let count = (item.object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
-                        
-                        //quantidade de hashtags do post
-                        var numberTags = 0 as Int
-                        let tags = (item.object(forKey: "tags") as? NSDictionary)
-                        if((tags) != nil){
-                            numberTags = (tags?.count)!
-                        }
-                        
-                        totalHashTags += numberTags
-                        
-                        let caption = item.object(forKey: "caption") as? NSDictionary
-                        
-                        //verifica se o post tem legenda
-                        if((caption) != nil){
-                            
-                            //palavras da legenda desse post
-                            let subtitle = caption?.value(forKey: "text") as! String
-                            let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:"))
-                            
-                           
-                            for var i in (0..<components.count).reversed(){
-                                var dictionary = [[String: AnyObject]]()
-                                let word = components
-                                
-                                if word[i].isEmpty == false{
-                                    dictionary.append(["nome" : word[i] as AnyObject, "like" : count as AnyObject])
-                                }
-                            }
-                        }
-                        
-                    }
-                }
-                
-            }catch let error as NSError{
-               print(error)
-            }
-        })
+        if(segue.identifier == "questionToProfile"){
+            
+            let influenciadorViewController = segue.destination as! IndexInfluenciadorViewController
+            influenciadorViewController.didCameFromQuestionary = true
+            influenciadorViewController.questionGrade = totalGrades
+        }
         
-        task.resume()
-        
-        return 0
     }
-    
+        
 }

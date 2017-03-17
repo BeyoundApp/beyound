@@ -128,10 +128,7 @@ struct AuthService {
     
     
     // SET E SAVE INFLUENCIADORES
-    
-    
-    
-    public func setInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!, answered: Bool, completion: @escaping (Error?) -> ()){
+    public func setInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!, answered: Bool, questionaryTotal: Int,score:Int,  completion: @escaping (Error?) -> ()){
         
         let imagePath = "profileImage\(uid)/userPic.jpg"
         
@@ -148,7 +145,7 @@ struct AuthService {
                 
                 if let photoURL = newMetaData!.downloadURL() {
                     
-                    let userInfo = ["uid":uid,"username": username, "full_name": fullName, "followers": followers, "following":following, "media_count": mediaCount, "biography":biography, "website":website, "photoURL": String(describing:photoURL), "answered": answered] as [String : Any]
+                    let userInfo = ["uid":uid,"username": username, "full_name": fullName, "followers": followers, "following":following, "media_count": mediaCount, "biography":biography, "website":website, "photoURL": String(describing:photoURL), "answered": answered, "questionaryTotal": questionaryTotal, "score": score] as [String : Any]
                     
                     let userRef = self.dataBaseRef.child("influenciadores").child(uid)
                     
@@ -200,6 +197,57 @@ struct AuthService {
         return success
     }
 
+    public func updateInfluenciadorQuestionary(uid:String, questionaryTotal : Int, completion: @escaping (Bool) -> ()){
+        
+        let userInfo = ["questionaryTotal":questionaryTotal, "answered": 1]
+        let userRef = dataBaseRef.child("influenciadores").child(uid)
+        
+        userRef.updateChildValues(userInfo) { (error, ref) in
+            if error == nil {
+                completion(true)
+            }else {
+                completion(false)
+                print(error!.localizedDescription)
+            }
+        }
+
+        
+    }
+    
+    public func updateInfluenciadorScore(uid:String, score : Int, completion: @escaping (Bool) -> ()){
+        
+        let userInfo = ["score":score]
+        let userRef = dataBaseRef.child("influenciadores").child(uid)
+        
+        userRef.updateChildValues(userInfo) { (error, ref) in
+            if error == nil {
+                completion(true)
+            }else {
+                completion(false)
+                print(error!.localizedDescription)
+            }
+        }
+        
+        
+    }
+
+    public func updateInfluenciadorQuestionaryAndScore(uid:String, questionaryTotal : Int, score : Int, completion: @escaping (Bool) -> ()){
+        
+        let userInfo = ["questionaryTotal":questionaryTotal, "answered": 1, "score":score]
+        let userRef = dataBaseRef.child("influenciadores").child(uid)
+        
+        userRef.updateChildValues(userInfo) { (error, ref) in
+            if error == nil {
+                completion(true)
+            }else {
+                completion(false)
+                print(error!.localizedDescription)
+            }
+        }
+        
+        
+    }
+    
     public func savePost(uid: String ,createdTime: String, caption: NSDictionary?, likes:Int, link:String, comments:Int, id: String, location: NSDictionary?, tags: NSArray?){
         
         let postInfo = ["created_time":createdTime, "caption":caption, "likes":likes, "link":link, "comments":comments, "id":id, "location":location, "tags":tags] as [String : Any]

@@ -38,7 +38,7 @@ class QuestionsViewController: UIViewController, TagViewDelegate {
             var questionViewController = segue.destination.childViewControllers[0] as! QuestionViewController
             
             questionViewController.page = 1
-            
+            questionViewController.totalGrades = 0
         }
         
     }

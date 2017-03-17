@@ -108,8 +108,10 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
                         
                         
                         let answered = false
+                        let questionaryTotal = 0
+                        let score = 0
                         
-                        authService.setInfluenciador(uid: id, username: username, fullName: name, followers: followers, following: following, biography: biography, website: website, mediaCount: media, pictureData: profile, answered: answered){ (error) -> () in
+                        authService.setInfluenciador(uid: id, username: username, fullName: name, followers: followers, following: following, biography: biography, website: website, mediaCount: media, pictureData: profile, answered: answered, questionaryTotal: questionaryTotal, score:score){ (error) -> () in
                         
                             if(error == nil){
                                 authService.findInfluenciador(uid: id){ (influenciador) -> () in
@@ -129,6 +131,8 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
                                 self.dismiss(animated: true, completion: nil)
                             }
                         }
+                        
+                        
                     }
                 }
             }
@@ -223,6 +227,16 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "toProfile"){
+            
+            let influenciadorViewController = segue.destination as! IndexInfluenciadorViewController
+            influenciadorViewController.didCameFromQuestionary = false
+            
+        }
+        
+    }
     
     func loadUserData(accessToken: String){
         

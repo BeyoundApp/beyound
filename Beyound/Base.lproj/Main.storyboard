@@ -1516,6 +1516,7 @@
                         <outlet property="collectionView" destination="DnJ-Zk-FCH" id="Pwn-1u-Eql"/>
                         <outlet property="labelQuestionTitle" destination="Czu-e2-UUW" id="jzC-DK-zy4"/>
                         <outlet property="scrollView" destination="FoB-XG-jaK" id="Hvq-PF-aDd"/>
+                        <segue destination="ZVa-yO-dbI" kind="presentation" identifier="questionToProfile" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="d3o-ZG-lLR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGD-iB-3LI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1691,7 +1692,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Szl-lS-2if" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096.8" y="-501.49925037481262"/>
+            <point key="canvasLocation" x="2934" y="-616"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FnT-l8-yO2">
@@ -1765,4 +1766,7 @@
         <image name="user.png" width="128" height="128"/>
         <image name="white.fw" width="214" height="209"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="d3o-ZG-lLR"/>
+    </inferredMetricsTieBreakers>
 </document>
