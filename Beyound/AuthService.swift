@@ -152,24 +152,24 @@ struct AuthService {
                     userRef.updateChildValues(userInfo) { (error, ref) in
                         if error == nil {
                             print("user info saved successfully")
-
+                            completion(nil)
                         }else {
                             print(error!.localizedDescription)
                         }
                         
-                        completion(nil)
+                        completion(error)
                     }
 
                     
                 }else{
                     print(error!.localizedDescription)
-                    completion(nil)
+                    completion(error)
 
                 }
                 
             }else {
                 print(error!.localizedDescription)
-                completion(nil)
+                completion(error)
             }
             
         }
@@ -197,6 +197,23 @@ struct AuthService {
         return success
     }
 
+    public func saveScore(uid: String, words: NSDictionary, completion: @escaping (Bool) -> ()){
+        
+        let scoreInfo = words
+        let scoreRef = dataBaseRef.child("scores").child(uid)
+        
+        scoreRef.updateChildValues(scoreInfo as! [AnyHashable : Any]) { (error, ref) in
+            if error == nil {
+                completion(true)
+                print("scores info saved successfully")
+            }else {
+                completion(false)
+                print(error!.localizedDescription)
+            }
+        }
+        
+    }
+    
     public func updateInfluenciadorQuestionary(uid:String, questionaryTotal : Int, completion: @escaping (Bool) -> ()){
         
         let userInfo = ["questionaryTotal":questionaryTotal, "answered": 1]
@@ -296,6 +313,17 @@ struct AuthService {
             }) { (error) in
                 completion(nil)
                 print(error.localizedDescription)
+        }
+    }
+    
+    public func findScores(uid: String, completion: @escaping (NSDictionary?) -> ()){
+        let find = dataBaseRef.child("scores").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let score = snapshot.value as? NSDictionary
+            completion(score)
+        }) { (error) in
+            completion(nil)
+            print(error.localizedDescription)
         }
     }
     

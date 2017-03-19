@@ -17,6 +17,8 @@ class IndexInfluenciadorViewController: UIViewController {
     
     var questionGrade : Int?
     var didCameFromQuestionary : Bool!
+    var arrayPosts : NSArray = []
+    var dictWords : NSMutableDictionary = [:]
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -49,8 +51,15 @@ class IndexInfluenciadorViewController: UIViewController {
          }
         
         //recalcula o seu ranking
-        recalculateRanking()
- 
+        getPosts(){(completion) -> () in
+            if(completion == nil){
+                self.getScores(){(completion2) -> () in
+                    if(completion2 == nil){
+                        self.calculateScores()
+                    }
+                }
+            }
+        }
     }
     
     private func calcuateDaysBetweenTwoDates(start: Date, end: Date) -> Int {
@@ -65,7 +74,48 @@ class IndexInfluenciadorViewController: UIViewController {
         return end - start
     }
     
-    func recalculateRanking(){
+    func getScores(completion: @escaping (Error?) -> ()){
+        
+        let influenciador = Singleton.sharedInstance.getInfluenciador() as NSDictionary
+        let uid = influenciador.value(forKey: "uid") as! String
+        
+        let url = "https://tcc-beyound.firebaseio.com/scores/"+uid+".json?print=pretty"
+        
+        let request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        
+        var err: NSError?
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+            
+            var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            var err: NSError?
+            var string = String(data: data!, encoding: .utf8)
+
+            if string == "null\n"{
+                
+                completion(nil)
+                
+            }else{
+
+                do{
+                    
+                    if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
+                        self.dictWords = jsonResult.mutableCopy() as! NSMutableDictionary
+                        completion(nil)
+                    }
+                }catch let error as NSError{
+                    print(error)
+                    completion(nil)
+                }
+        
+            }
+        })
+        task.resume()
+    }
+    
+    func getPosts(completion: @escaping (Error?) -> ()){
         
         let influenciador = Singleton.sharedInstance.getInfluenciador() as NSDictionary
         let uid = influenciador.value(forKey: "uid") as! String
@@ -82,91 +132,19 @@ class IndexInfluenciadorViewController: UIViewController {
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             
             var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+
             var err: NSError?
             
             do{
                 
-                var totalLikes = 0 as Int
-                var totalHashTags = 0 as Int
-                
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
                     
-                    for item in jsonResult as! [NSDictionary] {
-                        
-                        //quantidade de likes desse post
-                        let count = (item.object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
-                        
-                        //quantidade de hashtags do post
-                        var numberTags = 0 as Int
-                        let tags = (item.object(forKey: "tags") as? NSDictionary)
-                        if((tags) != nil){
-                            numberTags = (tags?.count)!
-                        }
-                        
-                        totalHashTags += numberTags
-                        
-                        let caption = item.object(forKey: "caption") as? NSDictionary
-                        
-                        //verifica se o post tem legenda
-                        if((caption) != nil){
-                            
-                            //palavras da legenda desse post
-                            let subtitle = caption?.value(forKey: "text") as! String
-                            let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:"))
-                            
-                            
-                            for var i in (0..<components.count).reversed(){
-                                var dictionary = [[String: AnyObject]]()
-                                let word = components
-                            
-                                if word[i].isEmpty == false{
-                                    dictionary.append(["nome" : word[i] as AnyObject, "like" : count as AnyObject])
-
-                                    
-                                    totalLikes += count
-                                }
-                            }
-                        }
-                    }
-                    //calcula frequencia
-                    let firstPostDate = NSDate(timeIntervalSince1970: Double((jsonResult[0] as! NSDictionary).value(forKey: "created_time") as! String)!) as NSDate
-                    let lastPostDate = NSDate(timeIntervalSince1970: Double((jsonResult.lastObject as! NSDictionary).value(forKey: "created_time") as! String)!) as NSDate
-                    //frequencia tem que ser negativa pois quanto maior o calculo abaixo, pior o ranking
-                    let freq = self.calcuateDaysBetweenTwoDates(start: firstPostDate as Date, end: lastPostDate as Date)
-                    
-                    let followers = Singleton.sharedInstance.getInfluenciador().value(forKey: "followers") as! Int
-                    let following = Singleton.sharedInstance.getInfluenciador().value(forKey: "following") as! Int
-
-                    let ffRatio = Double(followers)/Double(following) as Double
-
-                    //instancia o AuthService
-                    let authService = AuthService()
-
-                    //verifica se acabou de finalizar o questionario
-                    if(self.didCameFromQuestionary == true){
-                        
-                        let newScore = self.questionGrade! + totalLikes * 15 + totalHashTags * 10 + freq * 5 + Int(ffRatio*10)
-                        authService.updateInfluenciadorQuestionaryAndScore(uid: uid, questionaryTotal: self.questionGrade!, score: newScore){(success) -> () in
-                            if(success){
-                                print("updated score")
-                            }
-                        }
-                    }else{
-                        
-                        let currentQuestionGrade = Singleton.sharedInstance.getInfluenciador().value(forKey: "questionaryTotal") as! Int
-                        
-                        let newScore = currentQuestionGrade + totalLikes * 15 + totalHashTags * 10 + freq * 5 + Int(ffRatio*10)
-                        authService.updateInfluenciadorScore(uid: uid, score: newScore){(success) -> () in
-                            if(success){
-                                print("updated score")
-                            }
-                        }
-
-                    }
-                    
+                    self.arrayPosts = jsonResult
+                    completion(nil)
                 }
                 
             }catch let error as NSError{
+                completion(error)
                 print(error)
             }
         })
@@ -174,4 +152,89 @@ class IndexInfluenciadorViewController: UIViewController {
         task.resume()
     }
 
+    func calculateScores(){
+        let influenciador = Singleton.sharedInstance.getInfluenciador() as NSDictionary
+        let uid = influenciador.value(forKey: "uid") as! String
+
+        let jsonResult = self.arrayPosts
+        
+        //calcula frequencia
+        let firstPostDate = NSDate(timeIntervalSince1970: Double((jsonResult[0] as! NSDictionary).value(forKey: "created_time") as! String)!) as NSDate
+        let lastPostDate = NSDate(timeIntervalSince1970: Double((jsonResult.lastObject as! NSDictionary).value(forKey: "created_time") as! String)!) as NSDate
+        
+        //frequencia tem que ser negativa pois quanto maior o calculo abaixo, pior o ranking
+        let freq = self.calcuateDaysBetweenTwoDates(start: firstPostDate as Date, end: lastPostDate as Date)
+        
+        let followers = Singleton.sharedInstance.getInfluenciador().value(forKey: "followers") as! Int
+        let following = Singleton.sharedInstance.getInfluenciador().value(forKey: "following") as! Int
+        
+        let ffRatio = Double(followers)/Double(following) as Double
+        
+        //instancia o AuthService
+        let authService = AuthService()
+        
+        //resultado do questionario
+        var questionaryResult = Int()
+        if(self.didCameFromQuestionary == true){
+            questionaryResult = self.questionGrade!
+            authService.updateInfluenciadorQuestionary(uid: uid, questionaryTotal: questionaryResult){(completion) -> () in
+                
+            }
+        }else{
+            questionaryResult = Singleton.sharedInstance.getInfluenciador().value(forKey: "questionaryTotal") as! Int
+        }
+        
+        
+        var newWords = NSDictionary()
+        
+        var baseScore = self.questionGrade! + freq * 5 + Int(ffRatio*10) as Int
+        
+        for item in jsonResult as! [NSDictionary] {
+            
+            //quantidade de likes desse post
+            let count = (item.object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
+            
+            //quantidade de hashtags do post
+            var numberTags = 0 as Int
+            let tags = (item.object(forKey: "tags") as? NSDictionary)
+            if((tags) != nil){
+                numberTags = (tags?.count)!
+            }
+            
+            let caption = item.object(forKey: "caption") as? NSDictionary
+            
+            //verifica se o post tem legenda
+            if((caption) != nil){
+            
+                baseScore += count * 15 + numberTags * 10
+                
+                //palavras da legenda desse post
+                let subtitle = caption?.value(forKey: "text") as! String
+                let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:#"))
+                
+                
+                for var i in (0..<components.count).reversed(){
+                    var dictionary = [[String: AnyObject]]()
+                    let word = components
+                    
+                    if word[i].isEmpty == false{
+                    
+                        if(dictWords.object(forKey: word[i]) != nil){
+                            var currentScore = dictWords.object(forKey: word[i]) as! CLongLong
+                            currentScore += baseScore
+                            dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
+                        }else{
+                            var currentScore = CLongLong(baseScore)
+                            dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
+
+                        }
+                    }
+                }
+            }
+        }
+        authService.saveScore(uid: uid, words: dictWords){(success) -> () in
+            
+        }
+    }
+    
 }
