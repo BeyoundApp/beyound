@@ -15,6 +15,9 @@ class IndexInfluenciadorViewController: UIViewController {
         //do something with this logout button
     }
     
+    @IBOutlet weak var following: UILabel!
+    @IBOutlet weak var followerLabel: UILabel!
+    @IBOutlet weak var postView: UIImageView!
     var questionGrade : Int?
     var didCameFromQuestionary : Bool!
     var arrayPosts : NSArray = []
@@ -38,21 +41,34 @@ class IndexInfluenciadorViewController: UIViewController {
         
          let name = influenciador.value(forKey: "full_name") as! String
          let username = influenciador.value(forKey: "username") as! String
+         let followers = influenciador.value(forKey: "followers") as! Int
+         let following = influenciador.value(forKey: "following") as! Int
          let url = NSURL(string: influenciador.value(forKey:"photoURL") as! String)!
          let profile = NSData(contentsOf: url as URL)
         
          self.nameLabel.text = name
          self.usernameLabel.text = "@" + username
+        self.following.text = String(following)
+         self.followerLabel.text = String(followers)
         
-         DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
                 self.perfil.image = UIImage(data: profile as! Data)
             }
-         }
-        
-        //recalcula o seu ranking
+        }        //recalcula o seu ranking
         getPosts(){(completion) -> () in
             if(completion == nil){
+                
+                let postUrl = NSURL(string: ((((self.arrayPosts[0] as! NSDictionary).object(forKey: "images") as! NSDictionary).object(forKey: "standard_resoution") as! NSDictionary).value(forKey: "url") as! String))
+                let firstPost = NSData(contentsOf: postUrl as! URL)
+                
+                DispatchQueue.global(qos: .background).async {
+                    // Background Thread
+                    DispatchQueue.main.async {
+                        self.postView.image = UIImage(data: firstPost as! Data)
+                    }
+                }
+                   
                 self.getScores(){(completion2) -> () in
                     if(completion2 == nil){
                         self.calculateScores()
@@ -60,6 +76,12 @@ class IndexInfluenciadorViewController: UIViewController {
                 }
             }
         }
+        
+        
+        
+        
+        
+        
     }
     
     private func calcuateDaysBetweenTwoDates(start: Date, end: Date) -> Int {
@@ -218,16 +240,20 @@ class IndexInfluenciadorViewController: UIViewController {
                     let word = components
                     
                     if word[i].isEmpty == false{
-                    
-                        if(dictWords.object(forKey: word[i]) != nil){
-                            var currentScore = dictWords.object(forKey: word[i]) as! CLongLong
-                            currentScore += baseScore
-                            dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
-                        }else{
-                            var currentScore = CLongLong(baseScore)
-                            dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
+                       // let noEmoji = word[i].characters.reduce("")
+                       // var item = "\($1)"
+                      //  let isEmoji = item.containsEmoji
+                       // if isEmoji == false {
+                            if(dictWords.object(forKey: word[i]) != nil){
+                                var currentScore = dictWords.object(forKey: word[i]) as! CLongLong
+                                currentScore += baseScore
+                                dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
+                            }else{
+                                var currentScore = CLongLong(baseScore)
+                                dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
 
-                        }
+                            }
+                       // }
                     }
                 }
             }
@@ -237,4 +263,23 @@ class IndexInfluenciadorViewController: UIViewController {
         }
     }
     
+}
+extension String {
+    var containsEmoji: Bool {
+        for scalar in unicodeScalars {
+            switch scalar.value {
+            case 0x1F600...0x1F64F, // Emoticons
+            0x1F300...0x1F5FF, // Misc Symbols and Pictographs
+            0x1F680...0x1F6FF, // Transport and Map
+            0x2600...0x26FF,   // Misc symbols
+            0x2700...0x27BF,   // Dingbats
+            0xFE00...0xFE0F,   // Variation Selectors
+            0x1F900...0x1F9FF:   // Various (e.g. 🤖)
+                return true
+            default:
+                continue
+            }
+        }
+        return false
+    }
 }

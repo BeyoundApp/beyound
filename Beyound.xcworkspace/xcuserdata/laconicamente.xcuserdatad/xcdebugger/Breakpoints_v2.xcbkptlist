@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "212"
             endingLineNumber = "212"
-            landmarkName = "findInfluenciador(uid:)"
+            landmarkName = "updateInfluenciadorQuestionary(uid:questionaryTotal:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -182,11 +182,26 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Beyound.QuestionViewController.tags.getter : Swift.Array&lt;Swift.String&gt;"
+                  symbolName = "Beyound.QuestionViewController.totalGrades.getter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Int&gt;"
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "511163421.081008"
+                  timestampString = "511754731.812887"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beyound.QuestionViewController.totalGrades.setter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Int&gt;"
+                  moduleName = "Beyound"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
+                  timestampString = "511754731.971867"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -197,31 +212,16 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Beyound.QuestionViewController.tags.setter : Swift.Array&lt;Swift.String&gt;"
-                  moduleName = "Beyound"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "511163421.088912"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
                   symbolName = "Beyound.QuestionViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Beyound.QuestionViewController"
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "511163421.096814"
+                  timestampString = "511754732.093615"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
                   endingLineNumber = "22"
-                  offsetFromSymbolStart = "492">
+                  offsetFromSymbolStart = "524">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -231,12 +231,12 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "511163421.10576"
+                  timestampString = "511754732.233179"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
                   endingLineNumber = "22"
-                  offsetFromSymbolStart = "428">
+                  offsetFromSymbolStart = "464">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -252,9 +252,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "calculatePostsLikes()"
-            landmarkType = "7">
+            endingLineNumber = "206">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -268,9 +266,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "calculatePostsLikes()"
-            landmarkType = "7">
+            endingLineNumber = "207">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -284,9 +280,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "calculatePostsLikes()"
-            landmarkType = "7">
+            endingLineNumber = "210">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -300,8 +294,134 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "calculatePostsLikes()"
+            endingLineNumber = "219">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/IndexInfluenciadorViewController.swift"
+            timestampString = "511751384.22727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/IndexInfluenciadorViewController.swift"
+            timestampString = "511751438.781521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/IndexInfluenciadorViewController.swift"
+            timestampString = "511751448.024472"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/IndexInfluenciadorViewController.swift"
+            timestampString = "511762721.816267"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beyound.IndexInfluenciadorViewController.(viewDidLoad () -&gt; ()).(closure #2)"
+                  moduleName = "Beyound"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/IndexInfluenciadorViewController.swift"
+                  timestampString = "511754728.947914"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beyound.IndexInfluenciadorViewController.(viewDidLoad () -&gt; ()).(closure #2).(closure #1)"
+                  moduleName = "Beyound"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/IndexInfluenciadorViewController.swift"
+                  timestampString = "511754729.018127"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/IndexInfluenciadorViewController.swift"
+            timestampString = "511762721.816267"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/IndexInfluenciadorViewController.swift"
+            timestampString = "511762721.816267"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
