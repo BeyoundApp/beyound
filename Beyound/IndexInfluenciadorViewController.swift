@@ -30,6 +30,7 @@ class IndexInfluenciadorViewController: UIViewController {
         didSet{
             perfil.layer.cornerRadius = 45
             perfil.layer.masksToBounds = true
+            perfil.layer.shadowOffset = CGSize(width: 3.0, height: 2.0)
         }
     }
     
@@ -194,7 +195,7 @@ class IndexInfluenciadorViewController: UIViewController {
         
         for item in jsonResult as! [NSDictionary] {
             
-            var baseScore = questionaryResult + Int(ffRatio*10) as Int
+            var baseScore = questionaryResult + Int(ffRatio*100) as Int
 
             //quantidade de likes desse post
             let count = (item.object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int

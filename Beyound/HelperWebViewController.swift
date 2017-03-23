@@ -33,6 +33,8 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
         var urlString: String = request.url!.absoluteString
+
+        webView.isHidden = !urlString.contains("https://api.instagram.com/");
         
         var UrlPartsIfSuccess: [String] = urlString.components(separatedBy: "http://www.beyound.com.br/#access_token=")
         
