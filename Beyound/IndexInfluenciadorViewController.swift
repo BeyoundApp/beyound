@@ -192,13 +192,17 @@ class IndexInfluenciadorViewController: UIViewController {
             questionaryResult = Singleton.sharedInstance.getInfluenciador().value(forKey: "questionaryTotal") as! Int
         }
         
-        
-        var baseScore = questionaryResult + Int(ffRatio*10) as Int
-        
         for item in jsonResult as! [NSDictionary] {
             
+            var baseScore = questionaryResult + Int(ffRatio*10) as Int
+
             //quantidade de likes desse post
             let count = (item.object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
+            
+            //numero comentarios
+            let comments = (item.object(forKey: "comments") as! NSDictionary).value(forKey: "count") as! Int
+
+            
             //verifica se o numero de likes alcançac o total de 5% de seguidores
             if (Double(count) > Double(followers)*0.05){
                 //quantidade de hashtags do post
@@ -213,7 +217,7 @@ class IndexInfluenciadorViewController: UIViewController {
                 //verifica se o post tem legenda
                 if((caption) != nil){
                     
-                    baseScore += count * 15 + numberTags * 10
+                    baseScore += count * 15 + numberTags * 10 + comments * 5
                     
                     //palavras da legenda desse post
                     let subtitle = caption?.value(forKey: "text") as! String
