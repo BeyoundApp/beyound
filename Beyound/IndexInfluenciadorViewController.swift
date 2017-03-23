@@ -59,7 +59,7 @@ class IndexInfluenciadorViewController: UIViewController {
         getPosts(){(completion) -> () in
             if(completion == nil){
                 
-                let postUrl = NSURL(string: ((((self.arrayPosts[0] as! NSDictionary).object(forKey: "images") as! NSDictionary).object(forKey: "standard_resoution") as! NSDictionary).value(forKey: "url") as! String))
+                let postUrl = NSURL(string: ((((self.arrayPosts[0] as! NSDictionary).object(forKey: "images") as! NSDictionary).object(forKey: "standard_resolution") as! NSDictionary).value(forKey: "url") as! String))
                 let firstPost = NSData(contentsOf: postUrl as! URL)
                 
                 DispatchQueue.global(qos: .background).async {
@@ -68,7 +68,7 @@ class IndexInfluenciadorViewController: UIViewController {
                         self.postView.image = UIImage(data: firstPost as! Data)
                     }
                 }
-                   
+                
                 self.getScores(){(completion2) -> () in
                     if(completion2 == nil){
                         self.calculateScores()
@@ -84,17 +84,6 @@ class IndexInfluenciadorViewController: UIViewController {
         
     }
     
-    private func calcuateDaysBetweenTwoDates(start: Date, end: Date) -> Int {
-        
-        let currentCalendar = Calendar.current
-        guard let start = currentCalendar.ordinality(of: .day, in: .era, for: start) else {
-            return 0
-        }
-        guard let end = currentCalendar.ordinality(of: .day, in: .era, for: end) else {
-            return 0
-        }
-        return end - start
-    }
     
     func getScores(completion: @escaping (Error?) -> ()){
         
@@ -184,9 +173,6 @@ class IndexInfluenciadorViewController: UIViewController {
         let firstPostDate = NSDate(timeIntervalSince1970: Double((jsonResult[0] as! NSDictionary).value(forKey: "created_time") as! String)!) as NSDate
         let lastPostDate = NSDate(timeIntervalSince1970: Double((jsonResult.lastObject as! NSDictionary).value(forKey: "created_time") as! String)!) as NSDate
         
-        //frequencia tem que ser negativa pois quanto maior o calculo abaixo, pior o ranking
-        let freq = self.calcuateDaysBetweenTwoDates(start: firstPostDate as Date, end: lastPostDate as Date)
-        
         let followers = Singleton.sharedInstance.getInfluenciador().value(forKey: "followers") as! Int
         let following = Singleton.sharedInstance.getInfluenciador().value(forKey: "following") as! Int
         
@@ -207,53 +193,44 @@ class IndexInfluenciadorViewController: UIViewController {
         }
         
         
-        var newWords = NSDictionary()
-        
-        var baseScore = self.questionGrade! + freq * 5 + Int(ffRatio*10) as Int
+        var baseScore = questionaryResult + Int(ffRatio*10) as Int
         
         for item in jsonResult as! [NSDictionary] {
             
             //quantidade de likes desse post
             let count = (item.object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
-            
-            //quantidade de hashtags do post
-            var numberTags = 0 as Int
-            let tags = (item.object(forKey: "tags") as? NSDictionary)
-            if((tags) != nil){
-                numberTags = (tags?.count)!
-            }
-            
-            let caption = item.object(forKey: "caption") as? NSDictionary
-            
-            //verifica se o post tem legenda
-            if((caption) != nil){
-            
-                baseScore += count * 15 + numberTags * 10
+            //verifica se o numero de likes alcançac o total de 5% de seguidores
+            if (Double(count) > Double(followers)*0.05){
+                //quantidade de hashtags do post
+                var numberTags = 0 as Int
+                let tags = (item.object(forKey: "tags") as? NSDictionary)
+                if((tags) != nil){
+                    numberTags = (tags?.count)!
+                }
                 
-                //palavras da legenda desse post
-                let subtitle = caption?.value(forKey: "text") as! String
-                let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:#"))
+                let caption = item.object(forKey: "caption") as? NSDictionary
                 
-                
-                for var i in (0..<components.count).reversed(){
-                    var dictionary = [[String: AnyObject]]()
-                    let word = components
+                //verifica se o post tem legenda
+                if((caption) != nil){
                     
-                    if word[i].isEmpty == false{
-                       // let noEmoji = word[i].characters.reduce("")
-                       // var item = "\($1)"
-                      //  let isEmoji = item.containsEmoji
-                       // if isEmoji == false {
-                            if(dictWords.object(forKey: word[i]) != nil){
-                                var currentScore = dictWords.object(forKey: word[i]) as! CLongLong
-                                currentScore += baseScore
-                                dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
-                            }else{
+                    baseScore += count * 15 + numberTags * 10
+                    
+                    //palavras da legenda desse post
+                    let subtitle = caption?.value(forKey: "text") as! String
+                    let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:#"))
+                    
+                    
+                    for var i in (0..<components.count).reversed(){
+                        var dictionary = [[String: AnyObject]]()
+                        let word = components
+                        
+                        if word[i].isEmpty == false{
+                            
+                            if(!word[i].containsEmoji){
                                 var currentScore = CLongLong(baseScore)
                                 dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
-
                             }
-                       // }
+                        }
                     }
                 }
             }
