@@ -204,8 +204,8 @@ class IndexInfluenciadorViewController: UIViewController {
             let comments = (item.object(forKey: "comments") as! NSDictionary).value(forKey: "count") as! Int
 
             
-            //verifica se o numero de likes alcançac o total de 5% de seguidores
-            if (Double(count) > Double(followers)*0.05){
+            //verifica se o numero de likes alcançac o total de 1% de seguidores
+            if (Double(count) > Double(followers)*0.01){
                 //quantidade de hashtags do post
                 var numberTags = 0 as Int
                 let tags = (item.object(forKey: "tags") as? NSDictionary)
