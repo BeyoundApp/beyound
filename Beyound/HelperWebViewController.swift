@@ -34,7 +34,7 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
         
         var urlString: String = request.url!.absoluteString
 
-        webView.isHidden = !urlString.contains("https://api.instagram.com/");
+        webView.isHidden = !urlString.contains("instagram.com/")
         
         var UrlPartsIfSuccess: [String] = urlString.components(separatedBy: "http://www.beyound.com.br/#access_token=")
         
