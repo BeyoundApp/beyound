@@ -13,9 +13,11 @@ class Singleton {
     static let sharedInstance = Singleton()
     
     var influenciador : NSDictionary
-    
+    var questionaryResult : NSMutableDictionary
+
     init() {
         self.influenciador = NSDictionary()
+        self.questionaryResult = NSMutableDictionary()
     }
     
     func setInfluenciador(influenciador :NSDictionary){
@@ -24,6 +26,14 @@ class Singleton {
     
     func getInfluenciador() -> NSDictionary{
         return self.influenciador
+    }
+    
+    func setQuestionaryResult(result :NSMutableDictionary){
+        self.questionaryResult = result
+    }
+    
+    func getQuestionaryResult() -> NSMutableDictionary{
+        return self.questionaryResult
     }
     
 }

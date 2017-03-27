@@ -84,34 +84,41 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func goToNextQuestion(_ sender: Any) {
         
         let indexPaths = collectionView.indexPathsForSelectedItems
+        let wordTags = NSMutableArray()
         
-        //calcula a primeira parte da equação, soma das medias dos resultados da pergunta de acordo com as notas das tags
-        var sum = 0
-        var avg = 0
-        
-        for item in indexPaths! {
-            sum += tagsGrades[item.row]
+        if((indexPaths?.count)! > 0){
+            //calcula a primeira parte da equação, soma das medias dos resultados da pergunta de acordo com as notas das tags
+            var sum = 0
+            var avg = 0
+            
+            for item in indexPaths! {
+                sum += tagsGrades[item.row]
+                wordTags.add(tags[item.row])
+            }
+            
+            avg = sum / indexPaths!.count
+            //multiplica a média das respostas das tags pelo peso da pergunta
+            avg *= weight
+            
+            var questionaryResult = Singleton.sharedInstance.getQuestionaryResult() as NSMutableDictionary
+            questionaryResult.setValue(wordTags, forKey: String(page!))
+            
+            if(page == totalQuestions){
+                
+                self.totalGrades! += avg
+                performSegue(withIdentifier: "questionToProfile", sender: self)
+                
+            }else{
+                
+                let nextQuestion = self.storyboard?.instantiateViewController(withIdentifier: "questionController") as! QuestionViewController
+                
+                nextQuestion.page = self.page+1
+                nextQuestion.totalGrades = self.totalGrades + avg
+                self.navigationController?.pushViewController(nextQuestion, animated: true)
+                
+            }
         }
-        
-        avg = sum / indexPaths!.count
-        //multiplica a média das respostas das tags pelo peso da pergunta
-        avg *= weight
-        
-        if(page == totalQuestions){
-
-            self.totalGrades! += avg
-            performSegue(withIdentifier: "questionToProfile", sender: self)
-            
-        }else{
-            
-            let nextQuestion = self.storyboard?.instantiateViewController(withIdentifier: "questionController") as! QuestionViewController
-            
-            nextQuestion.page = self.page+1
-            nextQuestion.totalGrades = self.totalGrades + avg
-            self.navigationController?.pushViewController(nextQuestion, animated: true)
-
-        }
-        
+    
     }
    
     func collectionView(_ collectionView: UICollectionView,

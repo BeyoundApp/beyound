@@ -197,10 +197,10 @@ struct AuthService {
         return success
     }
 
-    public func saveScore(uid: String, words: NSDictionary, completion: @escaping (Bool) -> ()){
+    public func saveScore(words: NSDictionary, completion: @escaping (Bool) -> ()){
         
         let scoreInfo = words
-        let scoreRef = dataBaseRef.child("scores").child(uid)
+        let scoreRef = dataBaseRef.child("scores")
         
         scoreRef.updateChildValues(scoreInfo as! [AnyHashable : Any]) { (error, ref) in
             if error == nil {
@@ -214,9 +214,10 @@ struct AuthService {
         
     }
     
-    public func updateInfluenciadorQuestionary(uid:String, questionaryTotal : Int, completion: @escaping (Bool) -> ()){
+    public func updateInfluenciadorQuestionary(uid:String, questionaryTotal : Int, questionaryResult: NSMutableDictionary, completion: @escaping (Bool) -> ()){
         
-        let userInfo = ["questionaryTotal":questionaryTotal, "answered": 1]
+        let userInfo = ["questionaryTotal":questionaryTotal, "answered": 1 , "questionaryResult": questionaryResult] as [String : Any]
+
         let userRef = dataBaseRef.child("influenciadores").child(uid)
         
         userRef.updateChildValues(userInfo) { (error, ref) in
@@ -248,9 +249,9 @@ struct AuthService {
         
     }
 
-    public func updateInfluenciadorQuestionaryAndScore(uid:String, questionaryTotal : Int, score : Int, completion: @escaping (Bool) -> ()){
+    public func updateInfluenciadorQuestionaryAndScore(uid:String, questionaryTotal : Int, questionaryResult: NSMutableDictionary, score : Int, completion: @escaping (Bool) -> ()){
         
-        let userInfo = ["questionaryTotal":questionaryTotal, "answered": 1, "score":score]
+        let userInfo = ["questionaryTotal":questionaryTotal, "answered": 1, "score":score, "questionaryResult": questionaryResult] as [String : Any]
         let userRef = dataBaseRef.child("influenciadores").child(uid)
         
         userRef.updateChildValues(userInfo) { (error, ref) in

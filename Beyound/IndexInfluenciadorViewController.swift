@@ -174,19 +174,19 @@ class IndexInfluenciadorViewController: UIViewController {
         let authService = AuthService()
         
         //resultado do questionario
-        var questionaryResult = Int()
+        var questionaryTotal = Int()
         if(self.didCameFromQuestionary == true){
-            questionaryResult = self.questionGrade!
-            authService.updateInfluenciadorQuestionary(uid: uid, questionaryTotal: questionaryResult){(completion) -> () in
+            questionaryTotal = self.questionGrade!
+            authService.updateInfluenciadorQuestionary(uid: uid, questionaryTotal: questionaryTotal, questionaryResult: Singleton.sharedInstance.getQuestionaryResult()){(completion) -> () in
                 
             }
         }else{
-            questionaryResult = Singleton.sharedInstance.getInfluenciador().value(forKey: "questionaryTotal") as! Int
+            questionaryTotal = Singleton.sharedInstance.getInfluenciador().value(forKey: "questionaryTotal") as! Int
         }
         
         for item in jsonResult as! [NSDictionary] {
             
-            var baseScore = questionaryResult + Int(ffRatio*100) as Int
+            var baseScore = questionaryTotal + Int(ffRatio*100) as Int
 
             //quantidade de likes desse post
             let count = (item.object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
@@ -213,7 +213,7 @@ class IndexInfluenciadorViewController: UIViewController {
                     
                     //palavras da legenda desse post
                     let subtitle = caption?.value(forKey: "text") as! String
-                    let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:#"))
+                    let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:\n#"))
                     
                     
                     for var i in (0..<components.count).reversed(){
@@ -224,14 +224,19 @@ class IndexInfluenciadorViewController: UIViewController {
                             
                             if(!word[i].containsEmoji){
                                 var currentScore = CLongLong(baseScore)
-                                dictWords.setObject(currentScore, forKey: word[i] as NSCopying)
+                                
+                                var wordDictionary = NSMutableDictionary()
+                                
+                                wordDictionary.setValue(currentScore, forKey: uid)
+                                
+                                dictWords.setObject(wordDictionary, forKey: word[i] as NSCopying)
                             }
                         }
                     }
                 }
             }
         }
-        authService.saveScore(uid: uid, words: dictWords){(success) -> () in
+        authService.saveScore(words: dictWords){(success) -> () in
             
         }
     }
