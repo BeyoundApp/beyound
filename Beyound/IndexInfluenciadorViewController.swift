@@ -26,17 +26,10 @@ class IndexInfluenciadorViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     
-    @IBOutlet weak var perfil: UIImageView!{
-        didSet{
-            perfil.layer.cornerRadius = 45
-            perfil.layer.masksToBounds = true
-            perfil.layer.shadowOffset = CGSize(width: 3.0, height: 2.0)
-        }
-    }
+    @IBOutlet weak var perfil: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
          let influenciador = Singleton.sharedInstance.getInfluenciador()
         
@@ -77,8 +70,6 @@ class IndexInfluenciadorViewController: UIViewController {
                 }
             }
         }
-        
-        
         
         
         
@@ -263,5 +254,44 @@ extension String {
             }
         }
         return false
+    }
+}
+
+extension UIView {
+    
+    @IBInspectable var shadow: Bool {
+        get {
+            return layer.shadowOpacity > 0.0
+        }
+        set {
+            if newValue == true {
+                self.addShadow()
+            }
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return self.layer.cornerRadius
+        }
+        set {
+            self.layer.cornerRadius = newValue
+            
+            // Don't touch the masksToBound property if a shadow is needed in addition to the cornerRadius
+            if shadow == false {
+                self.layer.masksToBounds = true
+            }
+        }
+    }
+    
+    
+    func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
+                   shadowOffset: CGSize = CGSize(width: 4.0, height: 6.0),
+                   shadowOpacity: Float = 0.4,
+                   shadowRadius: CGFloat = 3.0) {
+        layer.shadowColor = shadowColor
+        layer.shadowOffset = shadowOffset
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
     }
 }
