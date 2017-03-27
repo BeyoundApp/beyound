@@ -44,11 +44,12 @@ class QuestionViewController: UIViewController, UICollectionViewDelegate, UIColl
         //tags = ["Maquiagem", "Acessórios","Body", "Belo", "Beleza","Fotografia", "Desenho", "Foto",  "Youtuber",  "Expert"]
         
          ///Sequencia das tags
-         let allTags = ["1": ["Maquiagem", "Sapatos", "Acessórios"], "2": ["Estiloso", "Feliz", "Rico"], "3": ["Nike", "Globo", "Melissa"], "4": ["Selfie", "Paisagem", "Cotidiano"], "5": ["Homens", "Mulheres", "Entre 15 a 30 anos"], "6": ["100", "1000", "10000"], "7": ["Toda semana", "Quase todo mês", "Raramente"], "8": ["Expert", "Youtuber", "Instagrammer"], "9": ["Merchandising de produtos", "Makes", "Body Builder"], "10": ["Postando frequentemente", "Postando o assunto que eles gostam", "Respondendo eles rapidamente"]] as NSDictionary
+        let allTags = ["1": ["Cosméticos", "Maquiagem", "Acessórios", "Hardware", "Artigos de academia", "Alimentos", "Animais", "Games", "Eventos", "Viagens", "Celulares", "Instrumentos musicais", "Periféricos", "Móveis", "Aparelhos de som", "Eletrodomésticos", "Roupas", "Chapéus", "Calçados", "Artigos esportivos", "Remédios", "Outros"], "2": ["Estiloso", "Modelo", "Gamer", "Designer", "Fotógrafo", "Viajante", "Artístico", "Otaku", "Esportista", "Fitness", "Caseiro", "Nerd", "Amante de animais", "Escritor", "Dançarino", "Vaidoso"], "3": ["Nike", "Globo", "Melissa", "Avon", "Smart Fit", "Nitendo", "Livraria Cultura", "Apple", "Victoria Secret"], "4": ["Selfie", "Paisagem", "Cotidiano", "Lugares que visitou"], "5": ["Homens", "Mulheres", "Crianças", "7 à 15 anos", "16 à 25 anos", "26 à 50 anos", "51 à 80 anos"], "6": ["100", "500", "1000", "5000", "10000"], "7": ["Toda semana", "Quase todo mês", "Raramente"], "8": ["Expert", "Youtuber", "Instagrammer", "Modelo", "Nerd", "Fitness", "Gamer", "Artista", "Blogger", "Dançarino", "Otaku", "Escritor"], "9": ["Merchandising de produtos", "Tutoriais de maquiagem", "Jogos", "Exercícios físicos"], "10": ["Postando frequentemente", "Postando assuntos interessantes", "Respondendo rapidamente"]] as NSDictionary
+        
         tags = allTags.value(forKey: String(page)) as! [String]
 
         ///Notas das tags
-        let allTagsGrades = ["1": [5, 4, 3], "2": [3, 4, 5], "3": [1, 1, 1], "4": [3, 4, 5], "5": [5, 5, 5], "6": [1, 2, 4], "7": [5, 4, 3], "8": [5, 4, 4], "9": [4, 5, 4], "10": [4, 5, 6]] as NSDictionary
+        let allTagsGrades = ["1": [5, 4, 3, 4, 2, 5, 1, 2, 2, 4, 3, 2, 4, 5, 3, 2, 1, 4, 5, 2, 3, 4], "2": [3, 4, 5, 2, 3, 4, 5, 1, 3, 2, 4, 3, 5, 2, 1, 5], "3": [1, 1, 1, 1, 1, 1, 1, 1, 1], "4": [3, 4, 5, 2], "5": [5, 5, 5, 5, 5, 5, 5], "6": [1, 2, 3, 4, 5], "7": [5, 4, 3], "8": [5, 4, 4, 4, 3, 5, 5, 4, 5, 4, 5, 4], "9": [4, 4, 5, 4], "10": [4, 5, 6]] as NSDictionary
         tagsGrades = allTagsGrades.value(forKey: String(page)) as! [Int]
 
         //pesos das perguntas
