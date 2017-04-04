@@ -62,9 +62,6 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
         
         let defaults = UserDefaults.standard
         defaults.set(accessToken, forKey: "accessToken")
-    
-        
-        
     }
     
     @IBAction func closeWebView(_ sender: Any) {
@@ -75,7 +72,7 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
     }
     
     func parseJson(response: Data, accessToken: String){
-        
+
         do {
             if let jsonResult = try JSONSerialization.jsonObject(with: response, options: []) as? NSDictionary {
                 
@@ -84,34 +81,56 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
                 
                 let id = dataObject.value(forKey: "id") as! String
                 
+                let name = dataObject.value(forKey: "full_name") as! String
+                
+                
+                let followers = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "followed_by") as! Int
+                let following = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "follows") as! Int
+                let media = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "media") as! Int
+                
+                let website = dataObject.value(forKey: "website") as! String
+                let biography = dataObject.value(forKey: "bio") as! String
+                
+                
+                let username = dataObject.value(forKey: "username") as! String
+                let profile_picture = dataObject.value(forKey: "profile_picture") as! String
+                let url = NSURL(string: profile_picture)!
+                let profile = NSData(contentsOf: url as URL)
+                
+                
+                let answered = false
+                let questionaryTotal = 0
+                let score = 0
+
+                
                 authService.findInfluenciador(uid: id){ (influenciador) -> () in
 
                     if (influenciador != nil){
-                        Singleton.sharedInstance.setInfluenciador(influenciador: influenciador!)
-                        self.saveAccessToken(accessToken: accessToken)
-                        self.loadPosts(uid:id)
+                        
+                        authService.updateInfluenciador(uid: id, username: username, fullName: name, followers: followers, following: following, biography: biography, website: website, mediaCount: media){ (error) -> () in
+                            if(error == nil){
+                        
+                                authService.findInfluenciador(uid: id){ (influenciador) -> () in
+                                    
+                                    if (influenciador != nil){
+                                        
+                                        Singleton.sharedInstance.setInfluenciador(influenciador: influenciador!)
+                                        self.saveAccessToken(accessToken: accessToken)
+                                        self.loadPosts(uid:id)
+                                        
+                                    }else{
+                                        self.dismiss(animated: true, completion: nil)
+                                    }
+                                    
+                                }
+
+                            }else{
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        }
+                        
 
                     }else{
-                        let name = dataObject.value(forKey: "full_name") as! String
-                        
-                        
-                        let followers = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "followed_by") as! Int
-                        let following = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "follows") as! Int
-                        let media = (dataObject.object(forKey: "counts") as! NSDictionary).value(forKey: "media") as! Int
-                        
-                        let website = dataObject.value(forKey: "website") as! String
-                        let biography = dataObject.value(forKey: "bio") as! String
-                        
-                        
-                        let username = dataObject.value(forKey: "username") as! String
-                        let profile_picture = dataObject.value(forKey: "profile_picture") as! String
-                        let url = NSURL(string: profile_picture)!
-                        let profile = NSData(contentsOf: url as URL)
-                        
-                        
-                        let answered = false
-                        let questionaryTotal = 0
-                        let score = 0
                         
                         authService.setInfluenciador(uid: id, username: username, fullName: name, followers: followers, following: following, biography: biography, website: website, mediaCount: media, pictureData: profile, answered: answered, questionaryTotal: questionaryTotal, score:score){ (error) -> () in
                         
@@ -146,6 +165,9 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
     }
     
     func loadPosts(uid: String){
+        
+        print("loadposts")
+        
         let defaults = UserDefaults.standard
         if let accessToken = defaults.string(forKey: "accessToken"){
             var url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=" + accessToken
@@ -181,7 +203,8 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
     }
     
     func parsePosts(response: Data, uid: String){
-        
+        print("parseposts")
+
         do {
             if let jsonResult = try JSONSerialization.jsonObject(with: response, options: []) as? NSDictionary {
                 
@@ -241,7 +264,6 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
     }
     
     func loadUserData(accessToken: String){
-        
         
             var url = "https://api.instagram.com/v1/users/self/?access_token=" + accessToken
             

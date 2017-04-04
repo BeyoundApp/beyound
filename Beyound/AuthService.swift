@@ -127,6 +127,26 @@ struct AuthService {
     }
     
     
+    //update para influenciador que já está registrado
+    
+    public func updateInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, completion: @escaping (Error?) -> ()){
+        
+        let userInfo = ["uid":uid,"username": username, "full_name": fullName, "followers": followers, "following":following, "media_count": mediaCount, "biography":biography, "website":website] as [String : Any]
+        
+        let userRef = self.dataBaseRef.child("influenciadores").child(uid)
+        
+        userRef.updateChildValues(userInfo) { (error, ref) in
+            if error == nil {
+                print("user info saved successfully")
+                completion(nil)
+            }else {
+                print(error!.localizedDescription)
+                completion(error)
+            }
+        }
+        
+    }
+    
     // SET E SAVE INFLUENCIADORES
     public func setInfluenciador(uid: String, username: String, fullName: String, followers: Int, following: Int, biography: String, website: String, mediaCount: Int, pictureData: NSData!, answered: Bool, questionaryTotal: Int,score:Int,  completion: @escaping (Error?) -> ()){
         
