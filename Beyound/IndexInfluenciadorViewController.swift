@@ -62,60 +62,11 @@ class IndexInfluenciadorViewController: UIViewController {
                         self.postView.image = UIImage(data: firstPost as! Data)
                     }
                 }
-                
-                self.getScores(){(completion2) -> () in
-                    if(completion2 == nil){
-                        self.calculateScores()
-                    }
-                }
+               
+                self.calculateScores()
             }
         }
         
-        
-        
-        
-    }
-    
-    
-    func getScores(completion: @escaping (Error?) -> ()){
-        
-        let influenciador = Singleton.sharedInstance.getInfluenciador() as NSDictionary
-        let uid = influenciador.value(forKey: "uid") as! String
-        
-        let url = "https://tcc-beyound.firebaseio.com/scores/"+uid+".json?print=pretty"
-        
-        let request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
-        let session = URLSession.shared
-        request.httpMethod = "GET"
-        
-        var err: NSError?
-        
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-            
-            var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            var err: NSError?
-            var string = String(data: data!, encoding: .utf8)
-
-            if string == "null\n"{
-                
-                completion(nil)
-                
-            }else{
-
-                do{
-                    
-                    if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
-                        self.dictWords = jsonResult.mutableCopy() as! NSMutableDictionary
-                        completion(nil)
-                    }
-                }catch let error as NSError{
-                    print(error)
-                    completion(nil)
-                }
-        
-            }
-        })
-        task.resume()
     }
     
     func getPosts(completion: @escaping (Error?) -> ()){
@@ -156,14 +107,13 @@ class IndexInfluenciadorViewController: UIViewController {
     }
 
     func calculateScores(){
+        
+        self.dictWords = NSMutableDictionary()
+        
         let influenciador = Singleton.sharedInstance.getInfluenciador() as NSDictionary
         let uid = influenciador.value(forKey: "uid") as! String
 
         let jsonResult = self.arrayPosts
-        
-        //calcula frequencia
-        let firstPostDate = NSDate(timeIntervalSince1970: Double((jsonResult[0] as! NSDictionary).value(forKey: "created_time") as! String)!) as NSDate
-        let lastPostDate = NSDate(timeIntervalSince1970: Double((jsonResult.lastObject as! NSDictionary).value(forKey: "created_time") as! String)!) as NSDate
         
         let followers = Singleton.sharedInstance.getInfluenciador().value(forKey: "followers") as! Int
         let following = Singleton.sharedInstance.getInfluenciador().value(forKey: "following") as! Int
@@ -213,7 +163,7 @@ class IndexInfluenciadorViewController: UIViewController {
                     
                     //palavras da legenda desse post
                     let subtitle = caption?.value(forKey: "text") as! String
-                    let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:\n#"))
+                    let components = subtitle.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:\n#@"))
                     
                     
                     for var i in (0..<components.count).reversed(){
@@ -233,6 +183,7 @@ class IndexInfluenciadorViewController: UIViewController {
                             }
                         }
                     }
+                    
                 }
             }
         }

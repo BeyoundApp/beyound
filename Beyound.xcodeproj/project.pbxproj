@@ -45,6 +45,7 @@
 		F59E8BFC1E7381680011202F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E8BFB1E7381680011202F /* QuestionViewController.swift */; };
 		F59E8BFE1E7384F70011202F /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E8BFD1E7384F70011202F /* TagViewCell.swift */; };
 		F59E8C001E7386340011202F /* TagViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F59E8BFF1E7386340011202F /* TagViewCell.xib */; };
+		F5D9006E1E9C53BC007EDBB5 /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D9006D1E9C53BC007EDBB5 /* SearchResultController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		F59E8BFB1E7381680011202F /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		F59E8BFD1E7384F70011202F /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
 		F59E8BFF1E7386340011202F /* TagViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagViewCell.xib; sourceTree = "<group>"; };
+		F5D9006D1E9C53BC007EDBB5 /* SearchResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				353940C11E613231002AF590 /* SignUpViewController.swift */,
 				353940C21E613231002AF590 /* UserProfileTableViewController.swift */,
 				353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */,
+				F5D9006D1E9C53BC007EDBB5 /* SearchResultController.swift */,
 				353940E31E613979002AF590 /* IndexViewController.swift */,
 				353940C31E613231002AF590 /* ChooseUserViewController.swift */,
 				353940C41E613231002AF590 /* FeedTableViewController.swift */,
@@ -350,7 +353,7 @@
 				TargetAttributes = {
 					353940851E612D1F002AF590 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = JHQ5ZDAG5K;
+						DevelopmentTeam = US832MQT35;
 						ProvisioningStyle = Automatic;
 					};
 					3539409C1E612D20002AF590 = {
@@ -562,6 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D9006E1E9C53BC007EDBB5 /* SearchResultController.swift in Sources */,
 				353940CB1E613231002AF590 /* LoginViewController.swift in Sources */,
 				353940CE1E613231002AF590 /* ChooseUserViewController.swift in Sources */,
 				353940CC1E613231002AF590 /* SignUpViewController.swift in Sources */,
@@ -735,7 +739,7 @@
 			baseConfigurationReference = 5041436C24F471D03ED724A5 /* Pods-Beyound.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JHQ5ZDAG5K;
+				DEVELOPMENT_TEAM = US832MQT35;
 				INFOPLIST_FILE = Beyound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
@@ -749,7 +753,7 @@
 			baseConfigurationReference = 20814FB66C5CF5D256D4A4B8 /* Pods-Beyound.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JHQ5ZDAG5K;
+				DEVELOPMENT_TEAM = US832MQT35;
 				INFOPLIST_FILE = Beyound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
