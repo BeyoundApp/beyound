@@ -42,6 +42,7 @@
 		EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */; };
 		F5124B4D1E7252150025C24E /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5124B4C1E7252150025C24E /* Singleton.swift */; };
 		F53F37A51E6E5BCC00379FE6 /* HelperWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */; };
+		F57B046A1E9DB343001F27D7 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57B04691E9DB343001F27D7 /* Search.storyboard */; };
 		F59E8BFC1E7381680011202F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E8BFB1E7381680011202F /* QuestionViewController.swift */; };
 		F59E8BFE1E7384F70011202F /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E8BFD1E7384F70011202F /* TagViewCell.swift */; };
 		F59E8C001E7386340011202F /* TagViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F59E8BFF1E7386340011202F /* TagViewCell.xib */; };
@@ -113,6 +114,7 @@
 		CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beyound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5124B4C1E7252150025C24E /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperWebViewController.swift; sourceTree = "<group>"; };
+		F57B04691E9DB343001F27D7 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		F59E8BFB1E7381680011202F /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		F59E8BFD1E7384F70011202F /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
 		F59E8BFF1E7386340011202F /* TagViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagViewCell.xib; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				353940BD1E613220002AF590 /* Models */,
 				353940931E612D1F002AF590 /* Assets.xcassets */,
 				3539408D1E612D1F002AF590 /* Main.storyboard */,
+				F57B04691E9DB343001F27D7 /* Search.storyboard */,
 				F59E8BFF1E7386340011202F /* TagViewCell.xib */,
 				353940951E612D1F002AF590 /* LaunchScreen.storyboard */,
 				353940901E612D1F002AF590 /* Beyound.xcdatamodeld */,
@@ -400,6 +403,7 @@
 				F59E8C001E7386340011202F /* TagViewCell.xib in Resources */,
 				353940BB1E613144002AF590 /* GoogleService-Info.plist in Resources */,
 				353940941E612D1F002AF590 /* Assets.xcassets in Resources */,
+				F57B046A1E9DB343001F27D7 /* Search.storyboard in Resources */,
 				353940E81E6156C2002AF590 /* user.png in Resources */,
 				3539408F1E612D1F002AF590 /* Main.storyboard in Resources */,
 				353940E61E61403B002AF590 /* Bg.fw.png in Resources */,
