@@ -41,34 +41,34 @@ class SearchResultController: UIViewController {
             
             if(allWords.object(forKey: tag) != nil){
                 
-                for inf in allWords.object(forKey: tag) as! [NSMutableDictionary]{
-                    
-                    let uids = inf.allKeys as NSArray
-                    
-                    for uid in uids{
-                        
-                        if(influencers.object(forKey: uid) != nil){
-                            
-                            var currentScore = (influencers.object(forKey: uid) as! NSMutableDictionary).value(forKey: "score") as! Int
-                            currentScore += (inf.value(forKey: uid as! String) as! Int)
-                            (influencers.object(forKey: uid) as! NSMutableDictionary).setValue(currentScore, forKey: "score")
-                            
-                            var words = (influencers.object(forKey: uid) as! NSMutableDictionary).value(forKey: "words") as! NSMutableArray
-                            words.add(tag)
-                            (influencers.object(forKey: uid) as! NSMutableDictionary).setObject(words, forKey: "words" as NSCopying)
-                        }else{
-                            
-                            var influencer = NSMutableDictionary()
-                            var words = NSMutableArray()
-                            words.add(tag)
-                            influencer.setValue((inf.value(forKey: uid as! String) as! Int), forKey: "score")
-                            influencer.setObject(words, forKey: "words" as NSCopying)
+                var wordDictionary = (allWords.object(forKey: tag as! String) as! NSDictionary)
+                
+                let uids = wordDictionary.allKeys as NSArray
+                
+                for uid in uids{
 
-                        }
-                        
+                    if(influencers.object(forKey: uid) != nil){
+
+                        var currentScore = (influencers.object(forKey: uid) as! NSMutableDictionary).value(forKey: "score") as! Int
+                        currentScore += (wordDictionary.value(forKey: uid as! String) as! Int)
+                        (influencers.object(forKey: uid) as! NSMutableDictionary).setValue(currentScore, forKey: "score")
+
+                        var words = (influencers.object(forKey: uid) as! NSMutableDictionary).value(forKey: "words") as! NSMutableArray
+                        words.add(tag)
+                        (influencers.object(forKey: uid) as! NSMutableDictionary).setObject(words, forKey: "words" as NSCopying)
+                    }else{
+
+                        var influencer = NSMutableDictionary()
+                        var words = NSMutableArray()
+                        words.add(tag)
+                        influencer.setValue((wordDictionary.value(forKey: uid as! String) as! Int), forKey: "score")
+                        influencer.setObject(words, forKey: "words" as NSCopying)
+                        //influencer.setObject(allInfluencers.object(forKey: uid as! String), forKey: "profile" as NSCopying)
+                        influencers.setObject(influencer, forKey: uid as! NSCopying)
                     }
                     
                 }
+
                 
             }
             
