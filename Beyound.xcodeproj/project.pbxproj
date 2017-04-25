@@ -41,6 +41,7 @@
 		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
 		EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */; };
 		F5124B4D1E7252150025C24E /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5124B4C1E7252150025C24E /* Singleton.swift */; };
+		F53BE3091EA04E4900AB6E61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53BE3081EA04E4900AB6E61 /* SearchViewController.swift */; };
 		F53F37A51E6E5BCC00379FE6 /* HelperWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */; };
 		F57B046A1E9DB343001F27D7 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57B04691E9DB343001F27D7 /* Search.storyboard */; };
 		F59E8BFC1E7381680011202F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E8BFB1E7381680011202F /* QuestionViewController.swift */; };
@@ -113,6 +114,7 @@
 		C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beyound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5124B4C1E7252150025C24E /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		F53BE3081EA04E4900AB6E61 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperWebViewController.swift; sourceTree = "<group>"; };
 		F57B04691E9DB343001F27D7 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		F59E8BFB1E7381680011202F /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */,
 				F59E8BFB1E7381680011202F /* QuestionViewController.swift */,
+				F53BE3081EA04E4900AB6E61 /* SearchViewController.swift */,
 				F59E8BFD1E7384F70011202F /* TagViewCell.swift */,
 				353940BE1E613231002AF590 /* TabBarController.swift */,
 				F53F37A41E6E5BCC00379FE6 /* HelperWebViewController.swift */,
@@ -584,6 +587,7 @@
 				F59E8BFC1E7381680011202F /* QuestionViewController.swift in Sources */,
 				3539408A1E612D1F002AF590 /* AppDelegate.swift in Sources */,
 				353940D81E613254002AF590 /* User.swift in Sources */,
+				F53BE3091EA04E4900AB6E61 /* SearchViewController.swift in Sources */,
 				353940D11E613231002AF590 /* CommentsViewController.swift in Sources */,
 				F53F37A51E6E5BCC00379FE6 /* HelperWebViewController.swift in Sources */,
 				F5124B4D1E7252150025C24E /* Singleton.swift in Sources */,

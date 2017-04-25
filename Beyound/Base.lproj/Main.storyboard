@@ -1045,7 +1045,6 @@
                     <connections>
                         <segue destination="V04-hQ-GQs" kind="relationship" relationship="viewControllers" id="es2-x9-uQI"/>
                         <segue destination="BQI-d3-1iI" kind="relationship" relationship="viewControllers" id="Vw7-vK-eYc"/>
-                        <segue destination="AZR-nF-HWc" kind="relationship" relationship="viewControllers" id="pYH-Bf-98Z"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dae-sT-2x6" userLabel="First Responder" sceneMemberID="firstResponder"/>

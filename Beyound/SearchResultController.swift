@@ -12,22 +12,17 @@ class SearchResultController: UIViewController {
 
     var queryTags : NSMutableArray!
     var influencers : NSMutableDictionary!
+    var allInfluencers : NSMutableDictionary!
     var allWords : NSMutableDictionary!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        queryTags = ["De", "view", "Fora" ,"Temer", "Kaiser", "Melhor", "Rio", "THE"]
         
-        
-        self.getScores(){(completion) -> () in
+        self.getInfluencers{(completion) -> () in
             if(completion == nil){
-        
                 self.filterSearchResults()
-                
             }
-        
         }
         // Do any additional setup after loading the view.
     }
@@ -83,9 +78,9 @@ class SearchResultController: UIViewController {
     }
     
 
-    func getScores(completion: @escaping (Error?) -> ()){
+    func getInfluencers(completion: @escaping (Error?) -> ()){
         
-        let url = "https://tcc-beyound.firebaseio.com/scores.json"
+        let url = "https://tcc-beyound.firebaseio.com/influenciadores.json"
         
         let request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
         let session = URLSession.shared
@@ -108,7 +103,7 @@ class SearchResultController: UIViewController {
                 do{
                     
                     if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
-                        self.allWords = jsonResult.mutableCopy() as! NSMutableDictionary
+                        self.allInfluencers = jsonResult.mutableCopy() as! NSMutableDictionary
                         completion(nil)
                     }
                 }catch let error as NSError{
