@@ -8,16 +8,28 @@
 
 import UIKit
 
-class SearchResultController: UIViewController {
+class SearchResultController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var queryTags : NSMutableArray!
     var influencers : NSMutableDictionary!
     var allInfluencers : NSMutableDictionary!
     var allWords : NSMutableDictionary!
+    var displayedResults : Array<Any> = []
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        influencers = NSMutableDictionary()
+        displayedResults = Array()
+        
+        
+        tableView.estimatedRowHeight = 170
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView()
         
         self.getInfluencers{(completion) -> () in
             if(completion == nil){
@@ -32,7 +44,63 @@ class SearchResultController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return influencers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell",
+                                                 for: indexPath) as! SearchResultTableCell
+        
+        
+        let key = (displayedResults[indexPath.row] as! NSDictionary.Iterator.Element).key
+        
+        let url = NSURL(string: (allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "photoURL") as! String)!
+        let profile = NSData(contentsOf: url as URL)
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                cell.imageProfile.image = UIImage(data: profile as! Data)
+            }
+        }
+        
+        cell.labelName.text = (allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "full_name") as! String
+        
+        cell.labelUser.text = "@" + ((allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "username") as! String)
+        
+        let followText = String((allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "followers") as! Int) + " seguidores e " + String((allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "following") as! Int) + " seguindo."
+        
+        cell.labelFollow.text = followText
+        
+        let likesLastPost = ((((allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "posts") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int
+        
+        let followers = (allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "followers") as! Int
+        
+        let ratio = Double(likesLastPost) / Double(followers) * 100 as Double
+        
+        cell.labelRangeRatio.text = String.localizedStringWithFormat("%.2f%% de alcance aproximado.", ratio)
+        
+        let words = (influencers.object(forKey: key) as! NSDictionary).object(forKey: "words") as! NSArray
+        
+        var textWords = String()
+        
+        for word in words as! [String]{
+            
+            textWords += word + " "
+            
+        }
+        
+        cell.labelWords.text = textWords.substring(to: textWords.index(before: textWords.endIndex))
+        
+        return cell
+        
+    }
+    
     func filterSearchResults(){
         
         influencers = NSMutableDictionary()
@@ -63,7 +131,6 @@ class SearchResultController: UIViewController {
                         words.add(tag)
                         influencer.setValue((wordDictionary.value(forKey: uid as! String) as! Int), forKey: "score")
                         influencer.setObject(words, forKey: "words" as NSCopying)
-                        //influencer.setObject(allInfluencers.object(forKey: uid as! String), forKey: "profile" as NSCopying)
                         influencers.setObject(influencer, forKey: uid as! NSCopying)
                     }
                     
@@ -73,8 +140,18 @@ class SearchResultController: UIViewController {
             }
             
         }
+
+        displayedResults = influencers.sorted { (first: (key: Any, value: Any), second:(key: Any, value: Any)) -> Bool in
+            
+            return ((first.value as! NSDictionary).object(forKey: "words") as! NSArray).count > ((second.value as! NSDictionary).object(forKey: "words") as! NSArray).count
+            
+        }
         
-        print(influencers)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.activityIndicator.isHidden = true
+
+        }
     }
     
 

@@ -38,6 +38,7 @@
 		35824B361E765AE500C993E7 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35824B351E765AE500C993E7 /* questions.plist */; };
 		35F2BC281E7216F5003F33F1 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */; };
 		4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */; };
+		ACC668A11EAFC1E800CBFFF7 /* SearchResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC668A01EAFC1E800CBFFF7 /* SearchResultTableCell.swift */; };
 		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
 		EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */; };
 		F5124B4D1E7252150025C24E /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5124B4C1E7252150025C24E /* Singleton.swift */; };
@@ -111,6 +112,7 @@
 		8DCBC16F96B6D2E453393B1B /* Pods-BeyoundUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundUITests/Pods-BeyoundUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A6E5BD152479B958583884CB /* Pods-BeyoundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundTests/Pods-BeyoundTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC668A01EAFC1E800CBFFF7 /* SearchResultTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableCell.swift; sourceTree = "<group>"; };
 		C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beyound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5124B4C1E7252150025C24E /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				353940C51E613231002AF590 /* UpdateUserInfoViewController.swift */,
 				353940C61E613231002AF590 /* CommentsViewController.swift */,
 				353940C71E613231002AF590 /* UsersTableViewCell.swift */,
+				ACC668A01EAFC1E800CBFFF7 /* SearchResultTableCell.swift */,
 				353940C81E613231002AF590 /* UsersTableViewController.swift */,
 				353940891E612D1F002AF590 /* AppDelegate.swift */,
 			);
@@ -591,6 +594,7 @@
 				353940D11E613231002AF590 /* CommentsViewController.swift in Sources */,
 				F53F37A51E6E5BCC00379FE6 /* HelperWebViewController.swift in Sources */,
 				F5124B4D1E7252150025C24E /* Singleton.swift in Sources */,
+				ACC668A11EAFC1E800CBFFF7 /* SearchResultTableCell.swift in Sources */,
 				353940CF1E613231002AF590 /* FeedTableViewController.swift in Sources */,
 				353940D91E613254002AF590 /* Post.swift in Sources */,
 				353940CD1E613231002AF590 /* UserProfileTableViewController.swift in Sources */,
