@@ -179,7 +179,7 @@ class IndexInfluenciadorViewController: UIViewController {
                                 
                                 wordDictionary.setValue(currentScore, forKey: uid)
                                 
-                                dictWords.setObject(wordDictionary, forKey: word[i] as NSCopying)
+                                dictWords.setObject(wordDictionary, forKey: word[i].lowercased() as NSCopying)
                             }
                         }
                     }

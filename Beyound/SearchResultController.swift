@@ -15,7 +15,7 @@ class SearchResultController: UIViewController, UITableViewDelegate, UITableView
     var allInfluencers : NSMutableDictionary!
     var allWords : NSMutableDictionary!
     var displayedResults : Array<Any> = []
-    
+        
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -39,6 +39,32 @@ class SearchResultController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func segmentChanged(_ sender: Any) {
+        
+        if(segmentedControl.selectedSegmentIndex == 0){
+            
+            displayedResults = influencers.sorted { (first: (key: Any, value: Any), second:(key: Any, value: Any)) -> Bool in
+                
+                return ((first.value as! NSDictionary).object(forKey: "words") as! NSArray).count > ((second.value as! NSDictionary).object(forKey: "words") as! NSArray).count
+                
+            }
+            
+        }else{
+            
+            displayedResults = influencers.sorted { (first: (key: Any, value: Any), second:(key: Any, value: Any)) -> Bool in
+                
+                return ((first.value as! NSDictionary).object(forKey: "score") as! Int) > ((second.value as! NSDictionary).object(forKey: "score") as! Int)
+                
+            }
+
+            
+        }
+        
+        
+        self.tableView.reloadData()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -153,6 +179,7 @@ class SearchResultController: UIViewController, UITableViewDelegate, UITableView
 
         }
     }
+    
     
 
     func getInfluencers(completion: @escaping (Error?) -> ()){

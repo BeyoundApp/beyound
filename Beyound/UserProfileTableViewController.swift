@@ -91,21 +91,24 @@ class UserProfileTableViewController: UITableViewController {
     @IBAction func unwindToProfile(storyboard: UIStoryboardSegue){}
 
     
+    @IBAction func logout(_ sender: Any) {
     
-    @IBAction func logOutAction(sender: AnyObject) {
-        
         if FIRAuth.auth()!.currentUser != nil {
             // there is a user signed in
             do {
-               try? FIRAuth.auth()!.signOut()
+                try? FIRAuth.auth()!.signOut()
                 
                 if FIRAuth.auth()?.currentUser == nil {
-                    let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
-                    self.present(loginVC, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "toFirstVC", sender: self)
                 }
                 
             }
         }
+    }
+    
+    @IBAction func logOutAction(sender: AnyObject) {
+        
+        
         
         
     }

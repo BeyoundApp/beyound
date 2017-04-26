@@ -8,14 +8,15 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var navItem: UINavigationItem!
-    @IBOutlet weak var buttonNext: UIBarButtonItem!
-    @IBOutlet weak var scrollView: UIScrollView!
+       @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var buttonAddTag: UIButton!
-    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var buttonSearch: UIButton!
+    
+    var wordsLoaded : Bool = false
     
     var allWords: NSMutableDictionary!
 
@@ -23,75 +24,35 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+        
         allWords = NSMutableDictionary()
         
-        collectionView.allowsMultipleSelection = true
-        
-        var nib = UINib(nibName: "TagViewCell", bundle:nil)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: "TagCell");
-
         self.getScores(){(completion) -> () in
             if(completion == nil){
-                DispatchQueue.global(qos: .userInitiated).async {
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
-                }
+                self.wordsLoaded = true
+                self.buttonSearch.isEnabled = !(self.textField.text?.isEmpty)!
             }
         }
     }
 
+    func hideKeyboard(){
+        self.view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allWords.allKeys.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let textSize = (allWords.allKeys[indexPath.row] as! String).size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18.0)]) as CGSize
-        //dando um paddingzinho
-        
-        var tagSize = CGSize()
-        
-        tagSize.width = textSize.width + 20
-        tagSize.height = textSize.height + 8
-        
-        return tagSize
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagViewCell
-        
-        cell.tagName.text = allWords.allKeys[indexPath.row] as! String
-        
-        cell.layer.cornerRadius = 10
-        cell.layer.masksToBounds = true
-        
-        return cell
-        
-    }
-
-    
     @IBAction func textChanged(_ sender: Any) {
+
+        buttonSearch.isEnabled = !(textField.text?.isEmpty)!
     }
     
-    
-    
-    @IBAction func addTag(_ sender: Any) {
-        
-        
-    }
 
     func getScores(completion: @escaping (Error?) -> ()){
         
@@ -131,25 +92,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         task.resume()
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        var cell = collectionView.cellForItem(at: indexPath) as! TagViewCell
-        
-        cell.isMarked = true
-        cell.contentView.backgroundColor = UIColor(red: 0.1, green: 0.7, blue: 0.7, alpha: 1)
-        
-        if((collectionView.indexPathsForSelectedItems?.count)! >= 10){
-            collectionView.deselectItem(at: indexPath, animated: false)
-        }
-    }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-        var cell = collectionView.cellForItem(at: indexPath) as! TagViewCell
-        
-        cell.isMarked = false
-        cell.contentView.backgroundColor = UIColor(red: 0.31, green: 0.87, blue: 0.87, alpha: 1)
-    }
     
     @IBAction func goNext(_ sender: Any) {
         self.performSegue(withIdentifier: "searchToResult", sender: self)
@@ -163,11 +106,14 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         let searchResultController = segue.destination as! SearchResultController
         
         var query = NSMutableArray()
+       
+        let components = textField.text!.components(separatedBy: CharacterSet.init(charactersIn: " ,.;:\n#@"))
         
-        for ip in collectionView.indexPathsForSelectedItems!{
-            query.add(allWords.allKeys[ip.row])
+        for var i in (0..<components.count){
+        
+            query.add(components[i].lowercased())
         }
-        
+
         searchResultController.allWords = self.allWords
         searchResultController.queryTags = query
     }
