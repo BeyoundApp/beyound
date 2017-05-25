@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>990485568469-ars3naoc00gclkcjs2ht3vbv9r3evcv5.apps.googleusercontent.com</string>
+	<string>990485568469-54e3q9oel5trjrthv4subqpioaqr5foe.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.990485568469-ars3naoc00gclkcjs2ht3vbv9r3evcv5</string>
+	<string>com.googleusercontent.apps.990485568469-54e3q9oel5trjrthv4subqpioaqr5foe</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAOvjfubclY-uRl58N9j_rXUE7DbhqfxW8</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>br.com.beyound.Beyound</string>
+	<string>com.beyound.Beyound</string>
 	<key>PROJECT_ID</key>
 	<string>tcc-beyound</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:990485568469:ios:1ffa2432cbb349b0</string>
+	<string>1:990485568469:ios:32486f6118a1c863</string>
 	<key>DATABASE_URL</key>
 	<string>https://tcc-beyound.firebaseio.com</string>
 </dict>

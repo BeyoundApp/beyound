@@ -14,7 +14,6 @@
 		353940971E612D1F002AF590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353940951E612D1F002AF590 /* LaunchScreen.storyboard */; };
 		353940A21E612D20002AF590 /* BeyoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940A11E612D20002AF590 /* BeyoundTests.swift */; };
 		353940AD1E612D20002AF590 /* BeyoundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940AC1E612D20002AF590 /* BeyoundUITests.swift */; };
-		353940BB1E613144002AF590 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 353940BA1E613144002AF590 /* GoogleService-Info.plist */; };
 		353940C91E613231002AF590 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940BE1E613231002AF590 /* TabBarController.swift */; };
 		353940CA1E613231002AF590 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940BF1E613231002AF590 /* AddPostViewController.swift */; };
 		353940CB1E613231002AF590 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353940C01E613231002AF590 /* LoginViewController.swift */; };
@@ -38,6 +37,7 @@
 		35824B361E765AE500C993E7 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35824B351E765AE500C993E7 /* questions.plist */; };
 		35F2BC281E7216F5003F33F1 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */; };
 		4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */; };
+		ACB1161C1ED7797A008A5A2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB1161B1ED7797A008A5A2A /* GoogleService-Info.plist */; };
 		ACC668A11EAFC1E800CBFFF7 /* SearchResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC668A01EAFC1E800CBFFF7 /* SearchResultTableCell.swift */; };
 		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
 		EA756EEABAE5317B45C5BB6A /* Pods_Beyound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */; };
@@ -82,7 +82,6 @@
 		353940A81E612D20002AF590 /* BeyoundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeyoundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		353940AC1E612D20002AF590 /* BeyoundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeyoundUITests.swift; sourceTree = "<group>"; };
 		353940AE1E612D20002AF590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		353940BA1E613144002AF590 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		353940BE1E613231002AF590 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		353940BF1E613231002AF590 /* AddPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		353940C01E613231002AF590 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		8DCBC16F96B6D2E453393B1B /* Pods-BeyoundUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundUITests/Pods-BeyoundUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A6E5BD152479B958583884CB /* Pods-BeyoundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeyoundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeyoundTests/Pods-BeyoundTests.release.xcconfig"; sourceTree = "<group>"; };
 		AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACB1161B1ED7797A008A5A2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ACC668A01EAFC1E800CBFFF7 /* SearchResultTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableCell.swift; sourceTree = "<group>"; };
 		C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF7644565A58FD8E33DCC64 /* Pods_Beyound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beyound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,9 +199,9 @@
 				F59E8BFF1E7386340011202F /* TagViewCell.xib */,
 				353940951E612D1F002AF590 /* LaunchScreen.storyboard */,
 				353940901E612D1F002AF590 /* Beyound.xcdatamodeld */,
+				ACB1161B1ED7797A008A5A2A /* GoogleService-Info.plist */,
 				353940E91E615F9D002AF590 /* Info.plist */,
 				35824B351E765AE500C993E7 /* questions.plist */,
-				353940BA1E613144002AF590 /* GoogleService-Info.plist */,
 			);
 			path = Beyound;
 			sourceTree = "<group>";
@@ -407,7 +407,7 @@
 				35824B361E765AE500C993E7 /* questions.plist in Resources */,
 				353940E21E613281002AF590 /* user-placeholder.jpg in Resources */,
 				F59E8C001E7386340011202F /* TagViewCell.xib in Resources */,
-				353940BB1E613144002AF590 /* GoogleService-Info.plist in Resources */,
+				ACB1161C1ED7797A008A5A2A /* GoogleService-Info.plist in Resources */,
 				353940941E612D1F002AF590 /* Assets.xcassets in Resources */,
 				F57B046A1E9DB343001F27D7 /* Search.storyboard in Resources */,
 				353940E81E6156C2002AF590 /* user.png in Resources */,
@@ -754,7 +754,7 @@
 				DEVELOPMENT_TEAM = US832MQT35;
 				INFOPLIST_FILE = Beyound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beyound.Beyound;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -768,7 +768,7 @@
 				DEVELOPMENT_TEAM = US832MQT35;
 				INFOPLIST_FILE = Beyound/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.beyound.Beyound;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beyound.Beyound;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
