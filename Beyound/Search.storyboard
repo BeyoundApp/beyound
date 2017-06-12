@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pergun3" translatesAutoresizingMaskIntoConstraints="NO" id="ZNw-28-Rjg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-index.fw-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZNw-28-Rjg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="QlG-xd-ewF">
@@ -44,16 +44,17 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faça a sua pesquisa por influenciadores:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpL-nO-JRM">
                                         <rect key="frame" x="25.5" y="61" width="323.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <color key="textColor" red="0.31764705879999999" green="0.1764705882" blue="0.51788393210000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7K-4h-6am">
-                                        <rect key="frame" x="137" y="172" width="100" height="100"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7K-4h-6am">
+                                        <rect key="frame" x="15" y="203" width="345" height="69"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="tDl-YV-Y26"/>
                                             <constraint firstAttribute="width" constant="100" id="y41-0T-WoN"/>
                                         </constraints>
-                                        <state key="normal" image="continue.fw-2"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                        <state key="normal" title="PESQUISAR" backgroundImage="botao1.fw"/>
                                         <connections>
                                             <action selector="goNext:" destination="Gka-ab-KLO" eventType="touchUpInside" id="TPh-ST-hS9"/>
                                         </connections>
@@ -82,7 +83,7 @@
                             <constraint firstItem="QlG-xd-ewF" firstAttribute="top" secondItem="eFe-ez-h7f" secondAttribute="bottom" id="fj0-F3-60K"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pesquisar Influenciador" id="Fx4-00-YId"/>
+                    <navigationItem key="navigationItem" title="Busca" id="Fx4-00-YId"/>
                     <connections>
                         <outlet property="buttonSearch" destination="y7K-4h-6am" id="BCs-SQ-WjS"/>
                         <outlet property="navItem" destination="Fx4-00-YId" id="i6e-fg-A6J"/>
@@ -116,6 +117,7 @@
                                             <segment title="Nº de Palavras"/>
                                             <segment title="Popularidade"/>
                                         </segments>
+                                        <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segmentChanged:" destination="Hav-Dk-FBR" eventType="valueChanged" id="YQl-f9-cJ4"/>
                                         </connections>
@@ -128,7 +130,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="170"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ecv-L7-ESe" id="AKo-lR-IRp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ckl-5K-Aib">
@@ -165,7 +167,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRo-qX-I0i">
                                                             <rect key="frame" x="8" y="124" width="359" height="29.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.31764705879999999" green="0.1764705882" blue="0.51788393210000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="1" height="0.0"/>
                                                         </label>
@@ -219,7 +221,7 @@
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xCI-Qz-bNk">
                                 <rect key="frame" x="169" y="283" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -343,7 +345,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="continue.fw-2" width="84" height="85"/>
-        <image name="pergun3" width="562" height="1047"/>
+        <image name="bg-index.fw-1" width="400" height="700"/>
+        <image name="botao1.fw" width="270" height="57"/>
     </resources>
 </document>

@@ -10,42 +10,23 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var signUpButton: UIButton!{
-        didSet {
-            signUpButton.layer.cornerRadius = 25
-            signUpButton.layer.borderWidth = 1
-            signUpButton.layer.borderColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.1).cgColor
-        }
-    }
+    @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var emailTextField: UITextField!{
         didSet {
-            emailTextField.delegate = self
-            emailTextField.layer.cornerRadius = 25
-            emailTextField.layer.masksToBounds = true
-            emailTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            emailTextField.layer.borderWidth = 3
+            emailTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
 
         }
     }
     
     @IBOutlet weak var passwordTextField: UITextField!{
         didSet {
-            passwordTextField.delegate = self
-            passwordTextField.layer.cornerRadius = 25
-            passwordTextField.layer.masksToBounds = true
-            passwordTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            passwordTextField.layer.borderWidth = 3.0
+            passwordTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
     
-    @IBOutlet weak var loginButton: UIButton! {
-        didSet {
-            loginButton.layer.cornerRadius = 25
-            loginButton.layer.backgroundColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-        }
-    }
+    @IBOutlet weak var loginButton: UIButton!
 
     @IBOutlet weak var registerButton: UIButton!
 
@@ -163,3 +144,38 @@ extension LoginViewController: UITextFieldDelegate  {
     
     
 }
+
+
+
+
+
+extension CALayer {
+    
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        
+        let border = CALayer()
+        
+        switch edge {
+        case UIRectEdge.top:
+            border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: thickness)
+            break
+        case UIRectEdge.bottom:
+            border.frame = CGRect(x: 0, y: self.frame.height - thickness, width: self.frame.width, height: thickness)
+            break
+        case UIRectEdge.left:
+            border.frame = CGRect(x: 0, y: 0, width: thickness, height: self.frame.height)
+            break
+        case UIRectEdge.right:
+            border.frame = CGRect(x: self.frame.width - thickness, y: 0, width: thickness, height: self.frame.height)
+            break
+        default:
+            break
+        }
+        
+        border.backgroundColor = color.cgColor;
+        
+        self.addSublayer(border)
+    }
+    
+}
+

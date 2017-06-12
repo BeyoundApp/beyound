@@ -13,92 +13,55 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var firstLastNameTextField: UITextField!{
         didSet{
-            firstLastNameTextField.layer.cornerRadius = 20
-            firstLastNameTextField.layer.masksToBounds = true
-            firstLastNameTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            firstLastNameTextField.layer.borderWidth = 3
-            firstLastNameTextField.delegate = self
+            firstLastNameTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
 
     @IBOutlet weak var addressTextField: UITextField!{
         didSet{
-        addressTextField.layer.cornerRadius = 20
-        addressTextField.layer.masksToBounds = true
-        addressTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-        addressTextField.layer.borderWidth = 3
-        addressTextField.delegate = self
+        addressTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
     
     @IBOutlet weak var usernameTextField: UITextField!{
         didSet{
-            usernameTextField.layer.cornerRadius = 20
-            usernameTextField.delegate = self
-            usernameTextField.layer.masksToBounds = true
-            usernameTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            usernameTextField.layer.borderWidth = 3
+            usernameTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
     @IBOutlet weak var cnpjTextField: UITextField!{
         didSet{
-            cnpjTextField.layer.cornerRadius = 20
-            cnpjTextField.delegate = self
-            cnpjTextField.layer.masksToBounds = true
-            cnpjTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            cnpjTextField.layer.borderWidth = 3
+            cnpjTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
     
     
     @IBOutlet weak var emailTextField: UITextField!{
         didSet{
-            emailTextField.layer.cornerRadius = 20
-            emailTextField.delegate = self
-            emailTextField.layer.masksToBounds = true
-            emailTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            emailTextField.layer.borderWidth = 3
+            emailTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
 
     @IBOutlet weak var biographyTextField: UITextField!{
         didSet{
-            biographyTextField.layer.cornerRadius = 20
-            biographyTextField.delegate = self
-            biographyTextField.layer.masksToBounds = true
-            biographyTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            biographyTextField.layer.borderWidth = 3
+            biographyTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
 
     
     @IBOutlet weak var categoryTextField: UITextField!{
         didSet{
-            categoryTextField.layer.cornerRadius = 20
-            categoryTextField.delegate = self
-            categoryTextField.layer.masksToBounds = true
-            categoryTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            categoryTextField.layer.borderWidth = 3
+            categoryTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
 
     @IBOutlet weak var passwordTextField: UITextField!{
         didSet{
-            passwordTextField.layer.cornerRadius = 20
-            passwordTextField.delegate = self
-            passwordTextField.layer.masksToBounds = true
-            passwordTextField.layer.borderColor = UIColor( red: 255/255, green: 255/255, blue:255/255, alpha: 1.0 ).cgColor
-            passwordTextField.layer.borderWidth = 3
+            passwordTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
         }
     }
 
-    @IBOutlet weak var signUpButton: UIButton!{
-        didSet{
-            signUpButton.layer.cornerRadius = 20
-            signUpButton.layer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1).cgColor
-        }
-    }
-
+    @IBOutlet weak var signUpButton: UIButton!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
