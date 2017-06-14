@@ -112,6 +112,15 @@ class IndexInfluenciadorViewController: UIViewController {
         task.resume()
     }
 
+    @IBAction func logout(_ sender: Any) {
+        
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "accessToken")
+        
+        performSegue(withIdentifier: "toStart", sender: self)
+        
+    }
+    
     func calculateScores(){
         
         self.dictWords = NSMutableDictionary()
