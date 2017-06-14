@@ -28,10 +28,15 @@ class IndexInfluenciadorViewController: UIViewController {
     
     @IBOutlet weak var perfil: UIImageView!
     
+    @IBOutlet weak var mediaLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
          let influenciador = Singleton.sharedInstance.getInfluenciador()
+        let media=((((influenciador.object(forKey: "posts") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int)
+        
         
          let name = influenciador.value(forKey: "full_name") as! String
          let username = influenciador.value(forKey: "username") as! String
@@ -42,8 +47,9 @@ class IndexInfluenciadorViewController: UIViewController {
         
          self.nameLabel.text = name
          self.usernameLabel.text = "@" + username
-        self.following.text = String(following)
+         self.following.text = String(following)
          self.followerLabel.text = String(followers)
+         self.mediaLabel.text = String(media)
         
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
