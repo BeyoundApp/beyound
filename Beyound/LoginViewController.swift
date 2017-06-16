@@ -15,14 +15,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var emailTextField: UITextField!{
         didSet {
-            emailTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            emailTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "CONTATO@MAIL.COM",
+                                                                   attributes: [NSForegroundColorAttributeName: UIColor.gray])
 
         }
     }
     
     @IBOutlet weak var passwordTextField: UITextField!{
         didSet {
-            passwordTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            passwordTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "••••••••",
+                                                                attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
     
@@ -73,8 +77,8 @@ class LoginViewController: UIViewController {
 
         if finalEmail.characters.count < 8 || finalEmail.isEmpty || password.isEmpty {
             
-            let alertController = UIAlertController(title: "OOPS", message: "hEY MAN, You gotta fill all the fields", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alertController = UIAlertController(title: "Campos Vazios", message: "Olá, parece que você esqueceu de algum campo.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
             present(alertController, animated: true, completion: nil)
             
         }else {

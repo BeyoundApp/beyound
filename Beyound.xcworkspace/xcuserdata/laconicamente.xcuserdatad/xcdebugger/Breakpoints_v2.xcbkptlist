@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Beyound/SignUpViewController.swift"
-            timestampString = "509748426.546405"
+            timestampString = "519270777.891285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "SignUpViewController"
-            landmarkType = "3">
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "categoryTextField"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Beyound/SignUpViewController.swift"
-            timestampString = "509748426.546405"
+            timestampString = "519270777.891285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "emailTextField"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "categoryTextField"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,7 +186,7 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "511754731.812887"
+                  timestampString = "519268163.195417"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -201,7 +201,7 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "511754731.971867"
+                  timestampString = "519268163.207957"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -216,7 +216,7 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "511754732.093615"
+                  timestampString = "519268163.217536"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -231,7 +231,7 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "511754732.233179"
+                  timestampString = "519268163.227074"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -325,8 +325,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
             endingLineNumber = "33"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "IndexInfluenciadorViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -389,7 +389,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
             endingLineNumber = "72"
-            landmarkName = "getPosts(completion:)"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -405,8 +405,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "IndexInfluenciadorViewController"
-            landmarkType = "3">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -416,13 +416,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Beyound/LoginViewController.swift"
-            timestampString = "518916148.242588"
+            timestampString = "519270196.559848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "LoginViewController"
-            landmarkType = "3">
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -432,12 +432,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Beyound/LoginViewController.swift"
-            timestampString = "518917015.27518"
+            timestampString = "519270777.891285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "emailTextField"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "passwordTextField"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

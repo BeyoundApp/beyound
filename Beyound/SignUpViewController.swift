@@ -13,50 +13,66 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var firstLastNameTextField: UITextField!{
         didSet{
-            firstLastNameTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            firstLastNameTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            firstLastNameTextField.attributedPlaceholder = NSAttributedString(string: "NOME COMPLETO",
+                                                                              attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
 
     @IBOutlet weak var addressTextField: UITextField!{
         didSet{
-        addressTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+        addressTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            addressTextField.attributedPlaceholder = NSAttributedString(string: "ENDEREÇO",
+                                                                        attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
     
     @IBOutlet weak var usernameTextField: UITextField!{
         didSet{
-            usernameTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            usernameTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            usernameTextField.attributedPlaceholder = NSAttributedString(string: "NOME DO USUÁRIO",
+                                                                 attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
     @IBOutlet weak var cnpjTextField: UITextField!{
         didSet{
-            cnpjTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            cnpjTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            cnpjTextField.attributedPlaceholder = NSAttributedString(string: "CNPJ",
+                                                                 attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
     
     
     @IBOutlet weak var emailTextField: UITextField!{
         didSet{
-            emailTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            emailTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "CONTATO@MAIL.COM",
+                                                                 attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
 
     @IBOutlet weak var biographyTextField: UITextField!{
         didSet{
-            biographyTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            biographyTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            biographyTextField.attributedPlaceholder = NSAttributedString(string: "DESCRICAO",
+                                                                 attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
 
     
     @IBOutlet weak var categoryTextField: UITextField!{
         didSet{
-            categoryTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            categoryTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+                 categoryTextField.attributedPlaceholder = NSAttributedString(string: "CATEGORIA",
+                                                            attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
 
     @IBOutlet weak var passwordTextField: UITextField!{
         didSet{
-            passwordTextField.layer.addBorder(edge: UIRectEdge.top, color: UIColor.gray, thickness: 2)
+            passwordTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.gray, thickness: 2)
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "•••••••",
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
 
@@ -120,7 +136,7 @@ class SignUpViewController: UIViewController {
         if finalEmail.isEmpty || category.isEmpty || biography.isEmpty || address.isEmpty || username.isEmpty || cnpj.isEmpty || password.isEmpty {
             self.view.endEditing(true)
             let alertController = UIAlertController(title: "Campos Vazios", message: "Preencha todos os campos por favor.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
             present(alertController, animated: true, completion: nil)
             
         }else {
