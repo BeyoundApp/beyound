@@ -38,6 +38,7 @@
 		35F2BC281E7216F5003F33F1 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F2BC271E7216F5003F33F1 /* QuestionsViewController.swift */; };
 		4C90293742D3E1BAD1D5C809 /* Pods_BeyoundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */; };
 		AC10BF701EF0C35D0099DE2C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC10BF6F1EF0C35D0099DE2C /* UserNotifications.framework */; };
+		AC959BEF1EF4CCD80034EC05 /* IndexInfluenciadorPublicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC959BEE1EF4CCD80034EC05 /* IndexInfluenciadorPublicViewController.swift */; };
 		ACB1161C1ED7797A008A5A2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB1161B1ED7797A008A5A2A /* GoogleService-Info.plist */; };
 		ACC668A11EAFC1E800CBFFF7 /* SearchResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC668A01EAFC1E800CBFFF7 /* SearchResultTableCell.swift */; };
 		E732FCA9BA80FA3247B85C0B /* Pods_BeyoundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */; };
@@ -114,6 +115,7 @@
 		AAF8903B8E1CECD9B53947EE /* Pods_BeyoundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC10BF6F1EF0C35D0099DE2C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		AC10BF711EF0CB310099DE2C /* Beyound.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Beyound.entitlements; sourceTree = "<group>"; };
+		AC959BEE1EF4CCD80034EC05 /* IndexInfluenciadorPublicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexInfluenciadorPublicViewController.swift; sourceTree = "<group>"; };
 		ACB1161B1ED7797A008A5A2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ACC668A01EAFC1E800CBFFF7 /* SearchResultTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableCell.swift; sourceTree = "<group>"; };
 		C49BB35BBDCD7B2A0C4E3D8F /* Pods_BeyoundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeyoundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,6 +245,7 @@
 				353940C11E613231002AF590 /* SignUpViewController.swift */,
 				353940C21E613231002AF590 /* UserProfileTableViewController.swift */,
 				353940EB1E626F51002AF590 /* IndexInfluenciadorViewController.swift */,
+				AC959BEE1EF4CCD80034EC05 /* IndexInfluenciadorPublicViewController.swift */,
 				F5D9006D1E9C53BC007EDBB5 /* SearchResultController.swift */,
 				353940E31E613979002AF590 /* IndexViewController.swift */,
 				353940C31E613231002AF590 /* ChooseUserViewController.swift */,
@@ -607,6 +610,7 @@
 				F53BE3091EA04E4900AB6E61 /* SearchViewController.swift in Sources */,
 				353940D11E613231002AF590 /* CommentsViewController.swift in Sources */,
 				F53F37A51E6E5BCC00379FE6 /* HelperWebViewController.swift in Sources */,
+				AC959BEF1EF4CCD80034EC05 /* IndexInfluenciadorPublicViewController.swift in Sources */,
 				F5124B4D1E7252150025C24E /* Singleton.swift in Sources */,
 				ACC668A11EAFC1E800CBFFF7 /* SearchResultTableCell.swift in Sources */,
 				353940CF1E613231002AF590 /* FeedTableViewController.swift in Sources */,

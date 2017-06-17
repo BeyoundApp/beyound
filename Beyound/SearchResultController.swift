@@ -220,15 +220,23 @@ class SearchResultController: UIViewController, UITableViewDelegate, UITableView
         task.resume()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "searchResultToPublicInf", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var ip = self.tableView.indexPathForSelectedRow! as IndexPath
+        
+        var influenciadorPublic = segue.destination as! IndexInfluenciadorPublicViewController
+        let key = (displayedResults[ip.row] as! NSDictionary.Iterator.Element).key
 
+        influenciadorPublic.influenciadorId = (allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "full_name") as! String
+        
+        self.tableView.deselectRow(at: ip, animated: true)
+        
+        
+    }
+   
 }

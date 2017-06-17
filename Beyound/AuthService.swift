@@ -348,6 +348,27 @@ struct AuthService {
         }
     }
     
+    //adicionar influenciador a empresa
+    
+    public func setReachedInfluenciador(uidUser: String, uid: String, username: String, fullName: String, website: String, photoURL:String, completion: @escaping (Error?) -> ()){
+        
+        let userInfo = ["uid":uid,"username": username, "full_name": fullName, "website":website, "photoURL":photoURL] as [String : Any]
+        
+        let userRef = self.dataBaseRef.child("users").child(uidUser).child("reachedInfluencers").child(uid)
+        
+        userRef.updateChildValues(userInfo) { (error, ref) in
+            if error == nil {
+                print("user info saved successfully")
+                completion(nil)
+            }else {
+                print(error!.localizedDescription)
+                completion(error)
+            }
+        }
+        
+    }
+    
+    
     //com autenticacao requerida
     //    // SET E SAVE INFLUENCIADORES
     
