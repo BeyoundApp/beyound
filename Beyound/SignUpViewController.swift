@@ -114,8 +114,8 @@ class SignUpViewController: UIViewController {
     
     func showMessage() {
         
-        let alertController = UIAlertController(title: "OOPS", message: "A user with the same username already exists. Please choose another one", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        let alertController = UIAlertController(title: "Erro", message: "Nome de usuário já existe, escolha outro por favor.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Fechar", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
         
         
@@ -133,7 +133,20 @@ class SignUpViewController: UIViewController {
         let firstLastName = firstLastNameTextField.text!
         let pictureData = UIImageJPEGRepresentation(self.userImageView.image!, 0.70)
         
-        if finalEmail.isEmpty || category.isEmpty || biography.isEmpty || address.isEmpty || username.isEmpty || cnpj.isEmpty || password.isEmpty {
+        
+        if finalEmail.isEmail{
+            self.view.endEditing(true)
+            let alertController = UIAlertController(title: "Email Incorreto", message: "Preencha seu email corretamente, por favor.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            present(alertController, animated: true, completion: nil)
+
+        }else if cnpj.isValidCNPJ{
+            self.view.endEditing(true)
+            let alertController = UIAlertController(title: "CNPJ Incorreto", message: "Preencha seu CNPJ corretamente, por favor.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            present(alertController, animated: true, completion: nil)
+            
+        }else if finalEmail.isEmpty || category.isEmpty || biography.isEmpty || address.isEmpty || username.isEmpty || cnpj.isEmpty || password.isEmpty {
             self.view.endEditing(true)
             let alertController = UIAlertController(title: "Campos Vazios", message: "Preencha todos os campos por favor.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
@@ -151,6 +164,58 @@ class SignUpViewController: UIViewController {
 
 
 
+extension String {
+    var isValidCNPJ: Bool {
+        let numbers = characters.flatMap({Int(String($0))})
+        guard numbers.count == 14 && Set(numbers).count != 1 else { return false }
+        let soma1 = 11 - ( numbers[11] * 2 +
+            numbers[10] * 3 +
+            numbers[9] * 4 +
+            numbers[8] * 5 +
+            numbers[7] * 6 +
+            numbers[6] * 7 +
+            numbers[5] * 8 +
+            numbers[4] * 9 +
+            numbers[3] * 2 +
+            numbers[2] * 3 +
+            numbers[1] * 4 +
+            numbers[0] * 5 ) % 11
+        let dv1 = soma1 > 9 ? 0 : soma1
+        let soma2 = 11 - ( numbers[12] * 2 +
+            numbers[11] * 3 +
+            numbers[10] * 4 +
+            numbers[9] * 5 +
+            numbers[8] * 6 +
+            numbers[7] * 7 +
+            numbers[6] * 8 +
+            numbers[5] * 9 +
+            numbers[4] * 2 +
+            numbers[3] * 3 +
+            numbers[2] * 4 +
+            numbers[1] * 5 +
+            numbers[0] * 6 ) % 11
+        let dv2 = soma2 > 9 ? 0 : soma2
+        return dv1 == numbers[12] && dv2 == numbers[13]
+    }
+}
+
+extension String {
+    var isEmail: Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,20}"
+        let emailTest  = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
+    }
+}
+
+//
+//
+//func validateEmail(enteredEmail:String) -> Bool {
+//    
+//    let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+//    let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+//    return emailPredicate.evaluate(with: enteredEmail)
+//    
+//}
 //--------------------------------------------------------------------------------------------------------------------
 
 extension SignUpViewController: UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -213,7 +278,7 @@ extension SignUpViewController: UITextFieldDelegate,UIPickerViewDelegate, UIPick
             
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive, handler: nil)
         
         alertController.addAction(cameraAction)
         alertController.addAction(photosLibraryAction)
