@@ -134,11 +134,12 @@ class SignUpViewController: UIViewController {
         let pictureData = UIImageJPEGRepresentation(self.userImageView.image!, 0.70)
         
         
-        if finalEmail.isEmail{
+        if finalEmail.isEmpty || category.isEmpty || biography.isEmpty || address.isEmpty || username.isEmpty || cnpj.isEmpty || password.isEmpty {
             self.view.endEditing(true)
-            let alertController = UIAlertController(title: "Email Incorreto", message: "Preencha seu email corretamente, por favor.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Campos Vazios", message: "Preencha todos os campos por favor.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
             present(alertController, animated: true, completion: nil)
+
 
         }else if cnpj.isValidCNPJ{
             self.view.endEditing(true)
@@ -146,12 +147,13 @@ class SignUpViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
             present(alertController, animated: true, completion: nil)
             
-        }else if finalEmail.isEmpty || category.isEmpty || biography.isEmpty || address.isEmpty || username.isEmpty || cnpj.isEmpty || password.isEmpty {
+        }else if finalEmail.isEmail{
             self.view.endEditing(true)
-            let alertController = UIAlertController(title: "Campos Vazios", message: "Preencha todos os campos por favor.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Email Incorreto", message: "Preencha seu email corretamente, por favor.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
             present(alertController, animated: true, completion: nil)
             
+            print("erro de email")
         }else {
             self.view.endEditing(true)
             authService.signUp(firstLastName: firstLastName, username: username, address: address, cnpj: cnpj, email: finalEmail, category: category, biography: biography, password: password, pictureData: pictureData as NSData!)
