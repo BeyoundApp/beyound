@@ -141,19 +141,19 @@ class SignUpViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
 
 
-        }else if cnpj.isValidCNPJ{
-            self.view.endEditing(true)
-            let alertController = UIAlertController(title: "CNPJ Incorreto", message: "Preencha seu CNPJ corretamente, por favor.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-            present(alertController, animated: true, completion: nil)
-            
-        }else if finalEmail.isEmail{
-            self.view.endEditing(true)
-            let alertController = UIAlertController(title: "Email Incorreto", message: "Preencha seu email corretamente, por favor.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-            present(alertController, animated: true, completion: nil)
-            
-            print("erro de email")
+//        }else if cnpj.isValidCNPJ{
+//            self.view.endEditing(true)
+//            let alertController = UIAlertController(title: "CNPJ Incorreto", message: "Preencha seu CNPJ corretamente, por favor.", preferredStyle: .alert)
+//            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+//            present(alertController, animated: true, completion: nil)
+//            
+//        }else if finalEmail.isEmail{
+//            self.view.endEditing(true)
+//            let alertController = UIAlertController(title: "Email Incorreto", message: "Preencha seu email corretamente, por favor.", preferredStyle: .alert)
+//            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+//            present(alertController, animated: true, completion: nil)
+//            
+//            print("erro de email")
         }else {
             self.view.endEditing(true)
             authService.signUp(firstLastName: firstLastName, username: username, address: address, cnpj: cnpj, email: finalEmail, category: category, biography: biography, password: password, pictureData: pictureData as NSData!)
