@@ -11,6 +11,34 @@ import Firebase
 import FirebaseAuth
 
 class UpdateUserInfoViewController: UIViewController {
+    
+    
+    @IBOutlet weak var nameTextField: UITextField!{
+        didSet {
+        nameTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "NOME DE USUÁRIO",
+                                                                 attributes: [NSForegroundColorAttributeName: UIColor.gray])
+    }
+}
+
+@IBOutlet weak var descricaoTextField: UITextField!{
+    didSet {
+    descricaoTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
+    descricaoTextField.attributedPlaceholder = NSAttributedString(string: "DESCRIÇÄO",
+                                                                  attributes: [NSForegroundColorAttributeName: UIColor.gray])
+}
+}
+
+
+@IBOutlet weak var categoriaTextField: UITextField!{
+    didSet {
+        categoriaTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
+        categoriaTextField.attributedPlaceholder = NSAttributedString(string: "RAMO DE ATIVIDADE",
+                                                                      attributes: [NSForegroundColorAttributeName: UIColor.gray])
+        
+    }
+}
+
     @IBAction func LogoutAction(_ sender: Any) {
         if FIRAuth.auth()!.currentUser != nil {
             // there is a user signed in
