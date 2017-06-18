@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseMessaging
 
 class IndexInfluenciadorViewController: UIViewController {
     
@@ -65,18 +65,34 @@ class IndexInfluenciadorViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var buttonContacts: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         let influenciador = Singleton.sharedInstance.getInfluenciador()
+        let influenciador = Singleton.sharedInstance.getInfluenciador()
+        
+        let uid = influenciador.value(forKey: "uid") as! String
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/"+uid)
+        
         let media=((((influenciador.object(forKey: "posts") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int)
         
         
+
          let name = influenciador.value(forKey: "full_name") as! String
          let username = influenciador.value(forKey: "username") as! String
          let followers = influenciador.value(forKey: "followers") as! Int
          let following = influenciador.value(forKey: "following") as! Int
+        
+        let userContacts = influenciador.value(forKey: "userContacts") as! NSMutableDictionary
+        
+        if(userContacts != nil){
+            buttonContacts.setTitle(String(userContacts.count), for: UIControlState.normal)
+
+        }else{
+            buttonContacts.setTitle("0", for: UIControlState.normal)
+        }
+        
          let url = NSURL(string: influenciador.value(forKey:"photoURL") as! String)!
          let profile = NSData(contentsOf: url as URL)
         
