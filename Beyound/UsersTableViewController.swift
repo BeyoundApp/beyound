@@ -7,70 +7,97 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import Firebase
-import FirebaseStorage
-import FirebaseAuth
 
 class UsersTableViewController: UITableViewController {
 
-    var usersArray = [User]()
-    
-    var dataBaseRef: FIRDatabaseReference! {
-        return FIRDatabase.database().reference()
-    }
-    
+    var reachedInfluencers: NSDictionary!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        reachedInfluencers = NSDictionary()
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.getReachedInfluencers{(completion) -> () in
+            if(completion == nil){
+                self.tableView.reloadData()
+            }
+        }
+        
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        fetchUsers()
-    }
-
-    func fetchUsers(){
+    func getReachedInfluencers(completion: @escaping (Error?) -> ()){
         
-        dataBaseRef.child("users").observe(.value, with: { (snapshot) in
-            var results = [User]()
+        let url = "https://tcc-beyound.firebaseio.com/users/"+Singleton.sharedInstance.getUserLoggedId()+"/reachedInfluencers.json"
+        
+        let request = NSMutableURLRequest(url: NSURL(string: url) as! URL)
+        let session = URLSession.shared
+        request.httpMethod = "GET"
+        
+        var err: NSError?
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
             
-            for user in snapshot.children {
+            var strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            var err: NSError?
+            var string = String(data: data!, encoding: .utf8)
+            
+            if (string?.contains("null"))!{
                 
-            let user = User(snapshot: user as! FIRDataSnapshot)
+                completion(nil)
                 
-                if user.uid != FIRAuth.auth()!.currentUser!.uid {
-                results.append(user)
+            }else{
+                
+                do{
+                    
+                    if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
+                        self.reachedInfluencers = jsonResult
+                        completion(nil)
+                    }
+                }catch let error as NSError{
+                    print(error)
+                    completion(nil)
                 }
                 
             }
-            
-            self.usersArray = results.sorted(by: { (u1, u2) -> Bool in
-                u1.firstLastName < u2.firstLastName
-            })
-            self.tableView.reloadData()
-            
-            }) { (error) in
-                print(error.localizedDescription)
-        }
-    
+        })
+        task.resume()
     }
+
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return usersArray.count
+        return reachedInfluencers.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as! UsersTableViewCell
 
-        // Configure the cell...
-        
-        cell.configureCell(user: usersArray[indexPath.row])
+        var influenciador = self.reachedInfluencers.object(forKey: self.reachedInfluencers.allKeys[indexPath.row]) as! NSDictionary
 
+        let name = influenciador.value(forKey: "full_name") as! String
+        let username = influenciador.value(forKey: "username") as! String
+        let website = influenciador.value(forKey: "website") as! String
+        let url = NSURL(string: influenciador.value(forKey:"photoURL") as! String)!
+        let profile = NSData(contentsOf: url as URL)
+
+        cell.usernameLabel.text = username
+        cell.emailLabel.text = name
+        cell.countryLabel.text = website
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                cell.userImageView.image = UIImage(data: profile as! Data)
+            }
+        }
+        
         return cell
     }
     

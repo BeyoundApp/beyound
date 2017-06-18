@@ -350,16 +350,31 @@ struct AuthService {
     
     //adicionar influenciador a empresa
     
-    public func setReachedInfluenciador(uidUser: String, uid: String, username: String, fullName: String, website: String, photoURL:String, completion: @escaping (Error?) -> ()){
+    public func setReachedInfluenciador(uidUser: String,nameUser:String, emailUser:String, cnpjUser:String, uid: String, username: String, fullName: String, website: String, photoURL:String, completion: @escaping (Error?) -> ()){
         
-        let userInfo = ["uid":uid,"username": username, "full_name": fullName, "website":website, "photoURL":photoURL] as [String : Any]
+        let userInfo = ["uid":uid,"username": username, "full_name": fullName, "website":website, "photoURL":photoURL, "status":0] as [String : Any]
+        
+        let infInfo = ["uid":uidUser,"username": nameUser, "email": emailUser, "cnpj":cnpjUser,"status":0] as [String : Any]
         
         let userRef = self.dataBaseRef.child("users").child(uidUser).child("reachedInfluencers").child(uid)
+
+        let infRef = self.dataBaseRef.child("influenciadores").child(uid).child("userContacts").child(uidUser)
         
         userRef.updateChildValues(userInfo) { (error, ref) in
             if error == nil {
                 print("user info saved successfully")
-                completion(nil)
+                
+                infRef.updateChildValues(infInfo) { (error, ref) in
+                    if error == nil {
+                        print("user info saved successfully")
+                        completion(nil)
+                    }else {
+                        print(error!.localizedDescription)
+                        completion(error)
+                    }
+                }
+
+                
             }else {
                 print(error!.localizedDescription)
                 completion(error)

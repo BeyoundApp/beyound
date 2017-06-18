@@ -232,7 +232,7 @@ class SearchResultController: UIViewController, UITableViewDelegate, UITableView
         var influenciadorPublic = segue.destination as! IndexInfluenciadorPublicViewController
         let key = (displayedResults[ip.row] as! NSDictionary.Iterator.Element).key
 
-        influenciadorPublic.influenciadorId = (allInfluencers.object(forKey: key) as! NSDictionary).value(forKey: "full_name") as! String
+        influenciadorPublic.influenciador = (allInfluencers.object(forKey: key) as! NSDictionary)
         
         self.tableView.deselectRow(at: ip, animated: true)
         

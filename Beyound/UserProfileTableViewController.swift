@@ -48,6 +48,12 @@ class UserProfileTableViewController: UITableViewController {
         userRef.observe(.value, with: { (snapshot) in
             
             let user = User(snapshot: snapshot)
+            
+            Singleton.sharedInstance.setUserLoggedId(id: user.uid)
+            Singleton.sharedInstance.setUserLoggedName(name: user.username!)
+            Singleton.sharedInstance.setUserLoggedEmail(email: user.email!)
+            Singleton.sharedInstance.setUserLoggedCnpj(cnpj: user.cnpj)
+
             self.usernameLabel.text = "@" + user.username!
             self.userCountry.text = user.category!
             self.userBiographyTextView.text = user.biography!
