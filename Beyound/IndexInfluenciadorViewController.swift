@@ -30,6 +30,41 @@ class IndexInfluenciadorViewController: UIViewController {
     
     @IBOutlet weak var mediaLabel: UILabel!
     
+    @IBAction func formasContatoAction(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Dados para contato", message: "Por favor, nos informe seu email:", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Salvar", style: .default, handler: {
+            alert -> Void in
+            let fNameField = alertController.textFields![0] as UITextField
+            let lNameField = alertController.textFields![1] as UITextField
+            
+            if fNameField.text != "", lNameField.text != "" {
+//                self.newUser = User(fn: fNameField.text!, ln: lNameField.text!)
+                //TODO: Save user data in persistent storage - a tutorial for another time
+            } else {
+                let errorAlert = UIAlertController(title: "Error", message: "Coloque seu email e número de celular, por favor.", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {
+                    alert -> Void in
+                    self.present(alertController, animated: true, completion: nil)
+                }))
+                self.present(errorAlert, animated: true, completion: nil)
+            }
+        }))
+        
+        alertController.addTextField(configurationHandler: { (textField) -> Void in
+            textField.placeholder = "CONTATO@GMAIL.COM"
+            textField.textAlignment = .center
+        })
+        
+        alertController.addTextField(configurationHandler: { (textField) -> Void in
+            textField.placeholder = "NÚMERO DE CELULAR"
+            textField.textAlignment = .center
+        })
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
