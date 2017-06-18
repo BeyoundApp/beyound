@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Beyound/SignUpViewController.swift"
-            timestampString = "519270777.891285"
+            timestampString = "519426997.728488"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Beyound/SignUpViewController.swift"
-            timestampString = "519270777.891285"
+            timestampString = "519426997.728488"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -186,7 +186,7 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "519268163.195417"
+                  timestampString = "519427525.522144"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -201,7 +201,7 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "519268163.207957"
+                  timestampString = "519427525.531434"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -216,7 +216,7 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "519268163.217536"
+                  timestampString = "519427525.545981"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -231,7 +231,7 @@
                   moduleName = "Beyound"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/laconicamente/Library/Mobile%20Documents/com~apple~CloudDocs/Projeto%20Beyound/TCC/Beyound/Beyound/QuestionViewController.swift"
-                  timestampString = "519268163.227074"
+                  timestampString = "519427525.556091"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -486,6 +486,54 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/SignUpViewController.swift"
+            timestampString = "519426997.728488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "signUpAction(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/SignUpViewController.swift"
+            timestampString = "519427873.830477"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "isEmail"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Beyound/SignUpViewController.swift"
+            timestampString = "519427873.830477"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "signUpAction(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
