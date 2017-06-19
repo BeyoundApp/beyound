@@ -383,6 +383,73 @@ struct AuthService {
         
     }
     
+    //adicionar influenciador a empresa
+    
+    public func setResponseContactAccept(uidUser: String, uid: String, email: String, phone: String, completion: @escaping (Error?) -> ()){
+        
+        let userInfo = ["uid":uid,"status": 1, "email": email, "phone":phone] as [String : Any]
+        
+        let infInfo = ["uid":uidUser, "status":1] as [String : Any]
+        
+        let userRef = self.dataBaseRef.child("users").child(uidUser).child("reachedInfluencers").child(uid)
+        
+        let infRef = self.dataBaseRef.child("influenciadores").child(uid).child("userContacts").child(uidUser)
+        
+        userRef.updateChildValues(userInfo) { (error, ref) in
+            if error == nil {
+                print("user info saved successfully")
+                
+                infRef.updateChildValues(infInfo) { (error, ref) in
+                    if error == nil {
+                        print("user info saved successfully")
+                        completion(nil)
+                    }else {
+                        print(error!.localizedDescription)
+                        completion(error)
+                    }
+                }
+                
+                
+            }else {
+                print(error!.localizedDescription)
+                completion(error)
+            }
+        }
+        
+    }
+    
+    public func setResponseContactReject(uidUser: String, uid: String, completion: @escaping (Error?) -> ()){
+        
+        let userInfo = ["uid":uid,"status": 2] as [String : Any]
+        
+        let infInfo = ["uid":uidUser, "status":2] as [String : Any]
+        
+        let userRef = self.dataBaseRef.child("users").child(uidUser).child("reachedInfluencers").child(uid)
+        
+        let infRef = self.dataBaseRef.child("influenciadores").child(uid).child("userContacts").child(uidUser)
+        
+        userRef.updateChildValues(userInfo) { (error, ref) in
+            if error == nil {
+                print("user info saved successfully")
+                
+                infRef.updateChildValues(infInfo) { (error, ref) in
+                    if error == nil {
+                        print("user info saved successfully")
+                        completion(nil)
+                    }else {
+                        print(error!.localizedDescription)
+                        completion(error)
+                    }
+                }
+                
+                
+            }else {
+                print(error!.localizedDescription)
+                completion(error)
+            }
+        }
+        
+    }
     
     //com autenticacao requerida
     //    // SET E SAVE INFLUENCIADORES

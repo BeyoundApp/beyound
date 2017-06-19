@@ -19,11 +19,15 @@ class UsersTableViewController: UITableViewController {
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         self.getReachedInfluencers{(completion) -> () in
             if(completion == nil){
-                self.tableView.reloadData()
+                DispatchQueue.global(qos: .userInitiated).async {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
             }
         }
         
@@ -84,16 +88,25 @@ class UsersTableViewController: UITableViewController {
 
         let name = influenciador.value(forKey: "full_name") as! String
         let username = influenciador.value(forKey: "username") as! String
-        let website = influenciador.value(forKey: "website") as! String
+        let status = influenciador.value(forKey: "status") as! Int
         let url = NSURL(string: influenciador.value(forKey:"photoURL") as! String)!
-        let profile = NSData(contentsOf: url as URL)
 
-        cell.usernameLabel.text = username
-        cell.emailLabel.text = name
-        cell.countryLabel.text = website
-        
+        let email = influenciador.value(forKey: "email") as? String
+        let phone = influenciador.value(forKey: "phone") as? String
+
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
+                let profile = NSData(contentsOf: url as URL)
+
+                cell.usernameLabel.text = username
+                cell.emailLabel.text = name
+                cell.statusLabel.isHidden = (status != 0)
+                cell.buttonEmail.isHidden = (status == 0)
+                cell.buttonPhone.isHidden = (status == 0)
+                
+                cell.buttonEmail.setTitle(email, for: UIControlState.normal)
+                cell.buttonPhone.setTitle(phone, for: UIControlState.normal)
+                
                 cell.userImageView.image = UIImage(data: profile as! Data)
             }
         }
