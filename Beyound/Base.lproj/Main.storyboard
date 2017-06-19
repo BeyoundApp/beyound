@@ -2218,10 +2218,6 @@
         <image name="white.fw" width="214" height="209"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="f3n-mO-yt1"/>
-=======
->>>>>>> fe08c3fbd45f5c1c7ebfd3ef319342585b949d44
         <segue reference="3fY-6h-UF8"/>
         <segue reference="pUC-91-9LG"/>
     </inferredMetricsTieBreakers>
