@@ -93,19 +93,19 @@ class UsersTableViewController: UITableViewController {
 
         let email = influenciador.value(forKey: "email") as? String
         let phone = influenciador.value(forKey: "phone") as? String
+        cell.usernameLabel.text = username
+        cell.emailLabel.text = name
+        cell.statusLabel.isHidden = (status != 0)
+        cell.buttonEmail.isHidden = (status == 0)
+        cell.buttonPhone.isHidden = (status == 0)
+        
+        cell.buttonEmail.setTitle(email, for: UIControlState.normal)
+        cell.buttonPhone.setTitle(phone, for: UIControlState.normal)
 
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
                 let profile = NSData(contentsOf: url as URL)
 
-                cell.usernameLabel.text = username
-                cell.emailLabel.text = name
-                cell.statusLabel.isHidden = (status != 0)
-                cell.buttonEmail.isHidden = (status == 0)
-                cell.buttonPhone.isHidden = (status == 0)
-                
-                cell.buttonEmail.setTitle(email, for: UIControlState.normal)
-                cell.buttonPhone.setTitle(phone, for: UIControlState.normal)
                 
                 cell.userImageView.image = UIImage(data: profile as! Data)
             }
