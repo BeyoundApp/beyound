@@ -1,98 +1,61 @@
-//
-//  UpdateUserInfoViewController.swift
-//  MaranathApp
-//
-//  Created by Frezy Stone Mboumba on 8/12/16.
-//  Copyright © 2016 Frezy Stone Mboumba. All rights reserved.
-//
-
 import UIKit
-import Firebase
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class UpdateUserInfoViewController: UIViewController {
+  
     
-    
-    @IBOutlet weak var nameTextField: UITextField!{
-        didSet {
-        nameTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "NOME DE USUÁRIO",
-                                                                 attributes: [NSForegroundColorAttributeName: UIColor.gray])
-    }
-}
-
-@IBOutlet weak var descricaoTextField: UITextField!{
-    didSet {
-    descricaoTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
-    descricaoTextField.attributedPlaceholder = NSAttributedString(string: "DESCRIÇÄO",
-                                                                  attributes: [NSForegroundColorAttributeName: UIColor.gray])
-}
-}
-
-
-@IBOutlet weak var categoriaTextField: UITextField!{
-    didSet {
-        categoriaTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
-        categoriaTextField.attributedPlaceholder = NSAttributedString(string: "RAMO DE ATIVIDADE",
-                                                                      attributes: [NSForegroundColorAttributeName: UIColor.gray])
-        
-    }
-}
-
-    @IBAction func LogoutAction(_ sender: Any) {
-        if FIRAuth.auth()!.currentUser != nil {
-            // there is a user signed in
-            do {
-                try? FIRAuth.auth()!.signOut()
-                
-                if FIRAuth.auth()?.currentUser == nil {
-                    let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
-                    self.present(loginVC, animated: true, completion: nil)
-                }
-                
-            }
-        }
-    }
     
     @IBOutlet weak var userImageView: UIImageView!{
         didSet {
-            userImageView.layer.cornerRadius = 5
+            userImageView.layer.cornerRadius = 25
             userImageView.isUserInteractionEnabled = true
         }
     }
     
-    @IBOutlet weak var usernameTextField: UITextField!{
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    {
         didSet{
-            usernameTextField.layer.cornerRadius = 5
-            usernameTextField.delegate = self
+            usernameTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
+            usernameTextField.attributedPlaceholder = NSAttributedString(string: "NOME DE USUÁRIO",
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
 
     @IBOutlet weak var biographyTextField: UITextField!{
         didSet{
-            biographyTextField.layer.cornerRadius = 5
-            biographyTextField.delegate = self
+            biographyTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
+            biographyTextField.attributedPlaceholder = NSAttributedString(string: "DESCRIÇÄO",
+                                                                          attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
     
     @IBOutlet weak var countryTextField:UITextField!{
         didSet{
-            countryTextField.layer.cornerRadius = 5
-            countryTextField.delegate = self
+            countryTextField.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
+            countryTextField.attributedPlaceholder = NSAttributedString(string: "RAMO DE ATIVIDADE",
+                                                                          attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
 
-    
-    @IBOutlet weak var updateButton: UIButton! {
+    @IBOutlet weak var firstLastName: UITextField!{
         didSet{
-            updateButton.layer.cornerRadius = 5
-            updateButton.layer.borderWidth = 1
-            updateButton.layer.borderColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.1).cgColor
+            firstLastName.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.white, thickness: 2)
+            firstLastName.attributedPlaceholder = NSAttributedString(string: "RAMO DE ATIVIDADE",
+                                                                        attributes: [NSForegroundColorAttributeName: UIColor.gray])
         }
     }
+   
     
     var pickerView: UIPickerView!
     var categoryArrays = [String]()
+
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,21 +68,155 @@ class UpdateUserInfoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        loadUserInfo()
+        
     }
+    
+    var dataBaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
+    
+    var storageRef: FIRStorage {
+        
+        return FIRStorage.storage()
+    }
+    
+    var storageRefi: FIRStorageReference! {
+        return FIRStorage.storage().reference()
+    }
+
+    
     
     func loadUserInfo(){
         
+        let userRef = dataBaseRef.child("users/\(FIRAuth.auth()!.currentUser!.uid)")
+        userRef.observe(.value, with: { (snapshot) in
+            
+            let user = User(snapshot: snapshot)
+            
+            Singleton.sharedInstance.setUserLoggedId(id: user.uid)
+            Singleton.sharedInstance.setUserLoggedName(name: user.username!)
+            Singleton.sharedInstance.setUserLoggedEmail(email: user.email!)
+            Singleton.sharedInstance.setUserLoggedCnpj(cnpj: user.cnpj)
+            
+            self.usernameTextField.text = user.username!
+            self.countryTextField.text = user.category!
+            self.biographyTextField.text = user.biography!
+            self.firstLastName.text = user.firstLastName
+            let imageURL = user.photoURL!
+            
+            self.storageRef.reference(forURL: imageURL).data(withMaxSize: 1 * 1024 * 1024, completion: { (imgData, error) in
+                
+                if error == nil {
+                    DispatchQueue.main.async {
+                        if let data = imgData {
+                            self.userImageView.image = UIImage(data: data)
+                        }
+                    }
+                    
+                }else {
+                    print(error!.localizedDescription)
+                    
+                }
+                
+                
+            })
+
+            
+        }) { (error) in
+            print(error.localizedDescription)
         }
-
-
-
-    
-    @IBAction func updateInfoAction(sender: UIButton) {
-    }
-
         
     }
-    
+
+
+    @IBAction func updateInfoAction(_ sender: Any) {
+        
+        let username = usernameTextField.text!
+        let categoria = countryTextField.text!
+        let descricao = biographyTextField.text!
+        let first = firstLastName.text!
+        
+        let pictureData = UIImageJPEGRepresentation(self.userImageView.image!, 0.70)!
+        
+        
+        
+        
+        if categoria.isEmpty || descricao.isEmpty || username.isEmpty {
+            self.view.endEditing(true)
+            let alertController = UIAlertController(title: "Campos Vazios", message: "Preencha todos os campos por favor.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            present(alertController, animated: true, completion: nil)
+            
+        }else {
+            let userRef = dataBaseRef.child("users/\(FIRAuth.auth()!.currentUser!.uid)")
+            userRef.observe(.value, with: { (snapshot) in
+                
+                let user = User(snapshot: snapshot)
+                
+                Singleton.sharedInstance.setUserLoggedId(id: user.uid)
+                Singleton.sharedInstance.setUserLoggedName(name: user.username!)
+                Singleton.sharedInstance.setUserLoggedEmail(email: user.email!)
+                Singleton.sharedInstance.setUserLoggedCnpj(cnpj: user.cnpj)
+                
+                let id = user.uid!
+                let cnpj = user.cnpj!
+                let endereco = user.address!
+                let email = user.email!
+                
+                let imagePath = "profileImage\(id)/userPic.jpg"
+                
+                let imageRef = self.storageRefi.child(imagePath)
+                
+                let metaData = FIRStorageMetadata()
+                metaData.contentType = "image/jpeg"
+                
+                imageRef.put(pictureData, metadata: metaData) { (newMetaData, error) in
+                    
+                    if error == nil {
+                        
+                        let changeRequest = FIRAuth.auth()!.currentUser!.profileChangeRequest()
+                        changeRequest.displayName = username
+                        
+                        if let photoURL = newMetaData!.downloadURL() {
+                            changeRequest.photoURL = photoURL
+                        }
+                        
+                        changeRequest.commitChanges(completion: { (error) in
+                            if error == nil {
+                                
+                                let userInfo = ["firstLastName": first,"email": email, "username": username, "address": endereco, "cnpj":cnpj, "category": categoria, "biography":descricao, "uid": user.uid, "photoURL": String(describing: user.photoURL!)]
+                                
+                                //                            let userRefi = self.dataBaseRef.child("users").child(user.uid)
+                                
+                                userRef.setValue(userInfo)
+                                
+                            }else{
+                                print(error!.localizedDescription)
+                                
+                            }
+                        })
+                        
+                        
+                    }
+                    else {
+                        print(error!.localizedDescription)
+                    }
+                    
+                }
+                
+                
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
+            
+        }
+        
+    }
+}
+
+
 extension UpdateUserInfoViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func setUpPickerView(){
