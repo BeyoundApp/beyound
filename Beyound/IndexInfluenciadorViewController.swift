@@ -75,19 +75,19 @@ class IndexInfluenciadorViewController: UIViewController {
         let uid = influenciador.value(forKey: "uid") as! String
         FIRMessaging.messaging().subscribe(toTopic: "/topics/"+uid)
         
+        
         let media=((((influenciador.object(forKey: "posts") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "likes") as! NSDictionary).value(forKey: "count") as! Int)
-        
-        
+            self.mediaLabel.text = String(media)
 
          let name = influenciador.value(forKey: "full_name") as! String
          let username = influenciador.value(forKey: "username") as! String
          let followers = influenciador.value(forKey: "followers") as! Int
          let following = influenciador.value(forKey: "following") as! Int
         
-        let userContacts = influenciador.value(forKey: "userContacts") as! NSMutableDictionary
+        let userContacts = influenciador.value(forKey: "userContacts") as? NSMutableDictionary
         
         if(userContacts != nil){
-            buttonContacts.setTitle(String(userContacts.count), for: UIControlState.normal)
+            buttonContacts.setTitle(String(userContacts!.count), for: UIControlState.normal)
 
         }else{
             buttonContacts.setTitle("0", for: UIControlState.normal)
@@ -100,7 +100,6 @@ class IndexInfluenciadorViewController: UIViewController {
          self.usernameLabel.text = "@" + username
          self.following.text = String(following)
          self.followerLabel.text = String(followers)
-         self.mediaLabel.text = String(media)
         
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {

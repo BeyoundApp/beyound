@@ -235,15 +235,27 @@ class HelperWebViewController: UIViewController,UIWebViewDelegate {
 
                 authService.savePosts(uid: uid, posts: dataObject){ () -> () in
                 
-                    if (Singleton.sharedInstance.getInfluenciador().value(forKey: "answered") as! Bool){
-                        self.performSegue(withIdentifier: "toProfile", sender: self)
-                    }else{
-                        self.performSegue(withIdentifier: "toQuestions", sender: self)
+                    let influenciador = Singleton.sharedInstance.getInfluenciador()
+                    
+                    let id = influenciador.value(forKey: "uid") as! String
+                    
+                    authService.findInfluenciador(uid: id){ (influenciador) -> () in
+                        
+                        if (influenciador != nil){
+                            
+                            Singleton.sharedInstance.setInfluenciador(influenciador: influenciador!)
+                            if (Singleton.sharedInstance.getInfluenciador().value(forKey: "answered") as! Bool){
+                                self.performSegue(withIdentifier: "toProfile", sender: self)
+                            }else{
+                                self.performSegue(withIdentifier: "toQuestions", sender: self)
+                            }
+                            
+                        }else{
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        
                     }
-
-                
                 }
-                
                 
             }
         } catch let error as NSError {
